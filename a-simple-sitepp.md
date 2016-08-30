@@ -7,8 +7,7 @@ In the Adding an Agent section we observed a difference in the prompts between t
 1. Even though this is a simple manifest it is not especially easy to type. We will copy it for this first example.
   `cp /root/HOL7712-Solaris-Puppet/manifests/001-simple-site.pp /etc/puppet/manifests/site.pp`
 
-
-## Execute the agent on WWW server 
+## Execute the agent on WWW server
 
 1. With site.pp on the master running the agent will compile the catalog and apply the desired changes.
   `puppet apply -t`
@@ -19,6 +18,7 @@ In the Adding an Agent section we observed a difference in the prompts between t
 
   When puppet is executed on the master it is also using site.pp. The content of .zshrc in site.pp does not exactly match the content of file copied by setup.pp.
   `puppet apply -t`
+
 
 ## Exec zsh to get the new prompt
 
@@ -49,12 +49,8 @@ In normal use you might generate a module with `puppet module generate <module-n
 
 1. We will be removing the `$content` definition and `content` parameter and replacing them with a `source` parameter.
 
-
 ## Execute puppet agent on the node
 
 1. When you apply puppet now there will be a change to .zshrc, the file we are copying from is slightly different than the one inlined in 001-simple-site.pp.
   `puppet apply -t`
-
-
-
 
