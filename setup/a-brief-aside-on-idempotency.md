@@ -2,7 +2,7 @@
 
 When you are executing puppet manifests nothing should change on repeated runs of the agent or application of the manifest.
 
-![](/gitbook/images/SETUP-007-idempotent.png)
+\[New Images Here\]
 
 ## Why was there a change just now?
 
