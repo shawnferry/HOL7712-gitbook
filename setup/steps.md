@@ -161,7 +161,7 @@ Syntastic highlights the error at line 10 of invalid.pp after running `puppet pa
 3. The error indicator is cleared
 
 
-![](/gitbook/images/SETUP-006.1-lint-before.png)
+![](/images/SETUP-006.1-lint-before.png)
 
 ### Fix the puppet-lint warnings
 
