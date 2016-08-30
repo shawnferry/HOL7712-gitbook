@@ -24,7 +24,7 @@ We will need to perform actions on both the puppet master and the agent node. Fo
   > 3.8.6
 
 
-## Modify SMF config\/server variable for puppet:agent \(Command 1\)
+## Modify SMF config/server variable for puppet:agent \(Command 1\)
 
 1. Wait, you said we need to use the FQDN?  I absolutely did say that. You should absolutely do that outside of the lab. For the sake of simplicity we are using an alt-name for the puppet master certificate.
 
@@ -72,7 +72,7 @@ We will need to perform actions on both the puppet master and the agent node. Fo
 ## What just happened, again?
 
 After the certificate is signed the puppet agent will be able to connect to the master. When the first connection is made pluginsync copies all the plugins from the master to the agent.
-**Note:** If your agent timed out or you don't feel like waiting you can just run it again\/kill it and run it again.
+**Note:** If your agent timed out or you don't feel like waiting you can just run it again/kill it and run it again.
 
 ## Why aren't you using the same prompt on the agent?
 

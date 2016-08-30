@@ -10,15 +10,15 @@ We are almost there but first we need to do a few more configration steps. It is
 
 ## Configure Puppet Master Server \(Command 9\)
 
-1. > svccfg -s puppet:master setprop config\/server=puppet
+1. > svccfg -s puppet:master setprop config/server=puppet
 
- Change the config\/server property to set the name of the puppet server. In this lab everyone should be able to use the server called 'puppet'. In your environment you would want to use the FQDN of your puppet master.
+ Change the config/server property to set the name of the puppet server. In this lab everyone should be able to use the server called 'puppet'. In your environment you would want to use the FQDN of your puppet master.
 
 ## Configure Puppet Agent Server \(Command 10\)
 
-1. > svccfg -s puppet:agent setprop config\/server=puppet
+1. > svccfg -s puppet:agent setprop config/server=puppet
 
- Change the config\/server property to set the name of the puppet server. In this lab everyone should be able to use the server called 'puppet'. In your environment you would want to use the FQDN of your puppet master.
+ Change the config/server property to set the name of the puppet server. In this lab everyone should be able to use the server called 'puppet'. In your environment you would want to use the FQDN of your puppet master.
 
 ## Refresh Master and Agent config \(Command 11\)
 

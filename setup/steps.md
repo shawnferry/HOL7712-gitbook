@@ -4,25 +4,25 @@ We will be working in terminal for this lab using the Vim editor. The demo steps
 
 ## Change to root's home directory
 
-1. > cd \/root
+1. > cd /root
 
-  All commands in the setup steps are executed from root's home directory. \/root
+  All commands in the setup steps are executed from root's home directory. /root
 
 
 ## View setup.pp \(Command 1\)
 
-1. > vi HOL7712-Solaris-Puppet\/setup.pp
+1. > vi HOL7712-Solaris-Puppet/setup.pp
 
-  ![](/assets/SETUP-001-vi-setup.png)We are not making any changes to setup.pp, breifly note the appearance of the file at this time. This fairly simple manifest contains a set of resource definitions used to bring a fresh system into the starting state for the lab.![](/gitbook/images/SETUP-002-setup-before.png)
+  ![](/images/SETUP-001-vi-setup.png)We are not making any changes to setup.pp, breifly note the appearance of the file at this time. This fairly simple manifest contains a set of resource definitions used to bring a fresh system into the starting state for the lab.![](/images/SETUP-002-setup-before.png)
 
 
 ## Apply the setup.pp manifest \(Command 2\)
 
-> puppet apply -t HOL7712-Solaris-Puppet\/setup.pp
+> puppet apply -t HOL7712-Solaris-Puppet/setup.pp
 
 Puppet informs us of the changes it is making as it goes.
 
-![](/assets/SETUP-002-apply-setup.png)
+![](/images/SETUP-002-apply-setup.png)
 
 ### What does setup.pp do? What did apply do?
 
@@ -95,37 +95,37 @@ We have modified the PATH variable for root's shell. We want these changes to ta
 
 ## View setup.pp \(Command 3\)
 
-> vi HOL7712-Solaris-Puppet\/setup.pp
+> vi HOL7712-Solaris-Puppet/setup.pp
 
 Once setup.pp has be applied differences will be apparent in vim. The setup.pp file content is identical but the display now includes line numbers, a column indicator for 80 columns, and syntax highlighting.
 
-![](/assets/SETUP-003-vi-setup.png)![](/gitbook/images/SETUP-003-setup-after.png)
+![](/images/SETUP-003-vi-setup.png)![](/images/SETUP-003-setup-after.png)
 
 ## Let Puppet Help You
 
 ### Syntax Validation \(Command 4 + 5\)
 
-Setup.pp delivered a file into \/root called invalid.pp but how do we know that it is invalid?
+Setup.pp delivered a file into /root called invalid.pp but how do we know that it is invalid?
 
 You can attempt to apply the manifest directly
 
 > puppet apply invalid.pp
 > 
-> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
+> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at /root/invalid.pp:10 on node puppet-0.us.oracle.com
 > 
-> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
+> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at /root/invalid.pp:10 on node puppet-0.us.oracle.com
 
-![](/assets/SETUP-004-apply-invalid.png)
+![](/images/SETUP-004-apply-invalid.png)
 
 Attempting to apply the manifest may only make sense on a subset of your nodes. There is a better way!
 
 > puppet parser validate invalid.pp
 > 
-> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
+> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at /root/invalid.pp:10 on node puppet-0.us.oracle.com
 > 
-> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
+> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at /root/invalid.pp:10 on node puppet-0.us.oracle.com
 
-![](/assets/SETUP-005-parser-validate.png)
+![](/images/SETUP-005-parser-validate.png)
 
 Why is this better?
 
@@ -138,7 +138,7 @@ Why is this better?
 
 [**Puppet lint**](http://puppet-lint.com/) checks the manifest against [**The Puppet Language Style Guide**](https://docs.puppet.com/guides/style_guide.html "Puppet Style Guide"), to ensure readiblity and uniformity. The puppet-lint gem installed by setup.pp makes the command `puppet-lint`available on the system.
 
-![](/assets/SETUP-006-puppet-lint.png)
+![](/images/SETUP-006-puppet-lint.png)
 
 ### Is there a better way to validate and lint my puppet code? \(Command 7\)
 
@@ -146,7 +146,7 @@ Yes! and I'm gald you asked.
 
 Setup.pp has added inline validation and linting via syntastic.
 
-## ![](/assets/SETUP-007-vi-invalid.png)Fix the syntax error
+## ![](/images/SETUP-007-vi-invalid.png)Fix the syntax error
 
 Syntastic highlights the error at line 10 of invalid.pp after running `puppet parser --validate` automatically for you. The text of the error is provided in the error window at the bottom of the screen.
 
@@ -178,5 +178,5 @@ Syntastic highlights the warnings at lines 17 and 18 from automatically executin
 4. The warning indicators are cleared
 
 
-![](/gitbook/images/SETUP-006.2-lint-after.png)
+![](/images/SETUP-006.2-lint-after.png)
 

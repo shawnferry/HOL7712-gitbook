@@ -8,9 +8,9 @@ During the hands on lab we will still perform the listed steps. However, the exe
 
 1. Login to puppet server
 2. Install puppet \(done in advance\)
-3. Examine HOL7712-Solaris-Puppet\/setup.pp
-4. Apply HOL7712-Solaris-Puppet\/setup.pp
-5. Examine HOL7712-Solaris-Puppet\/setup.pp
+3. Examine HOL7712-Solaris-Puppet/setup.pp
+4. Apply HOL7712-Solaris-Puppet/setup.pp
+5. Examine HOL7712-Solaris-Puppet/setup.pp
 6. Validate invalid.pp manifest
 7. Style Check invalid.pp
 8. Fix invalid.pp
@@ -23,7 +23,7 @@ During the hands on lab we will still perform the listed steps. However, the exe
 15. Test puppet agent
 
 **NOTE:**
-If you are trying this outside the lab and need proxies. You must export your http\/https\_proxy before trying to install a gem with the gem pacakge provider.
+If you are trying this outside the lab and need proxies. You must export your http/https\_proxy before trying to install a gem with the gem pacakge provider.
 
 ```
 $env = [
