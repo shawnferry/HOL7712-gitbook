@@ -34,9 +34,14 @@ $$
 
   ![](/images/SETUP-009-svccfg-master.png)
 
+
 ## Configure Puppet Agent Server
 
-$$Command-10$$
+
+$$
+Command-10
+$$
+
 
 1. Change the config\/server property on puppet:agent to set the name of the puppet server. In this lab everyone should be able to use the server called 'puppet'. In your environment you would want to use the FQDN of your puppet master.
 
@@ -47,7 +52,11 @@ $$Command-10$$
 
 ## Refresh Master and Agent config
 
-$$Command-11$$
+
+$$
+Command-11
+$$
+
 
 1. Refresh the services to reload the configuration
 
@@ -56,16 +65,20 @@ $$Command-11$$
   ![](/images/SETUP-011-svcadm-refresh.png)
 
 
-
 ## Enable puppet:master and puppet:agent
 
-$$Command-12$$
+
+$$
+Command-12
+$$
+
 
 1. This starts both the master and agent daemons and writes the puppet.conf file with the configuration data stored in SMF
 
   `svcadm enable puppet:master puppet:agent`
 
   ![](/images/SETUP-012-svcadm-enable.png)
+
 
 ## Puppet.conf after smf configuration
 
@@ -80,38 +93,56 @@ $$
   ![](/images/SETUP-013-puppet-conf-after.png)
   ![](/images/SETUP-013.1-puppet-conf-after.png)
 
+
 ## Mark the puppet:agent state to maintenance
 
-$$Command-14$$
 
-1. Placing puppet:agent in maintanance state stops the puppet agent daemon from running and prevents later errors about puppet already running while we manually run the agent. Disabling `puppet:agent` or `puppet:master` will result in the `[agent] `or` [master]`stanzas being removed.
+$$
+Command-14
+$$
+
+
+1. Placing puppet:agent in maintanance state stops the puppet agent daemon from running and prevents later errors about puppet already running while we manually run the agent. Disabling `puppet:agent` or `puppet:master` will result in the `[agent]`or`[master]`stanzas being removed.
 
   ![](/images/SETUP-014-svcadm-mark.png)
 
+
 ## Check the state of the puppet:agent and puppet:master service
 
-$$Command-14$$
+
+$$
+Command-15
+$$
+
 
 1. View the state of the services
   `svcs puppet:master puppet:agent`![](/images/SETUP-015-svcs.png)
 
-
 ## Run the puppet agent
 
-$$Command-16$$
+
+$$
+Command-16
+$$
+
 
 1. We haven't written any manifests at this time. Without a manifest defined we are simply testing the connection to the master.
 
   `puppet agent -t`
   ![](/images/SETUP-016-agent-test.png)
+
   ### Wait, aren't we the master? How do we not know who we are?
 
   Yes, the server called puppet-lab is the master in the configuration. However, by default puppet uses a FQDN or a couple of well known aliases for the puppet server certificate. At this point in the configuration the puppet master cannot verify the identity of the agent and the agent is unable to verify the identity of the server.
 
 
-## Finding the problem \/ Fixing the problem 
+## Finding the problem \/ Fixing the problem
 
-$$Command-23$$
+
+$$
+Command-17
+$$
+
 
 1. Optionally run `puppet resource host`Wait, what just happened? Almost all puppet providers know how to gather the state of an existing resource. Some will show you all the resources of that type, some will only show you the resource you pass on the command line. **Hint:** You can use this to output a valid puppet resource.
 
@@ -122,9 +153,14 @@ $$Command-23$$
 3. Add the `host_aliases => ['puppet'],` parameter and value. There is no automatic syntax highlighting or validation.
   ![](/images/SETUP-017.1-resource-e.png)
 
+
 ## View the host resources again
 
-$$Command - 25$$
+
+$$
+Command - 18
+$$
+
 
 1. Note the entry in host\_aliases for puppet which was just added.
 
@@ -132,14 +168,18 @@ $$Command - 25$$
   ![](/images/SETUP-018-resource-after.png)
 
 
-
 ## Test the agent connection again
 
-$$Command - 43$$
+
+$$
+Command - 19
+$$
+
 
 1. `puppet agent -t`
 
   ![](/images/SETUP-019.0-pluginsync.png)
+
 2. We still see warnings because we have not written any manifests for the nodes but the connection is successful.
 
 3. Why are there all these changes if there are no manifests to drive changes?
@@ -147,6 +187,7 @@ $$Command - 43$$
   The puppet agent automatically downloads all of the plugins on the master at the start of each run. Generally that means you will only see this the first time and agent talks to the server and after any plugin is updated on the server.
 
   ![](/images/SETUP-019.1-pluginsync.png)
+
 
 This completes the basic configuration of the puppet server in this lab.
 
