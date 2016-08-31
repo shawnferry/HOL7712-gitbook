@@ -46,7 +46,6 @@ exec { 'foo':
 ```ruby
 
 exec { 'foo':
-
  command => 'touch /tmp/foo',
  creates => '/tmp/foo';
 }
