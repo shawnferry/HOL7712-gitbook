@@ -9,14 +9,17 @@ We will be working in terminal for this lab using the Vim editor. The demo steps
   All commands in the setup steps are executed from root's home directory. /root
 
 
-## View setup.pp \(Command 1\)
+## View setup.pp 
+$$Command-1$$
+
 
 1. > vi HOL7712-Solaris-Puppet/setup.pp
 
   ![](/images/SETUP-001-vi-setup.png)We are not making any changes to setup.pp, breifly note the appearance of the file at this time. This fairly simple manifest contains a set of resource definitions used to bring a fresh system into the starting state for the lab.![](/images/SETUP-002-setup-before.png)
 
 
-## Apply the setup.pp manifest \(Command 2\)
+## Apply the setup.pp manifest
+$$Command-2$$
 
 > puppet apply -t HOL7712-Solaris-Puppet/setup.pp
 
@@ -93,7 +96,8 @@ Puppet informs us of the changes it is making as it goes.
 
 We have modified the PATH variable for root's shell. We want these changes to take effect now.
 
-## View setup.pp \(Command 3\)
+## View setup.pp
+$$Command-3$$
 
 > vi HOL7712-Solaris-Puppet/setup.pp
 
@@ -103,7 +107,9 @@ Once setup.pp has be applied differences will be apparent in vim. The setup.pp f
 
 ## Let Puppet Help You
 
-### Syntax Validation \(Command 4 + 5\)
+### Syntax Validation
+$$Command-4 + 5$$
+
 
 Setup.pp delivered a file into /root called invalid.pp but how do we know that it is invalid?
 
@@ -134,13 +140,15 @@ Why is this better?
 * Breaking the manifest on the master will prevent agents from running
 
 
-### Puppet Lint \(Command 6\)
+### Puppet Lint
+$$Command-6$$
 
 [**Puppet lint**](http://puppet-lint.com/) checks the manifest against [**The Puppet Language Style Guide**](https://docs.puppet.com/guides/style_guide.html "Puppet Style Guide"), to ensure readiblity and uniformity. The puppet-lint gem installed by setup.pp makes the command `puppet-lint`available on the system.
 
 ![](/images/SETUP-006-puppet-lint.png)
 
-### Is there a better way to validate and lint my puppet code? \(Command 7\)
+### Is there a better way to validate and lint my puppet code?
+$$Command-7$$
 
 Yes! and I'm gald you asked.
 
