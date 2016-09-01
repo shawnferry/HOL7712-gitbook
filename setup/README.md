@@ -5,9 +5,9 @@ Due to constraints on time and variability in the physical lab, some setup steps
 ### Steps Overview
 
 1. Login to puppet server
-2. Install puppet \(pre-completed\)
+2. Install puppet[^1]
 3. Examine HOL7712-Solaris-Puppet\/setup.pp
-4. Apply HOL7712-Solaris-Puppet\/setup.pp \(portions pre-completed\)
+4. Apply HOL7712-Solaris-Puppet\/setup.pp[^2]
 5. Examine HOL7712-Solaris-Puppet\/setup.pp
 6. Validate invalid.pp manifest
 7. Style Check invalid.pp
@@ -33,4 +33,8 @@ $env = [
   'https_proxy=your.proxy.com:443'
 ]
 ```
+
+[^1]: Completed prior to lab start
+
+[^2]: Portions completed prior to lab start
 

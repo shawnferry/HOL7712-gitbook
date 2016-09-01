@@ -2,16 +2,16 @@
 
 When you are executing puppet manifests nothing should change on repeated runs of the agent or application of the manifest.
 
-
-
 ## Why was there a change just now?
+
 ![](/images/IDEMP-001-changes.png)
 
 When you applied setup.pp why was there a change the second time but not the third or Nth time? If you updated invalid.pp in the previous steps it will have been overwritten with the original file content.
 
 After the system is in the state described in the setup.pp manifest additional manifest applications will not change anything.
 
-## Why wasn't there a change now?
+## Why wasn't there a change this time?
+
 All the resources in setup.pp are in the desired state, no changes will be made by puppet.
 ![](/images/IDEMP-002-no-changes.png)
 
@@ -40,9 +40,11 @@ exec { 'foo':
 }
 
 ```
+
 ![](/images/IDEMP-003-foo.png)
 
-### This resource will only execute the command if /tmp/foo is absent
+### This resource will only execute the command if \/tmp\/foo is absent
+
 ```ruby
 
 exec { 'foo':
@@ -50,8 +52,8 @@ exec { 'foo':
  creates => '/tmp/foo';
 }
 ```
-![](/images/IDEMP-004-creates.png)
 
+![](/images/IDEMP-004-creates.png)
 
 ## Why should you care?
 
