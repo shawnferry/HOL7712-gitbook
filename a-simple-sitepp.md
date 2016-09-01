@@ -35,10 +35,10 @@ WWW-7
 
 ## Edit \/etc\/puppet\/manifests\/site.pp on the master
 
-Command-23
+Command-24
 
 1. Wait you said this was simple! Puppet lint shows you an error about variables in sigle quoted strings! The example in 001-simple-site.pp uses the `content` parameter to the file type.  It is technically simple but it isn't a very good implementation.
-  \[23.1\]
+  \[24.1\]
 
 # Simplyfying site.pp by using a module to distribute a file
 
@@ -48,23 +48,23 @@ In normal use you might generate a module with `puppet module generate <module-n
 
 ## Create the partial module directory structure
 
-Command-24
+Command-25
 
 1. We are creating the minimum viable path to achieve this step
   `mkdir -p /etc/puppet/modules/lab/files`
 
 ## Copy zshrc to the module's files directory
 
-Command-25
+Command-26
 
 1. This will make the file available to agents via the puppet file server at puppet:\/\/\/modules\/lab\/zshrc
   `cp /root/HOL7712-Solaris-Puppet/labfiles/zshrc /etc/puppet/modules/lab/files`
 
 ## Update site.pp to copy the file
 
-Command-25
+Command-27
 
-\[25.1\]
+\[27.1\]
 
 1. We will be removing the `$content` definition and `content` parameter and replacing them with a `source` parameter.
   Replace 
@@ -75,6 +75,7 @@ Command-25
   `source => 'puppet:///modules/lab/zshrc';`
 
 
+\[27.2\]
 ## Execute puppet agent on the node
 
 WWW-8
@@ -84,8 +85,26 @@ WWW-8
 
 ## Execute puppet agent on the master
 
-Command-26
+Command-28
 
 1. When you apply puppet on the master there will also be a change to .zshrc 
   `puppet apply -t`
+
+
+## Why did .zshrc change on the master too?
+
+Site.pp applies to all agents of the master including the master if it is configured to use itself as a server.  We will cover basic node segregation in the next sections.
+
+# Review
+
+1. We configured puppet:agent on www 
+  1. set config\/server
+  2. refresh the service
+  3. enabled the service
+  4. stopped but did not disable the service 
+
+2. Distributed .zshrc from a single manifest
+3. Created just enough of a private \(lab\) puppet module to server files
+4. Updated site.pp to copy .zshrc to agents from the lab module
+5. Noticed that changes in  site.pp affect the agent running on the master and on www
 

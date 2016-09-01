@@ -26,7 +26,8 @@ $$WWW-1$$
 
   `svccfg -s puppet:agent setprop config/server=puppet`
 
-  ![](/images/ADD-WWW-001.png)
+
+
 
 ## Refresh puppet:agent
 
@@ -34,7 +35,7 @@ $$WWW-2$$
 
 1. Refreshing puppet:agent loads the configuration changes we just made in SMF
   `svcadm refresh puppet:agent`
-  ![](/images/ADD-WWW-002.png)
+
 
 ## Enable puppet:agent
 
@@ -42,7 +43,7 @@ $$WWW-3$$
 
 1. Remeber, enabling the agent writes the puppet.conf file
   `svcadm enable puppet:agent`
-  ![](/images/ADD-WWW-003.png)
+
 
 ## Mark puppet:agent maintenance
 
@@ -50,9 +51,10 @@ $$WWW-4$$
 
 1. Disable the puppet agent daemon. We want to manually execute the agent for the duration of the lab.
 
-  `svcadm mark maintanance puppet:agent`
+  `svcadm mark maintenance puppet:agent`
 
-  ![](/images/ADD-WWW-004.png)
+
+
 
 ## Test agent connection
 
@@ -61,30 +63,37 @@ $$WWW-5$$
 1. Test puppet connection, wait 120s for the certificate to be signed on the master
   `puppet agent --test -w 120`
 
-  ![](/images/ADD-WWW-005-test.png)
+
+
 
 ## Sign the agent certificate \(on master\)
 
-1. Get the list of certs waiting to be signed 
+1. Get the list of certs waiting to be signed
 
   $$Command-20$$
+
   `puppet cert list`
 
   > "www-0.us.oracle.com" \(SHA256\) 42:77:38:C8:C0:7F:0B:9B:4E:90:F7:EA:2C:76:99:48:CE:63:6B:1D:9D:DA:67:46:06:A3:AB:50:16:3E:CC:23
 
-  ![](/images/ADD-PUP-020-cert-list.png)
+
 
 2. Sign the cert you should only have one certifcate to sign
 
   $$Command-21$$
+
   `puppet cert sign www-0.us.oracle.com`
 
   > Notice: Signed certificate request for www-0.us.oracle.com
 
-  ![](/images/ADD-PUP-021-cert-sign.png)
+
 
 
 ## What just happened, again?
+
+\(and why does your screenshot look different than my output\)
+
+\[www-5.1\]
 
 After the certificate is signed the puppet agent will be able to connect to the master. When the first connection is made pluginsync copies all the plugins from the master to the agent.
 **Note:** If your agent timed out or you don't feel like waiting you can just run it again\/kill it and run it again.
