@@ -4,6 +4,8 @@ In the Adding an Agent section we observed a difference in the prompts between t
 
 ## Copy the manifest to \/etc\/puppet\/manifests\/site.pp
 
+Command-22
+
 1. Even though this is a simple manifest it is not especially easy to type. We will copy it for this first example.
   `cp /root/HOL7712-Solaris-Puppet/manifests/001-simple-site.pp /etc/puppet/manifests/site.pp`
 
@@ -31,13 +33,12 @@ WWW-7
 
 ## Edit \/etc\/puppet\/manifests\/site.pp on the master
 
-Command-22
+Command-23
 
 1. Wait you said this was simple! Puppet lint shows you an error about variables in sigle quoted strings! The example in 001-simple-site.pp uses the `content` parameter to the file type.  It is technically simple but it isn't a very good implementation.
+  \[23.1\]
 
 # Simplyfying site.pp by using a module to distribute a file
-
-\[22.1\]
 
 Writing detailed modules is beyond the scope of this lab. However, we will be utilizing a stub of a module to take advantage of puppet's [file serving capabilities](https://docs.puppet.com/puppet/latest/reference/modules_fundamentals.html#files). Puppet provides the ability to access files from the special path puppet:\/\/\/modules\/&lt;module&gt;\/&lt;filename&gt;. We will use this method to truly simplify the example.
 
@@ -45,7 +46,7 @@ In normal use you might generate a module with `puppet module generate <module-n
 
 ## Create the partial module directory structure
 
-Command-23
+Command-24
 
 1. We are creating the minimum viable path to achieve this step
   `mkdir -p /etc/puppet/modules/lab/files`
@@ -74,10 +75,14 @@ Command-25
 
 ## Execute puppet agent on the node
 
+WWW-8
+
 1. When you apply puppet now there will be a change to .zshrc, the file we are copying from is slightly different than the one inlined in 001-simple-site.pp.
   `puppet apply -t`
 
 ## Execute puppet agent on the master
+
+Command-26
 
 1. When you apply puppet on the master there will also be a change to .zshrc 
   `puppet apply -t`
