@@ -26,43 +26,62 @@ $$WWW-1$$
 
   `svccfg -s puppet:agent setprop config/server=puppet`
 
+  ![](/images/ADD-WWW-001.png)
 
-## Refresh puppet:agent \(Command 2\)
+## Refresh puppet:agent
+
+$$WWW-2$$
 
 1. Refreshing puppet:agent loads the configuration changes we just made in SMF
   `svcadm refresh puppet:agent`
+  ![](/images/ADD-WWW-002.png)
 
-## Enable puppet:agent \(Command 3\)
+## Enable puppet:agent
+
+$$WWW-3$$
 
 1. Remeber, enabling the agent writes the puppet.conf file
   `svcadm enable puppet:agent`
+  ![](/images/ADD-WWW-003.png)
 
-## Mark puppet:agent maintenance \(Command 4\)
+## Mark puppet:agent maintenance
+
+$$WWW-4$$
 
 1. Disable the puppet agent daemon. We want to manually execute the agent for the duration of the lab.
 
   `svcadm mark maintanance puppet:agent`
 
+  ![](/images/ADD-WWW-004.png)
 
-## Test agent connection \(Command 5\)
+## Test agent connection
 
-1. The puppet agent will wait two minutes by default for the certificate request to be signed. We are waiting 60s in the screenshot.
-  `puppet agent --test -w`
+$$WWW-5$$
 
-  \[003\]
+1. Test puppet connection, wait 120s for the certificate to be signed on the master
+  `puppet agent --test -w 120`
 
+  ![](/images/ADD-WWW-005-test.png)
 
 ## Sign the agent certificate \(on master\)
 
-1. Get the list of certs waiting to be signed **\(Command 6\)**
+1. Get the list of certs waiting to be signed 
+
+  $$Command-20$$
   `puppet cert list`
 
   > "www-0.us.oracle.com" \(SHA256\) 42:77:38:C8:C0:7F:0B:9B:4E:90:F7:EA:2C:76:99:48:CE:63:6B:1D:9D:DA:67:46:06:A3:AB:50:16:3E:CC:23
 
-2. Sign the cert you should only have one certifcate to sign **\(Command 7\)**
+  ![](/images/ADD-PUP-020-cert-list.png)
+
+2. Sign the cert you should only have one certifcate to sign
+
+  $$Command-21$$
   `puppet cert sign www-0.us.oracle.com`
 
   > Notice: Signed certificate request for www-0.us.oracle.com
+
+  ![](/images/ADD-PUP-021-cert-sign.png)
 
 
 ## What just happened, again?
