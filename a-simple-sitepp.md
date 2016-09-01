@@ -14,9 +14,11 @@ Command-22
 WWW-6
 
 1. With site.pp on the master running the agent will compile the catalog and apply the desired changes.
-  `puppet apply -t`
+  `puppet agent -t`
 
 ## Execute puppet agent on the puppet master
+
+Command-23
 
 1. With site.pp on the master running the agent will compile the catalog and apply the desired changes.
 
@@ -53,7 +55,7 @@ Command-24
 
 ## Copy zshrc to the module's files directory
 
-Command-24
+Command-25
 
 1. This will make the file available to agents via the puppet file server at puppet:\/\/\/modules\/lab\/zshrc
   `cp /root/HOL7712-Solaris-Puppet/labfiles/zshrc /etc/puppet/modules/lab/files`
