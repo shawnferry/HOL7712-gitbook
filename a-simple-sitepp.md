@@ -9,6 +9,8 @@ In the Adding an Agent section we observed a difference in the prompts between t
 
 ## Execute the agent on WWW server
 
+WWW-6
+
 1. With site.pp on the master running the agent will compile the catalog and apply the desired changes.
   `puppet apply -t`
 
@@ -22,14 +24,20 @@ In the Adding an Agent section we observed a difference in the prompts between t
 
 ## Exec zsh to get the new prompt
 
+WWW-7
+
 1. Now that we have created a \/root\/.zshrc run zsh
   `exec zsh`
 
 ## Edit \/etc\/puppet\/manifests\/site.pp on the master
 
+Command-22
+
 1. Wait you said this was simple! Puppet lint shows you an error about variables in sigle quoted strings! The example in 001-simple-site.pp uses the `content` parameter to the file type.  It is technically simple but it isn't a very good implementation.
 
 # Simplyfying site.pp by using a module to distribute a file
+
+\[22.1\]
 
 Writing detailed modules is beyond the scope of this lab. However, we will be utilizing a stub of a module to take advantage of puppet's [file serving capabilities](https://docs.puppet.com/puppet/latest/reference/modules_fundamentals.html#files). Puppet provides the ability to access files from the special path puppet:\/\/\/modules\/&lt;module&gt;\/&lt;filename&gt;. We will use this method to truly simplify the example.
 
@@ -37,15 +45,23 @@ In normal use you might generate a module with `puppet module generate <module-n
 
 ## Create the partial module directory structure
 
+Command-23
+
 1. We are creating the minimum viable path to achieve this step
   `mkdir -p /etc/puppet/modules/lab/files`
 
 ## Copy zshrc to the module's files directory
 
+Command-24
+
 1. This will make the file available to agents via the puppet file server at puppet:\/\/\/modules\/lab\/zshrc
   `cp /root/HOL7712-Solaris-Puppet/labfiles/zshrc /etc/puppet/modules/lab/files`
 
 ## Update site.pp to copy the file
+
+Command-25
+
+\[25.1\]
 
 1. We will be removing the `$content` definition and `content` parameter and replacing them with a `source` parameter.
   Replace 
@@ -65,5 +81,4 @@ In normal use you might generate a module with `puppet module generate <module-n
 
 1. When you apply puppet on the master there will also be a change to .zshrc 
   `puppet apply -t`
-
 
