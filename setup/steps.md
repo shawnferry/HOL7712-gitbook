@@ -4,24 +4,25 @@ We will be working in terminal for this lab using the Vim editor. The demo steps
 
 ## Change to root's home directory
 
-1. > cd /root
+1. > cd \/root
 
-  All commands in the setup steps are executed from root's home directory. /root
+  All commands in the setup steps are executed from root's home directory. \/root
 
 
-## View setup.pp 
+## View setup.pp
+
 $$Command-1$$
 
-
-1. > vi HOL7712-Solaris-Puppet/setup.pp
+1. > vi HOL7712-Solaris-Puppet\/setup.pp
 
   ![](/images/SETUP-001-vi-setup.png)We are not making any changes to setup.pp, breifly note the appearance of the file at this time. This fairly simple manifest contains a set of resource definitions used to bring a fresh system into the starting state for the lab.![](/images/SETUP-002-setup-before.png)
 
 
 ## Apply the setup.pp manifest
+
 $$Command-2$$
 
-> puppet apply -t HOL7712-Solaris-Puppet/setup.pp
+> puppet apply -t HOL7712-Solaris-Puppet\/setup.pp
 
 Puppet informs us of the changes it is making as it goes.
 
@@ -63,8 +64,8 @@ Puppet informs us of the changes it is making as it goes.
   # Copy the lab .vimrc to /root
   file {
   "${lab_homedir}/.vimrc":
-    ensure => present,
-    source => "${labdir}/labfiles/vimrc";
+   ensure => present,
+   source => "${labdir}/labfiles/vimrc";
   }
   ```
 
@@ -73,8 +74,8 @@ Puppet informs us of the changes it is making as it goes.
   ```ruby
   exec { 'vundle install':
   command     => "/usr/bin/git clone \
-    https://github.com/VundleVim/Vundle.vim.git \
-    ${lab_homedir}/.vim/bundle/Vundle.vim",
+   https://github.com/VundleVim/Vundle.vim.git \
+   ${lab_homedir}/.vim/bundle/Vundle.vim",
   creates     => "${lab_homedir}/.vim/bundle/Vundle.vim",
   environment => $env,
   before      => Exec['vundle plugins'];
@@ -97,9 +98,10 @@ Puppet informs us of the changes it is making as it goes.
 We have modified the PATH variable for root's shell. We want these changes to take effect now.
 
 ## View setup.pp
+
 $$Command-3$$
 
-> vi HOL7712-Solaris-Puppet/setup.pp
+> vi HOL7712-Solaris-Puppet\/setup.pp
 
 Once setup.pp has be applied differences will be apparent in vim. The setup.pp file content is identical but the display now includes line numbers, a column indicator for 80 columns, and syntax highlighting.
 
@@ -108,18 +110,18 @@ Once setup.pp has be applied differences will be apparent in vim. The setup.pp f
 ## Let Puppet Help You
 
 ### Syntax Validation
+
 $$Command-4 + 5$$
 
-
-Setup.pp delivered a file into /root called invalid.pp but how do we know that it is invalid?
+Setup.pp delivered a file into \/root called invalid.pp but how do we know that it is invalid?
 
 You can attempt to apply the manifest directly
 
 > puppet apply invalid.pp
 > 
-> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at /root/invalid.pp:10 on node puppet-0.us.oracle.com
+> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
 > 
-> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at /root/invalid.pp:10 on node puppet-0.us.oracle.com
+> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
 
 ![](/images/SETUP-004-apply-invalid.png)
 
@@ -127,9 +129,9 @@ Attempting to apply the manifest may only make sense on a subset of your nodes. 
 
 > puppet parser validate invalid.pp
 > 
-> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at /root/invalid.pp:10 on node puppet-0.us.oracle.com
+> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
 > 
-> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at /root/invalid.pp:10 on node puppet-0.us.oracle.com
+> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
 
 ![](/images/SETUP-005-parser-validate.png)
 
@@ -141,13 +143,15 @@ Why is this better?
 
 
 ### Puppet Lint
+
 $$Command-6$$
 
-[**Puppet lint**](http://puppet-lint.com/) checks the manifest against [**The Puppet Language Style Guide**](https://docs.puppet.com/guides/style_guide.html "Puppet Style Guide"), to ensure readiblity and uniformity. The puppet-lint gem installed by setup.pp makes the command `puppet-lint`available on the system.
+**[Puppet lint](http://puppet-lint.com/)** checks the manifest against **[The Puppet Language Style Guide](https://docs.puppet.com/guides/style_guide.html "Puppet Style Guide")**, to ensure readiblity and uniformity. The puppet-lint gem installed by setup.pp makes the command `puppet-lint`available on the system.
 
 ![](/images/SETUP-006-puppet-lint.png)
 
 ### Is there a better way to validate and lint my puppet code?
+
 $$Command-7$$
 
 Yes! and I'm gald you asked.
@@ -168,6 +172,7 @@ Syntastic highlights the error at line 10 of invalid.pp after running `puppet pa
 
 3. The error indicator is cleared
 
+  XXX: Update this image for new invalid.pp
 
 ![](/images/SETUP-006.1-lint-before.png)
 

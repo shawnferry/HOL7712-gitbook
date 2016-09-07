@@ -11,10 +11,11 @@
 * [Adding an Agent Node](agents/README.md)
     * [Add the Agent](agents/add-the-agent.md)
 * [A simple site.pp](a-simple-sitepp.md)
+* [Simple Node Classification](simple-node-classification.md)
 * [Configuring Apache](configuring-apache.md)
 * [Adding a Kernel Zone](adding-a-kernel-zone.md)
 * [Solaris and Puppet](solaris-and-puppet.md)
 * [Adding another agent node](adding-another-agent-node.md)
 * [Let puppet configure the second node](let-puppet-configure-the-second-node.md)
-* [Bonus: Configure ILB to load balance the nodes](bonus-configure-ilb-to-load-balance-the-nodes.md)
+* Simple Node Classification
 
