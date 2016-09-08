@@ -4,9 +4,9 @@ We will be working in terminal for this lab using the Vim editor. The demo steps
 
 ## Change to root's home directory
 
-1. `cd /root`
+1. All commands in the setup steps are executed from root's home directory. \/root
 
-  All commands in the setup steps are executed from root's home directory. \/root
+  `cd /root`
 
 
 ## View setup.pp
@@ -17,10 +17,10 @@ PUP-1
 $$
 
 
-1. `vi HOL7712-Solaris-Puppet/setup.pp`
+1. We are not making any changes to setup.pp, briefly note the appearance of the file at this time. This fairly simple manifest contains a set of resource definitions used to bring a fresh system into the starting state for the lab.
+  `vi HOL7712-Solaris-Puppet/setup.pp`
 
-  ![](/images/SETUP-001-vi-setup.png)We are not making any changes to setup.pp, briefly note the appearance of the file at this time. This fairly simple manifest contains a set of resource definitions used to bring a fresh system into the starting state for the lab.![](/images/SETUP-002-setup-before.png)
-
+![](/images/SETUP-001-vi-setup.png)![](/images/SETUP-002-setup-before.png)
 
 ## Apply the setup.pp manifest
 
@@ -30,9 +30,10 @@ PUP-2
 $$
 
 
-1. `puppet apply -t HOL7712-Solaris-Puppet/setup.pp`
+1. Puppet informs us of the changes it is making as it goes.
 
-Puppet informs us of the changes it is making as it goes.
+  `puppet apply -t HOL7712-Solaris-Puppet/setup.pp`
+
 
 ![](/images/SETUP-002-apply-setup.png)
 
@@ -101,9 +102,10 @@ Puppet informs us of the changes it is making as it goes.
 
 ### Restart your Shell
 
-1. `exec zsh`
+1. We have modified the PATH and PROMPT for root's shell. We want these changes to take effect now.
+  `exec zsh`
 
-We have modified the PATH variable for root's shell. We want these changes to take effect now.
+
 
 ## View setup.pp
 
@@ -113,9 +115,11 @@ PUP-3
 $$
 
 
-1. `vi HOL7712-Solaris-Puppet/setup.pp`
+1. Once setup.pp has be applied differences will be apparent in vim. The setup.pp file content is identical but the display now includes line numbers, a column indicator for 80 columns, and syntax highlighting.
 
-Once setup.pp has be applied differences will be apparent in vim. The setup.pp file content is identical but the display now includes line numbers, a column indicator for 80 columns, and syntax highlighting.
+  `vi HOL7712-Solaris-Puppet/setup.pp`
+
+
 
 ![](/images/SETUP-003-vi-setup.png)![](/images/SETUP-003-setup-after.png)
 
@@ -131,9 +135,8 @@ $$
 
 Setup.pp delivered a file into \/root called invalid.pp but how do we know that it is invalid?
 
-You can attempt to apply the manifest directly
-
-1. `puppet apply invalid.pp`
+1. You can attempt to apply the manifest directly
+  `puppet apply invalid.pp`
 
 > Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
 > 
@@ -147,9 +150,10 @@ PUP-5
 $$
 
 
-Attempting to apply the manifest may only make sense on a subset of your nodes. There is a better way!
+Attempting to apply the manifest may only make sense on a subset of your nodes.
 
-1. `puppet parser validate invalid.pp`
+1.  There is a better way!
+  `puppet parser validate invalid.pp`
 
 > Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
 > 
@@ -223,6 +227,7 @@ Syntastic highlights the warnings at lines 17 and 18 from automatically executin
 4. The warning indicators are cleared
 
   XXX: update image
+
 
 ![](/images/SETUP-006.2-lint-after.png)
 
