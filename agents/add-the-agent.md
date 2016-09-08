@@ -6,7 +6,9 @@ We will need to perform actions on both the puppet master and the agent \(www\) 
 
 ## Install Puppet[^1]
 
+$$
 WWW-0
+$$
 
 1. `pkg install puppet`
 
@@ -24,7 +26,9 @@ WWW-0
 
 ## Modify SMF config\/server variable for puppet:agent
 
-$$WWW-1$$
+$$
+WWW-1
+$$
 
 1. Wait, you said we need to use the FQDN?  I absolutely did say that. You should absolutely do that outside of the lab. For the sake of simplicity we are using an alt-name for the puppet master certificate.
 
@@ -34,7 +38,9 @@ $$WWW-1$$
 
 ## Refresh puppet:agent
 
-$$WWW-2$$
+$$
+WWW-2
+$$
 
 1. Refreshing puppet:agent loads the configuration changes we just made in SMF
   `svcadm refresh puppet:agent`
@@ -42,15 +48,19 @@ $$WWW-2$$
 
 ## Enable puppet:agent
 
-$$WWW-3$$
+$$
+WWW-3
+$$
 
-1. Remeber, enabling the agent writes the puppet.conf file
+1. Remember, enabling the agent writes the puppet.conf file
   `svcadm enable puppet:agent`
   ![](/images/ADD01-WWW-003-svcadm-enable.png)
 
 ## Mark puppet:agent maintenance
 
-$$WWW-4$$
+$$
+WWW-4
+$$
 
 1. Disable the puppet agent daemon. We want to manually execute the agent for the duration of the lab.
 
@@ -60,7 +70,9 @@ $$WWW-4$$
 
 ## Test agent connection
 
-$$WWW-5$$
+$$
+WWW-5
+$$
 
 1. Test puppet connection, if there is no signed cert wait 120s and try again for the certificate to be signed on the master[^3]
   `puppet agent --test -w 120`
@@ -70,33 +82,37 @@ $$WWW-5$$
 
 1. Get the list of certs waiting to be signed
 
-  $$Command-20$$
+$$
+PUP-20
+$$
 
   `puppet cert list`
 
-  > "www.us.oracle.com" \(SHA256\) 42:77:38:C8:C0:7F:0B:9B:4E:90:F7:EA:2C:76:99:48:CE:63:6B:1D:9D:DA:67:46:06:A3:AB:50:16:3E:CC:23[^2]
+  > "www.oracle.lab" \(SHA256\) 42:77:38:C8:C0:7F:0B:9B:4E:90:F7:EA:2C:76:99:48:CE:63:6B:1D:9D:DA:67:46:06:A3:AB:50:16:3E:CC:23[^2]
 
   ![](/images/ADD01-PUP-020-cert-list.png)
 
 
-1. Sign the cert you should only have one certifcate to sign
+1. Sign the cert you should only have one certificate to sign
 
-  $$Command-21$$
+$$
+PUP-21
+$$
 
-  `puppet cert sign www-0.us.oracle.com`
+  `puppet cert sign www-0.oracle.lab`
 
-  > Notice: Signed certificate request for www.us.oracle.com
+  > Notice: Signed certificate request for www.oracle.lab
 
   ![](/images/ADD01-PUP-021-cert-sign.png)
 
 
 ## What just happened, again?
 
-\(and why does your screenshot look relly different than my output\)
+\(and why does your screenshot look really different than my output\)
 
 ![](/images/ADD01-WWW-005.1-pluginsync.png)
 
-After the certificate is signed the puppet agent will be able to connect to the master. When the first connection is made pluginsync copies all the plugins from the master to the agent. I pre-conneced the agent then disconencted it, removed some of the files and ran through the steps again. Puppet only copies the files that are missing or changed.
+After the certificate is signed the puppet agent will be able to connect to the master. When the first connection is made pluginsync copies all the plugins from the master to the agent. I pre-connected the agent then disconnected it, removed some of the files and ran through the steps again. Puppet only copies the files that are missing or changed.
 **Note:** If your agent timed out or you don't feel like waiting you can just run it again\/kill it and run it again.
 
 ## Why aren't you using the same prompt on the agent?

@@ -13,7 +13,7 @@ See [Introducing SMF Stencils](https://blogs.oracle.com/SolarisSMF/entry/introdu
 
 
 $$
-Command - 8
+PUP-8
 $$
 
 
@@ -24,7 +24,7 @@ $$
 
 
 $$
-Command-9
+PUP-9
 $$
 
 
@@ -39,7 +39,7 @@ $$
 
 
 $$
-Command-10
+PUP-10
 $$
 
 
@@ -54,7 +54,7 @@ $$
 
 
 $$
-Command-11
+PUP-11
 $$
 
 
@@ -69,7 +69,7 @@ $$
 
 
 $$
-Command-12
+PUP-12
 $$
 
 
@@ -80,11 +80,11 @@ $$
   ![](/images/SETUP-012-svcadm-enable.png)
 
 
-## Puppet.conf after smf configuration
+## Puppet.conf after SMF configuration
 
 
 $$
-Command-13
+PUP-13
 $$
 
 
@@ -98,11 +98,11 @@ $$
 
 
 $$
-Command-14
+PUP-14
 $$
 
 
-1. Placing puppet:agent in maintanance state stops the puppet agent daemon from running and prevents later errors about puppet already running while we manually run the agent. Disabling `puppet:agent` or `puppet:master` will result in the `[agent]`or`[master]`stanzas being removed.
+1. Placing puppet:agent in maintenance state stops the puppet agent daemon from running and prevents later errors about puppet already running while we manually run the agent. Disabling `puppet:agent` or `puppet:master` will result in the `[agent]`or`[master]`stanzas being removed.
 
   ![](/images/SETUP-014-svcadm-mark.png)
 
@@ -111,7 +111,7 @@ $$
 
 
 $$
-Command-15
+PUP-15
 $$
 
 
@@ -122,7 +122,7 @@ $$
 
 
 $$
-Command-16
+PUP-16
 $$
 
 
@@ -140,7 +140,7 @@ $$
 
 
 $$
-Command-17
+PUP-17
 $$
 
 

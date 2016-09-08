@@ -11,16 +11,20 @@ We will be working in terminal for this lab using the Vim editor. The demo steps
 
 ## View setup.pp
 
-$$Command-1$$
+$$
+PUP-1
+$$
 
 1. > vi HOL7712-Solaris-Puppet\/setup.pp
 
-  ![](/images/SETUP-001-vi-setup.png)We are not making any changes to setup.pp, breifly note the appearance of the file at this time. This fairly simple manifest contains a set of resource definitions used to bring a fresh system into the starting state for the lab.![](/images/SETUP-002-setup-before.png)
+  ![](/images/SETUP-001-vi-setup.png)We are not making any changes to setup.pp, briefly note the appearance of the file at this time. This fairly simple manifest contains a set of resource definitions used to bring a fresh system into the starting state for the lab.![](/images/SETUP-002-setup-before.png)
 
 
 ## Apply the setup.pp manifest
 
-$$Command-2$$
+$$
+PUP-2
+$$
 
 > puppet apply -t HOL7712-Solaris-Puppet\/setup.pp
 
@@ -37,7 +41,7 @@ Puppet informs us of the changes it is making as it goes.
   $labdir = "${lab_homedir}/HOL7712-Solaris-Puppet"
   ```
 
-2. Install pacakges via the pacakge Solaris pkg and a gem via the gem provider
+2. Install packages via the package resource using Solaris pkg and a gem via the gem provider
 
   ```ruby
   $packages = [ 'git', 'editor/vim' ]
@@ -52,7 +56,7 @@ Puppet informs us of the changes it is making as it goes.
   }
   ```
 
-3. Modify and copy .dotfiles, create variaous directories
+3. Modify and copy .dotfiles, create various directories
 
   ```ruby
   # Make puppet-lint available on our path
@@ -99,7 +103,9 @@ We have modified the PATH variable for root's shell. We want these changes to ta
 
 ## View setup.pp
 
-$$Command-3$$
+$$
+PUP-3
+$$
 
 > vi HOL7712-Solaris-Puppet\/setup.pp
 
@@ -118,9 +124,9 @@ Setup.pp delivered a file into \/root called invalid.pp but how do we know that 
 You can attempt to apply the manifest directly
 
 > puppet apply invalid.pp
-> 
+>
 > Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
-> 
+>
 > Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
 
 ![](/images/SETUP-004-apply-invalid.png)
@@ -128,9 +134,9 @@ You can attempt to apply the manifest directly
 Attempting to apply the manifest may only make sense on a subset of your nodes. There is a better way!
 
 > puppet parser validate invalid.pp
-> 
+>
 > Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
-> 
+>
 > Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
 
 ![](/images/SETUP-005-parser-validate.png)
@@ -144,17 +150,21 @@ Why is this better?
 
 ### Puppet Lint
 
-$$Command-6$$
+$$
+PUP-6
+$$
 
-**[Puppet lint](http://puppet-lint.com/)** checks the manifest against **[The Puppet Language Style Guide](https://docs.puppet.com/guides/style_guide.html "Puppet Style Guide")**, to ensure readiblity and uniformity. The puppet-lint gem installed by setup.pp makes the command `puppet-lint`available on the system.
+**[Puppet lint](http://puppet-lint.com/)** checks the manifest against **[The Puppet Language Style Guide](https://docs.puppet.com/guides/style_guide.html "Puppet Style Guide")**, to ensure readability and uniformity. The puppet-lint gem installed by setup.pp makes the command `puppet-lint`available on the system.
 
 ![](/images/SETUP-006-puppet-lint.png)
 
 ### Is there a better way to validate and lint my puppet code?
 
-$$Command-7$$
+$$
+PUP-7
+$$
 
-Yes! and I'm gald you asked.
+Yes! and I'm glad you asked.
 
 Setup.pp has added inline validation and linting via syntastic.
 
@@ -192,4 +202,3 @@ Syntastic highlights the warnings at lines 17 and 18 from automatically executin
 
 
 ![](/images/SETUP-006.2-lint-after.png)
-
