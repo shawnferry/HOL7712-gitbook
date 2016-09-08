@@ -17,5 +17,3 @@
 * [Solaris and Puppet](solaris-and-puppet.md)
 * [Adding another agent node](adding-another-agent-node.md)
 * [Let puppet configure the second node](let-puppet-configure-the-second-node.md)
-* [Simple Node Classification](simple-node-classification.md)
-
