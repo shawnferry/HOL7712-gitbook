@@ -12,7 +12,9 @@ WWW-0
 $$
 
 
-1. `pkg install puppet`
+1. Install puppet
+
+  `pkg install puppet`
 
   > pkg: Unable to set locale 'en\_US.UTF-8'; locale package may be broken or
   > not installed.  Reverting to C locale.
@@ -94,21 +96,19 @@ $$
 
 ## Sign the agent certificate \(on master\)
 
-1. Get the list of certs waiting to be signed
-
 
 $$
 PUP-20
 $$
 
 
-`puppet cert list`
+1. Get the list of certs waiting to be signed
+  `puppet cert list`
 
-> "www.oracle.lab" \(SHA256\) 42:77:38:C8:C0:7F:0B:9B:4E:90:F7:EA:2C:76:99:48:CE:63:6B:1D:9D:DA:67:46:06:A3:AB:50:16:3E:CC:23[^2]
+  > "www.oracle.lab" \(SHA256\) 42:77:38:C8:C0:7F:0B:9B:4E:90:F7:EA:2C:76:99:48:CE:63:6B:1D:9D:DA:67:46:06:A3:AB:50:16:3E:CC:23[^2]
+
 
 ![](/images/ADD01-PUP-020-cert-list.png)
-
-1. Sign the cert you should only have one certificate to sign
 
 
 $$
@@ -116,9 +116,11 @@ PUP-21
 $$
 
 
-`puppet cert sign www.oracle.lab`
+1. Sign the cert you should only have one certificate to sign
+  `puppet cert sign www.oracle.lab`
 
-> Notice: Signed certificate request for www.oracle.lab
+  > Notice: Signed certificate request for www.oracle.lab
+
 
 ![](/images/ADD01-PUP-021-cert-sign.png)
 
