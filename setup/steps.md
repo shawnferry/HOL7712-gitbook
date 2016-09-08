@@ -197,6 +197,7 @@ Syntastic highlights the error at line 10 of invalid.pp after running `puppet pa
   ```ruby
   package { 'git':
   ```
+  ![](../images/SETUP-006.0-syntax.png)
 
 2. Write the file `ESC :w`
 
