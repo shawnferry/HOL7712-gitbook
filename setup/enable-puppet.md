@@ -45,7 +45,7 @@ $$
 
 1. Change the config\/server property on puppet:agent to set the name of the puppet server. In this lab everyone should be able to use the server called 'puppet'. In your environment you would want to use the FQDN of your puppet master.
 
-  > svccfg -s puppet:agent setprop config\/server=puppet
+  `svccfg -s puppet:agent setprop config/server=puppet`
 
   ![](/images/SETUP-010-svccfg-agent.png)
 

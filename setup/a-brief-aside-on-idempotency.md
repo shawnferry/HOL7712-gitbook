@@ -17,7 +17,7 @@ All the resources in setup.pp are in the desired state, no changes will be made 
 
 ## Where isn't Puppet Idempotent?
 
-If you write your manifests correctly, puppet is always idempotent. If you are using the exec type look to the creates and unless parameters to keep puppet from _making changes_ on every manifest application.
+If you write your manifests correctly, puppet is always idempotent[^1]. If you are using the exec type look to the creates and unless parameters to keep puppet from _making changes_ on every manifest application.
 
 ### This resource will make changes until the Vundle.vim directory is created
 
@@ -62,4 +62,6 @@ For now,  you don't care. You can however apply manifests as many times as you w
 Later when you are managing your multi-server environment you will be seeing reports of changes being made on every run.
 
 See also: [Introduction to Puppet](https://docs.puppet.com/guides/introduction.html) and [Puppet Type Reference](https://docs.puppet.com/puppet/latest/reference/type.html)
+
+[^1]: You may see an example in this lab where a provider is unexpectedly not idempotent
 
