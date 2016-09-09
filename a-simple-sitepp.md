@@ -4,19 +4,29 @@ In the Adding an Agent section we observed a difference in the prompts between t
 
 ## Copy the manifest to \/etc\/puppet\/manifests\/site.pp
 
+
 $$
 PUP-22
 $$
 
+
 1. Even though this is a simple manifest it is not especially easy to type. We will copy it for this first example.
-  `cp /root/HOL7712-Solaris-Puppet/manifests/001-simple-site.pp /etc/puppet/manifests/site.pp`
+  `lab_copy 001-simple`
+
+  > lab\_copy is a shell function that executes puppet apply with a tag limiting the execution to a subset of the resources defined in the manifest. The shell equalalent to this step is
+  > 
+  > `cp /root/HOL7712-Solaris-Puppet/manifests/001-simple/site.pp /etc/puppet/manifest/site.pp`
+
   ![](/images/SIMPLE01-PUP-022-cp-001.png)
 
+
 ## Execute the agent on WWW server
+
 
 $$
 WWW-6
 $$
+
 
 1. With site.pp on the master running the agent will compile the catalog and apply the desired changes.
   `puppet agent -t`
@@ -24,9 +34,11 @@ $$
 
 ## Execute puppet agent on the puppet master
 
+
 $$
 PUP-23
 $$
+
 
 1. With site.pp on the master running the agent will compile the catalog and apply the desired changes.
 
@@ -38,9 +50,11 @@ $$
 
 ## Exec zsh to get the new prompt
 
+
 $$
 WWW-7
 $$
+
 
 1. Now that we have created a \/root\/.zshrc run zsh
   `exec zsh`
@@ -48,9 +62,11 @@ $$
 
 ## Edit \/etc\/puppet\/manifests\/site.pp on the master
 
+
 $$
 PUP-24
 $$
+
 
 1. Wait you said this was simple! Puppet lint shows you an error about variables in single quoted strings! The example in 001-simple-site.pp uses the `content` parameter to the file type.  It is technically simple but it isn't a very good implementation.
   ![](/images/SIMPLE01-PUP-024.0-vi-sitepp.png)![](/images/SIMPLE01-PUP-024.1-vi-sitepp.png)
@@ -59,33 +75,47 @@ $$
 
 Writing detailed modules is beyond the scope of this lab. However, we will be utilizing a stub of a module to take advantage of puppet's [file serving capabilities](https://docs.puppet.com/puppet/latest/reference/modules_fundamentals.html#files). Puppet provides the ability to access files from the special path puppet:\/\/\/modules\/&lt;module&gt;\/&lt;filename&gt;. We will use this method to truly simplify the example.
 
-In normal use you might generate a module with `puppet module generate <module-name>`and use that module to store all your custom manifests. We will instead create only a subset of the module contents for these steps.
+In practice you would generate a module with `puppet module generate <author-module>`answer the questions and use that module to store all your custom manifests. We create a bare minimum module skipping the interview questions for the purposes of this lab.
 
 ## Create the partial module directory structure
+
 
 $$
 PUP-25
 $$
 
-1. We are creating the minimum viable path to achieve this step
-  `mkdir -p /etc/puppet/modules/lab/files`
+
+1. Create the bare minimum module
+  `cd /root ; puppet module generate --skip-interview oracle-lab`
   ![](/images/SIMPLE01-PUP-025-mkdir.png)
+2. Create the files directory
+  `mkdir /root/oracle-lab/files`
+
 
 ## Copy zshrc to the module's files directory
+
 
 $$
 PUP-26
 $$
 
+
 1. This will make the file available to agents via the puppet file server at puppet:\/\/\/modules\/lab\/zshrc
-  `cp /root/HOL7712-Solaris-Puppet/labfiles/zshrc /etc/puppet/modules/lab/files`
+  `cp /root/HOL7712-Solaris-Puppet/labfiles/zshrc /root/oracle-lab/files`
+2. Deploy the module
+  `cd /root/oracle-lab`
+  `puppet module build`
+  `puppet module install --force ./pkg/oracle-lab-0.1.0.tar.gz`
+3. In the future we will do this using the shell function `lab_build`
   ![](/images/SIMPLE01-PUP-026-cp-zshrc.png)
 
 ## Update site.pp to copy the file
 
+
 $$
 PUP-27
 $$
+
 
 1. We will be removing the `$content` definition and `content` parameter and replacing them with a `source` parameter.
   ![](/images/SIMPLE01-PUP-027.0-vi-sitepp.png)
@@ -96,17 +126,18 @@ $$
   `source => 'puppet:///modules/lab/zshrc';`
 
 
+![](/images/SIMPLE01-PUP-027.1-vi-sitepp.png)
 
-  ![](/images/SIMPLE01-PUP-027.1-vi-sitepp.png)
-
-3. When you are done your file should look almost identical to this![](/images/SIMPLE01-PUP-027.2-vi-sitepp.png)
-
+1. When you are done your file should look almost identical to this![](/images/SIMPLE01-PUP-027.2-vi-sitepp.png)
+2. If you are have issues you can't resolve with this step run `lab_copy 002-simple`to use the example site.pp
 
 ## Execute puppet agent on the node
+
 
 $$
 WWW-8
 $$
+
 
 1. When you apply puppet now there will be a change to .zshrc, the file we are copying from is slightly different than the one inlined in 001-simple-site.pp.
   `puppet apply -t`
@@ -114,9 +145,11 @@ $$
 
 ## Execute puppet agent on the master
 
+
 $$
 PUP-28
 $$
+
 
 1. When you apply puppet on the master there will also be a change to .zshrc 
   `puppet apply -t`
@@ -141,4 +174,9 @@ Site.pp applies to all agents of the master including the master if it is config
 4. Updated site.pp to copy .zshrc to agents from the lab module
 
 5. Noticed that changes in  site.pp affect the agent running on the master and on www
+
+6. We introduced two lab specific shell functions
+  1. `lab_copy <example>` lab\_copy copies files for the next lab and supports tab expansion
+  2. `lab_build`lab\_build builds and installs the custom puppet module we are using to manage our customized files and manifests.
+
 
