@@ -5,10 +5,14 @@ Solaris 12 includes an installation of apache by default. We will be modifying t
 ## Step Overview
 
 1. Install puppetlabs-apache
-2. Create a virtual host and serve lab materials
-3. Share a local lab IPS repo
+2. Create and publish a solaris repository
+  1. Mirror a portion of the solaris publisher
+  2. Publish the repository to the local environment
 
-### NOTE
+3. Enable Apache, Break, then fix the Pacakge Server
+  1. Notice that our publisher is no longer working
+  2. Reconfigure the package server 
+  3. Setup a virtual host and reverse proxy in apache
 
-Commands in this section will use the additional `--tags` option to `puppet agent`if puppet is run without tags it will continue and perform multiple steps.
+
 

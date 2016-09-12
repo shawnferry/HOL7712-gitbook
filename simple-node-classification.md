@@ -253,6 +253,7 @@ Defining classes doesn't apply the resources to any nodes. After moving _all_ of
 
     node /puppet-lab.*/ {
       include lab::common
+      include lab::pkg_server
     }
 
     node /www.*/ {
@@ -270,5 +271,7 @@ $$PUP-??$$
 
 2. Edit `/var/lib/hiera/puppet-lab.oracle.lab.yaml`uncomment the publisher line. Make sure you maintain spacing in the file.
 
+
 3. Run `puppet agent -t`publishers on the master should be restored to the previous configuration.
+
 

@@ -19,17 +19,31 @@ Screenshots will be annotated with red blocks around steps which will be execute
 
 ![](images/SETUP-002-apply-setup.png)
 
+Images may also use inline text annotation
+
+![](/images/SIMPLE01-WWW-006-agent.png)
+
 Command references will be shown as
+
+
 $$
 <SERVER>-<COMMAND-NUMBER>
 $$
 
+
 Thus the following is command 5 on the server puppet-lab
+
+
 $$
 PUP-5
 $$
 
+
 Command 10 on WWW
+
+
 $$
 WWW-10
 $$
+
+
