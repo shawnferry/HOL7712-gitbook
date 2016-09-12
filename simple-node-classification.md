@@ -2,56 +2,7 @@
 
 Up to this point we have been working with all nodes configured identically.  We will take the combined manifests from the previous steps and group them into logical units.
 
-We also integrate some simple use of hiera for configuration data.
-
-This example is not representative of a well formed manifest. Class and node designations will not be defined in a single file in production usage.
-
-## Running the example code
-
-1. Copy the example manifest
-  `lab_copy e006_nodes`
-2. Apply the configuration on the master
-  `puppet agent -t`
-
-Now that our manifest has been split into classes and applied what has happened? What changed? If our refactored manifest is functionally identical to the previous manifests nothing has changed.
-
-Clearly that isn't the case as our publishers have changed:
-
-`puppet resource publisher` OR `pkg publisher`
-
-**Before:**
-
-> pkg\_publisher { 'solaris':
-> 
-> ensure =&gt; 'present',
-> 
-> enable =&gt; 'true',
-> 
-> origin =&gt; \['file:\/\/\/repositories\/publisher\/solaris', 'http:\/\/ipkg.us.oracle.com\/solaris12\/minidev'\],
-> 
-> searchfirst =&gt; 'true',
-> 
-> sticky =&gt; 'true',
-> 
-> }
-
-**After:**
-
-> pkg\_publisher { 'solaris':
-> 
-> ensure =&gt; 'present',
-> 
-> enable =&gt; 'true',
-> 
-> origin =&gt; \['http:\/\/ipkg.us.oracle.com\/solaris12\/minidev'\],
-> 
-> searchfirst =&gt; 'true',
-> 
-> sticky =&gt; 'true',
-> 
-> }
-
-In our publishers example we defined two origins, in our refactored example we use only the variable.
+We also integrate some simple use of hiera for configuration data. This example is not representative of a well formed manifest. Class and node designations will not be defined in a single file in production usage.
 
 ## Reviewing the manifest
 
@@ -262,6 +213,54 @@ Defining classes doesn't apply the resources to any nodes. After moving _all_ of
     }
 ```
 
+## Running the example code
+
+1. Copy the example manifest
+  `lab_copy e006_nodes`
+2. Apply the configuration on the master
+  `puppet agent -t`
+
+Now that our manifest has been split into classes and applied what has happened? What changed? If our refactored manifest is functionally identical to the previous manifests nothing has changed.
+
+1. Clearly that isn't the case as our publishers have changed:
+
+  `puppet resource publisher` OR `pkg publisher`
+
+  **Before:**
+
+  > pkg\_publisher { 'solaris':
+  > 
+  > ensure =&gt; 'present',
+  > 
+  > enable =&gt; 'true',
+  > 
+  > origin =&gt; \['file:\/\/\/repositories\/publisher\/solaris', 'http:\/\/ipkg.us.oracle.com\/solaris12\/minidev'\],
+  > 
+  > searchfirst =&gt; 'true',
+  > 
+  > sticky =&gt; 'true',
+  > 
+  > }
+
+  **After:**
+
+  > pkg\_publisher { 'solaris':
+  > 
+  > ensure =&gt; 'present',
+  > 
+  > enable =&gt; 'true',
+  > 
+  > origin =&gt; \['http:\/\/ipkg.us.oracle.com\/solaris12\/minidev'\],
+  > 
+  > searchfirst =&gt; 'true',
+  > 
+  > sticky =&gt; 'true',
+  > 
+  > }
+
+  In our publishers example we defined two origins, in our refactored example we use only the variable. We need to set the desired origin for our puppet master.
+
+
 ## Restore the master publisher configuration
 
 $$PUP-??$$
@@ -272,6 +271,5 @@ $$PUP-??$$
 2. Edit `/var/lib/hiera/puppet-lab.oracle.lab.yaml`uncomment the publisher line. Make sure you maintain spacing in the file.
 
 
-3. Run `puppet agent -t`publishers on the master should be restored to the previous configuration.
-
+1. Run `puppet agent -t`publishers on the master should be restored to the previous configuration.
 
