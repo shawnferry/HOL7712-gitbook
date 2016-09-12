@@ -13,7 +13,7 @@ $$
 1. Even though this is a simple manifest it is not especially easy to type. We will copy it for this first example.
   `lab_copy 001-simple`
 
-  > lab\_copy is a shell function that executes puppet apply with a tag limiting the execution to a subset of the resources defined in the manifest. The shell equalalent to this step is
+  > lab\_copy is a shell function that executes puppet apply with a tag limiting the execution to a subset of the resources defined in the manifest. The shell equivalent to this step is
   > 
   > `cp /root/HOL7712-Solaris-Puppet/manifests/001-simple/site.pp /etc/puppet/manifest/site.pp`
 
@@ -139,7 +139,7 @@ WWW-8
 $$
 
 
-1. When you apply puppet now there will be a change to .zshrc, the file we are copying from is slightly different than the one inlined in 001-simple-site.pp.
+1. When you apply puppet now there will be a change to .zshrc, the file we are copying from is slightly different than the one included in 001-simple-site.pp.
   `puppet apply -t`
   ![](/images/SIMPLE01-WWW-008-agent.png)
 

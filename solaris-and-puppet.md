@@ -2,9 +2,13 @@
 
 IPS Packages for Puppet in Solaris 12
 
-Package managment in Solaris 11 and 12 is via the Image Packaging System. Oracle patches, builds, and ships a number of packages for Puppet. Puppet is installed via `pkg install puppet`and a minimal subset of providers are automatically installed.
+Package management in Solaris 11 and 12 is via the Image Packaging System.
+Oracle patches, builds, and ships a number of packages for Puppet. Puppet is
+installed via `pkg install puppet`and a minimal subset of providers are
+automatically installed.
 
-The full list of **pre-packaged** and **patched** Puppet modules available in Solaris 12:
+The full list of **pre-packaged** and **patched** Puppet modules available in
+Solaris 12:
 
 * puppet\/nanliu-staging[^1]
 * puppet\/openstack-cinder
@@ -39,7 +43,11 @@ Puppet has had support for Solaris since Solaris 10 including the following type
 * package - Install and remove packages
 * service - enable and disable services
 
-Oracle has extended that support with additional types for Solaris 11 and 12 in the [oracle-solaris\_providers](https://github.com/oracle/puppet-solaris_providers) puppet module. As of this writing the module is not available on the Puppet Forge.
+Oracle has extended that support with additional types for Solaris 11 and 12 in
+the
+[oracle-solaris\_providers](https://github.com/oracle/puppet-solaris_providers)
+puppet module. As of this writing the module is not available on the Puppet
+Forge.
 
 ## Oracle Additions to Puppet
 
@@ -106,7 +114,7 @@ Oracle Solaris Providers override the core Puppet providers for:
 
 ## Access to Oracle Providers
 
-The available IPS oracle-solaris\_providers pacakge will lag behind the github repository and Puppet Forge modules. While those are available for you to use Oracle support channels extend only to packages shipped via IPS.  
+The available IPS oracle-solaris\_providers package will lag behind the github repository and Puppet Forge modules. While those are available for you to use Oracle support channels extend only to packages shipped via IPS.
 
 [^1]: Installed as a dependency of the puppet IPS package
 

@@ -21,7 +21,7 @@ Due to constraints on time and variability in the physical lab, some setup steps
 15. Test puppet agent
 
 **NOTE:**
-If you are trying this outside the lab and need proxies. You must export your http\/https\_proxy in your shell before trying to install a gem with the gem pacakge provider.
+If you are trying this outside the lab and need proxies. You must export your http\/https\_proxy in your shell before trying to install a gem with the gem package provider.
 
 ```
 $env = [

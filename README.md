@@ -6,7 +6,7 @@
 
 _Cindy Swearingen_, Principal Product Manager, Oracle
 
-_Shawn Ferry_, Principal Software Engineer, Oracl
+_Shawn Ferry_, Principal Software Engineer, Oracle
 
 _Cody Herriges_, Engineer \(IT\), Puppet Labs, Inc
 
@@ -16,7 +16,11 @@ _Cody Herriges_, Engineer \(IT\), Puppet Labs, Inc
 
 
 
-Oracle Solaris integrates Puppet, a configuration management solution that you can use to automate Oracle Solaris administration tasks. In this lab learn how to integrate Oracle Solaris file system, security, and virtualization features with Puppet to automate a simple deployment of a secure Oracle Solaris VM. Also learn how to deploy a simple application with Puppet.
+Oracle Solaris integrates Puppet, a configuration management solution that you
+can use to automate Oracle Solaris administration tasks. In this lab learn how
+to integrate Oracle Solaris file system, security, and virtualisation features
+with Puppet to automate a simple deployment of a secure Oracle Solaris VM. Also
+learn how to deploy a simple application with Puppet.
 
 HOL \(Hands-on Lab\) Session \[HOL7712\]
 

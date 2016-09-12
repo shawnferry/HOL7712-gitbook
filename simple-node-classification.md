@@ -55,11 +55,11 @@ In our publishers example we defined two origins, in our refactored example we u
 
 ## Reviewing the manifest
 
-Below review of the site.pp for Eaxmple 6. Some repetetive sections and resources will not be explored in depth.
+Below review of the site.pp for Example 6. Some repetitive sections and resources will not be explored in depth.
 
 ### Set variables from hiera data
 
-Using an external datasource allows us to extract configurartion from code.
+Using an external datasource allows us to extract configuration from code.
 
 ```ruby
 $lab_pkg = hiera('lab::pkg',undef)
