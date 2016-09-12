@@ -105,8 +105,6 @@ $$
 1. We have modified the PATH and PROMPT for root's shell. We want these changes to take effect now.
   `exec zsh`
 
-
-
 ## View setup.pp
 
 
@@ -118,7 +116,6 @@ $$
 1. Once setup.pp has be applied differences will be apparent in vim. The setup.pp file content is identical but the display now includes line numbers, a column indicator for 80 columns, and syntax highlighting.
 
   `vi HOL7712-Solaris-Puppet/setup.pp`
-
 
 
 ![](/images/SETUP-003-vi-setup.png)![](/images/SETUP-003-setup-after.png)
@@ -152,7 +149,7 @@ $$
 
 Attempting to apply the manifest may only make sense on a subset of your nodes.
 
-1.  There is a better way!
+1. There is a better way!
   `puppet parser validate invalid.pp`
 
 > Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
@@ -176,7 +173,7 @@ PUP-6
 $$
 
 
-[**Puppet lint**](http://puppet-lint.com/) checks the manifest against [**The Puppet Language Style Guide**](https://docs.puppet.com/guides/style_guide.html "Puppet Style Guide"), to ensure readability and uniformity. The puppet-lint gem installed by setup.pp makes the command `puppet-lint`available on the system.
+**[Puppet lint](http://puppet-lint.com/)** checks the manifest against **[The Puppet Language Style Guide](https://docs.puppet.com/guides/style_guide.html "Puppet Style Guide")**, to ensure readability and uniformity. The puppet-lint gem installed by setup.pp makes the command `puppet-lint`available on the system[^1].
 
 ![](/images/SETUP-006-puppet-lint.png)
 
@@ -201,6 +198,7 @@ Syntastic highlights the error at line 10 of invalid.pp after running `puppet pa
   ```ruby
   package { 'git':
   ```
+
   ![](../images/SETUP-006.0-syntax.png)
 
 2. Write the file `ESC :w`
@@ -230,4 +228,6 @@ Syntastic highlights the warnings at lines 17 and 18 from automatically executin
 
 
 ![](/images/SETUP-006.2-lint-after.png)
+
+[^1]: Puppet-lint has a --fix option that may be of use for pre-existing manifests. 
 
