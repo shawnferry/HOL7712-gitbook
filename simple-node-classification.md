@@ -1,14 +1,65 @@
-# Simple Node Classification
+# Fairly Simple Node Classification
 
 Up to this point we have been working with all nodes configured identically.  We will take the combined manifests from the previous steps and group them into logical units.
 
 We also integrate some simple use of hiera for configuration data.
 
-This example is not representative of a well formed manifest. Class and node designations will not be defined in a single in production usage.
+This example is not representative of a well formed manifest. Class and node designations will not be defined in a single file in production usage.
 
-A review of the site.pp for Eaxmple 6. Some repetetive sections will not be explored in depth.
+## Running the example code
 
-Set variables from hiera data
+1. Copy the example manifest
+  `lab_copy e006_nodes`
+2. Apply the configuration on the master
+  `puppet agent -t`
+
+Now that our manifest has been split into classes and applied what has happened? What changed? If our refactored manifest is functionally identical to the previous manifests nothing has changed.
+
+Clearly that isn't the case as our publishers have changed:
+
+`puppet resource publisher` OR `pkg publisher`
+
+**Before:**
+
+> pkg\_publisher { 'solaris':
+> 
+> ensure =&gt; 'present',
+> 
+> enable =&gt; 'true',
+> 
+> origin =&gt; \['file:\/\/\/repositories\/publisher\/solaris', 'http:\/\/ipkg.us.oracle.com\/solaris12\/minidev'\],
+> 
+> searchfirst =&gt; 'true',
+> 
+> sticky =&gt; 'true',
+> 
+> }
+
+**After:**
+
+> pkg\_publisher { 'solaris':
+> 
+> ensure =&gt; 'present',
+> 
+> enable =&gt; 'true',
+> 
+> origin =&gt; \['http:\/\/ipkg.us.oracle.com\/solaris12\/minidev'\],
+> 
+> searchfirst =&gt; 'true',
+> 
+> sticky =&gt; 'true',
+> 
+> }
+
+In our publishers example we defined two origins, in our refactored example we use only the variable.
+
+## Reviewing the manifest
+
+Below review of the site.pp for Eaxmple 6. Some repetetive sections and resources will not be explored in depth.
+
+### Set variables from hiera data
+
+Using an external datasource allows us to extract configurartion from code.
 
 ```ruby
 $lab_pkg = hiera('lab::pkg',undef)
@@ -16,7 +67,10 @@ $lab_homedir = hiera('lab::homedir', '/root')
 $lab_sources = hiera('lab::sources')
 ```
 
-Define a class for resources we want to apply to all hosts. Note the use of variables instead of hard coded strings everywhere.
+### Define a class for resources we want to apply to all hosts
+
+Note the switch to variables.
+
 ```ruby
 class lab::common {
   # Distribute .zshrc to all systems
@@ -26,6 +80,7 @@ class lab::common {
 ```
 
 lab::pkg is defined as a hash in the hiera config.
+
 ```yaml
 lab::pkg: 
   solaris: 
@@ -33,8 +88,8 @@ lab::pkg:
     origin: http://ipkg.us.oracle.com/solaris12/minidev/
 ```
 
-Instead of hard coding values in manifests the data is stored in
-hiera where it can be applied based on node classification.
+Instead of hard coding values in manifests the data is stored in hiera where it can be applied based on node classification. As shown above our publisher origin has changed from the previous value. We will restore that configuration at the end of this review.
+
 ```ruby
   pkg_publisher { $::lab_pkg['solaris']['publisher']:
     origin => $::lab_pkg['solaris']['origin']
@@ -42,7 +97,8 @@ hiera where it can be applied based on node classification.
 }
 ```
 
-We need to assign the repo host differently on agents.
+### Create a class for all agent nodes
+
 ```ruby
 # All the puppet agents get these resources
 class lab::agents {
@@ -53,7 +109,10 @@ class lab::agents {
 }
 ```
 
-We only need to install puppetlabs-apache on the master. Pluginsync will copy the module files to the nodes. 
+### Create a class for puppet masters
+
+We only need to install puppetlabs-apache on the master. Pluginsync will copy the module files to the nodes.
+
 ```ruby
 # resources only for the master server
 class lab::master {
@@ -70,7 +129,10 @@ class lab::master {
 }
 ```
 
-A subset of the apache configuration described in [Depot Server Apache Configuration](https://docs.oracle.com/cd/E23824_01/html/E21803/apache-config.html) has been implemented via functions of the puppetlabs-apache module.
+### Create a class to apply package server configuration
+
+A subset of the apache configuration described in [Depot Server Apache Configuration](https://docs.oracle.com/cd/E23824_01/html/E21803/apache-config.html) has been implemented via functions of the puppetlabs-apache module. Our package server will use a reverse proxy from Apache, note that we have not yet defined the lab::webserver class we include in here.
+
 ```ruby
   # configuration for the package server
   class lab::pkg_server {
@@ -87,14 +149,7 @@ A subset of the apache configuration described in [Depot Server Apache Configura
         value   => '/repositories/publisher/solaris',
         require => Pkg_publisher['solaris'],
         notify  => Service['svc:/application/pkg/server:default'];
-    }
 
-    # Start the service
-    service { 'svc:/application/pkg/server:default':
-      ensure => running
-    }
-
-    svccfg {
       # Set the port for pkg/server:default to 8080
       'svc:/application/pkg/server:default/:properties/pkg/port':
         # See svc:/application/pkg/mirror:default
@@ -108,6 +163,11 @@ A subset of the apache configuration described in [Depot Server Apache Configura
         value   => 'http://repo:8080/solaris',
         require => Pkg_publisher['solaris'],
         notify  => Service['svc:/application/pkg/server:default'];
+    }
+
+    # Start the service
+    service { 'svc:/application/pkg/server:default':
+      ensure => running
     }
 
     # Create htdocs
@@ -154,9 +214,13 @@ A subset of the apache configuration described in [Depot Server Apache Configura
 
   }
 ```
+
+### Create a class for generic web servers
+
 The following settings will be applied to any node that includes the webserver class.
 
 **WARNING**: Configurations not managed by Puppet will be purged.
+
 ```ruby
   # basic configuration for webservers
   class lab::webserver {
@@ -175,7 +239,9 @@ The following settings will be applied to any node that includes the webserver c
     }
 ```
 
-Defining classes doesn't apply the resources to any nodes. After moving *all* of the resources into classes the manifest will be effectively empty. We need to classify the nodes and apply the desired classes. See [Node Definitions](https://docs.puppet.com/puppet/latest/reference/lang_node_definitions.html)
+### Classify the nodes
+
+Defining classes doesn't apply the resources to any nodes. After moving _all_ of the resources into classes the manifest will be effectively empty. We need to classify the nodes and apply the desired classes. See [Node Definitions](https://docs.puppet.com/puppet/latest/reference/lang_node_definitions.html)
 
 ```ruby
     # Set the default node behavior. In conjunction with the common class and no
@@ -193,4 +259,16 @@ Defining classes doesn't apply the resources to any nodes. After moving *all* of
       include lab::common
       include lab::webserver
     }
-``` 
+```
+
+## Restore the master publisher configuration
+
+$$PUP-??$$
+
+1. Copy the data file for the puppet master to the hiera data directory
+  `cp /root/HOL7712-Solaris-Puppet/labfiles/hiera/puppet-lab.oracle.lab.yaml /var/lib/hiera/`
+
+2. Edit `/var/lib/hiera/puppet-lab.oracle.lab.yaml`uncomment the publisher line. Make sure you maintain spacing in the file.
+
+3. Run `puppet agent -t`publishers on the master should be restored to the previous configuration.
+
