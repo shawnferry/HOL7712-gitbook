@@ -1,6 +1,6 @@
 # DRAFT
 
-# Automating Oracle Solaris With Puppet
+# Automating Oracle Solaris Administration With Puppet
 
 ## Oracle OpenWorld 2016
 
@@ -8,7 +8,7 @@ _Cindy Swearingen_, Principal Product Manager, Oracle
 
 _Shawn Ferry_, Principal Software Engineer, Oracle
 
-_Cody Herriges_, Engineer \(IT\), Puppet Labs, Inc
+_Cody Herriges_, Principal SysOps Engineer, Puppet, Inc
 
 
 
