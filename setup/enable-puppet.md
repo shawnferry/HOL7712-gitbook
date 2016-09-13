@@ -50,7 +50,7 @@ $$
   ![](/images/SETUP-010-svccfg-agent.png)
 
 
-## Refresh Master and Agent Configuration
+## Refresh Puppet Master and Agent Configuration
 
 
 $$
@@ -58,14 +58,14 @@ PUP-11
 $$
 
 
-1. Refresh the services to reload the configuration.
+1. Refresh the Puppet services to reload the configuration.
 
   `svcadm refresh puppet:master puppet:agent`
 
   ![](/images/SETUP-011-svcadm-refresh.png)
 
 
-## Enable puppet:master and puppet:agent Services
+## Enable Puppet Master and Agent Services
 
 
 $$
@@ -94,7 +94,7 @@ $$
   ![](/images/SETUP-013.1-puppet-conf-after.png)
 
 
-## Place puppet:agent State in Maintenance
+## Place Puppet Agent Service in Maintenance State
 
 
 $$
@@ -107,7 +107,7 @@ $$
   ![](/images/SETUP-014-svcadm-mark.png)
 
 
-## Check the state of the puppet:agent and puppet:master service
+## Check the State of the Puppet Agent and Master Services
 
 
 $$
@@ -115,7 +115,7 @@ PUP-15
 $$
 
 
-1. View the state of the services
+1. View the state of the Puppet services.
   `svcs puppet:master puppet:agent`![](/images/SETUP-015-svcs.png)
 
 ## Run the puppet agent
