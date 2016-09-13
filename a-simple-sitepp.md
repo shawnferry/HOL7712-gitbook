@@ -92,7 +92,7 @@ $$
   `mkdir /root/oracle-lab/files`
 
 
-## Copy zshrc to the module's files directory
+## Copy zshrc to the Module's Files Directory
 
 
 $$
@@ -100,16 +100,16 @@ PUP-26
 $$
 
 
-1. This will make the file available to agents via the puppet file server at puppet:\/\/\/modules\/lab\/zshrc
+1. This step makes the file available to agents via the Puppet file server at puppet:\/\/\/modules\/lab\/zshrc
   `cp /root/HOL7712-Solaris-Puppet/labfiles/zshrc /root/oracle-lab/files`
-2. Deploy the module
+2. Deploy the module.
   `cd /root/oracle-lab`
   `puppet module build`
   `puppet module install --force ./pkg/oracle-lab-0.1.0.tar.gz`
-3. In the future we will do this using the shell function `lab_build`
+3. In the future, we will do this using the shell function `lab_build`
   ![](/images/SIMPLE01-PUP-026-cp-zshrc.png)
 
-## Update site.pp to copy the file
+## Update site.pp to Copy the File
 
 
 $$
@@ -128,7 +128,7 @@ $$
 
 ![](/images/SIMPLE01-PUP-027.1-vi-sitepp.png)
 
-1. When you are done your file should look almost identical to this![](/images/SIMPLE01-PUP-027.2-vi-sitepp.png)
+1. When you are done, your file should look almost identical to this![](/images/SIMPLE01-PUP-027.2-vi-sitepp.png)
 2. If you are have issues you can't resolve with this step run `lab_copy 002-simple`to use the example site.pp
 
 ## Execute puppet agent on the node
