@@ -17,7 +17,7 @@ _Cody Herriges_, Principal SysOps Engineer, Puppet, Inc
 
 
 Oracle Solaris integrates Puppet, a configuration management solution that you
-can use to automate Oracle Solaris administration tasks. In this lab learn how
+can use to automate Oracle Solaris administration tasks. In this lab, learn how
 to integrate Oracle Solaris file system, security, and virtualization features
 with Puppet to automate a simple deployment of a secure Oracle Solaris VM. Also
 learn how to deploy a simple application with Puppet.
