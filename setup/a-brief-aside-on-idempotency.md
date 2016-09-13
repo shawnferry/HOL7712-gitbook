@@ -1,25 +1,25 @@
 # Puppet is \(should be\) Idempotent
 
-When you are executing puppet manifests nothing should change on repeated runs of the agent or application of the manifest.
+When you are executing Puppet manifests, nothing should change on repeated runs of the agent or application of the manifest.
 
-## Why was there a change just now?
+## Why Was There a Change Just Now?
 
 ![](/images/IDEMP-001-changes.png)
 
-When you applied setup.pp why was there a change the second time but not the third or Nth time? If you updated invalid.pp in the previous steps it will have been overwritten with the original file content.
+When you applied setup.pp, why was there a change the second time but not the third or Nth time? If you updated invalid.pp in the previous steps, it will have been overwritten with the original file content.
 
-After the system is in the state described in the setup.pp manifest additional manifest applications will not change anything.
+After the system is in the state described in the setup.pp manifest, additional manifest applications will not change anything.
 
-## Why wasn't there a change this time?
+## Why Wasn't There a Change This Time?
 
-All the resources in setup.pp are in the desired state, no changes will be made by puppet.
+All the resources in setup.pp are in the desired state, no changes are made by Puppet.
 ![](/images/IDEMP-002-no-changes.png)
 
 ## Where isn't Puppet Idempotent?
 
 If you write your manifests correctly, puppet is always idempotent[^1]. If you are using the exec type look to the creates and unless parameters to keep puppet from _making changes_ on every manifest application.
 
-### This resource will make changes until the Vundle.vim directory is created
+### This resource make changes until the Vundle.vim directory is created
 
 ```ruby
 exec { 'vundle install':
