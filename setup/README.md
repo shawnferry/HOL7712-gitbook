@@ -1,6 +1,6 @@
 # Setup
 
-Due to constraints on time and variability in the physical lab, some setup steps have been completed on the lab VMs. The steps in this chapter will perform the same pre-work in a fresh VM. During the lab Puppet will skip the portions which have been completed.
+Due to constraints on time and variability in the physical lab, some setup steps have been completed on the lab VMs. The steps in this chapter perform the same pre-work in a fresh VM. During the lab, Puppet will skip the portions that have been completed.
 
 ### Steps Overview
 
@@ -21,7 +21,7 @@ Due to constraints on time and variability in the physical lab, some setup steps
 15. Test puppet agent
 
 **NOTE:**
-If you are trying this outside the lab and need proxies. You must export your http\/https\_proxy in your shell before trying to install a gem with the gem package provider.
+If you are trying this outside the lab and need proxies, you must export your http\/https\_proxy in your shell before trying to install a gem with the gem package provider.
 
 ```
 $env = [
