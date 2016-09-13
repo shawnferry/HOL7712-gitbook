@@ -118,7 +118,7 @@ $$
 1. View the state of the Puppet services.
   `svcs puppet:master puppet:agent`![](/images/SETUP-015-svcs.png)
 
-## Run the puppet agent
+## Run the Puppet Agent
 
 
 $$
@@ -131,9 +131,9 @@ $$
   `puppet agent -t`
   ![](/images/SETUP-016-agent-test.png)
 
-  ### Wait, aren't we the master? How do we not know who we are?
+  ### Wait, Aren't We the Master? How Do We Not Know Who We Are?
 
-  Yes, the server called puppet-lab is the master in the configuration. However, by default puppet uses a FQDN or a couple of well known aliases for the puppet server certificate. At this point in the configuration the puppet master cannot verify the identity of the agent and the agent is unable to verify the identity of the server.
+  Yes, the server called puppet-lab is the master in the configuration. However, by default puppet uses a FQDN or a couple of well known aliases for the puppet server certificate. At this point in the configuration, the Puppet master cannot verify the identity of the agent and the agent is unable to verify the identity of the server.
 
 
 ## Finding the problem \/ Fixing the problem
