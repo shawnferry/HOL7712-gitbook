@@ -71,13 +71,13 @@ $$
 1. Wait, you said this was simple! Puppet lint shows you an error about variables in single quoted strings! The example in 001-simple-site.pp uses the `content` parameter to the file type.  It is technically simple but it isn't a very good implementation.
   ![](/images/SIMPLE01-PUP-024.0-vi-sitepp.png)![](/images/SIMPLE01-PUP-024.1-vi-sitepp.png)
 
-# Simplifying site.pp by using a module to distribute a file
+# Simplifying site.pp by Using a Module to Distribute a File
 
-Writing detailed modules is beyond the scope of this lab. However, we will be utilizing a stub of a module to take advantage of puppet's [file serving capabilities](https://docs.puppet.com/puppet/latest/reference/modules_fundamentals.html#files). Puppet provides the ability to access files from the special path puppet:\/\/\/modules\/&lt;module&gt;\/&lt;filename&gt;. We will use this method to truly simplify the example.
+Writing detailed modules is beyond the scope of this lab. However, we utilize a stub of a module to take advantage of puppet's [file serving capabilities](https://docs.puppet.com/puppet/latest/reference/modules_fundamentals.html#files). Puppet provides the ability to access files from the special path puppet:\/\/\/modules\/&lt;module&gt;\/&lt;filename&gt;. We use this method to truly simplify the example.
 
-In practice you would generate a module with `puppet module generate <author-module>`answer the questions and use that module to store all your custom manifests. We create a bare minimum module skipping the interview questions for the purposes of this lab.
+In practice, you would generate a module with `puppet module generate <author-module>`answer the questions and use that module to store all your custom manifests. We create a bare minimum module skipping the interview questions for the purposes of this lab.
 
-## Create the partial module directory structure
+## Create the Partial Module Directory Structure
 
 
 $$
@@ -85,10 +85,10 @@ PUP-25
 $$
 
 
-1. Create the bare minimum module
+1. Create the bare minimum module.
   `cd /root ; puppet module generate --skip-interview oracle-lab`
   ![](/images/SIMPLE01-PUP-025-mkdir.png)
-2. Create the files directory
+2. Create the files directory.
   `mkdir /root/oracle-lab/files`
 
 
