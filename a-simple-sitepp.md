@@ -129,9 +129,9 @@ $$
 ![](/images/SIMPLE01-PUP-027.1-vi-sitepp.png)
 
 1. When you are done, your file should look almost identical to this![](/images/SIMPLE01-PUP-027.2-vi-sitepp.png)
-2. If you are have issues you can't resolve with this step run `lab_copy 002-simple`to use the example site.pp
+2. If you are have issues you can't resolve with this step, run `lab_copy 002-simple`to use the example site.pp
 
-## Execute puppet agent on the node
+## Execute Puppet Agent on the Node
 
 
 $$
@@ -143,7 +143,7 @@ $$
   `puppet apply -t`
   ![](/images/SIMPLE01-WWW-008-agent.png)
 
-## Execute puppet agent on the master
+## Execute Puppet Agent on the Master
 
 
 $$
