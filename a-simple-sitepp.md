@@ -10,10 +10,10 @@ PUP-22
 $$
 
 
-1. Even though this is a simple manifest it is not especially easy to type. We copy it for this first example.
+1. Even though this is a simple manifest, it is not especially easy to type. We copy it for this first example.
   `lab_copy 001-simple`
 
-  > lab\_copy is a shell function that executes puppet apply with a tag limiting the execution to a subset of the resources defined in the manifest. The shell equivalent to this step is
+  > lab\_copy is a shell function that executes puppet apply with a tag limiting the execution to a subset of the resources defined in the manifest. The shell equivalent to this step is:
   > 
   > `cp /root/HOL7712-Solaris-Puppet/manifests/001-simple/site.pp /etc/puppet/manifest/site.pp`
 
@@ -28,7 +28,7 @@ WWW-6
 $$
 
 
-1. With site.pp on the master running the agent will compile the catalog and apply the desired changes.
+1. With site.pp on the Puppet master, running the agent compiles the catalog and applies the desired changes.
   `puppet agent -t`
   ![](/images/SIMPLE01-WWW-006-agent.png)
 
@@ -40,7 +40,7 @@ PUP-23
 $$
 
 
-1. With site.pp on the master running the agent will compile the catalog and apply the desired changes.
+1. With site.pp on the Puppet master, running the agent compiles the catalog and applies the desired changes.
 
   When puppet is executed on the master it is also using site.pp. The content of .zshrc in site.pp does not exactly match the content of file copied by setup.pp.
   `puppet apply -t`
