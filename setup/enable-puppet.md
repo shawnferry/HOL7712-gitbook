@@ -4,7 +4,7 @@ So far, we have only executed puppet against a local manifest to bootstrap the l
 
 We are almost there but first we need to do a few more configuration steps. It is possible to do all the remaining configuration via puppet manifests but we use Solaris commands for some of the steps instead.
 
-## Wait What's SMF and Why Can't I Edit This File?
+## Wait, What's SMF and Why Can't I Edit This File?
 
 The Solaris Service Management Facility replaces traditional init scripts. Solaris has added stencils to convert repository data into traditional configuration files, puppet.conf is one of the files managed via stencils.
 See [Introducing SMF Stencils](https://blogs.oracle.com/SolarisSMF/entry/introducing_smf_stencils) for much more information on the topic.
