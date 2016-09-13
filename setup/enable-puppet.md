@@ -133,10 +133,10 @@ $$
 
   ### Wait, Aren't We the Master? How Do We Not Know Who We Are?
 
-  Yes, the server called puppet-lab is the master in the configuration. However, by default puppet uses a FQDN or a couple of well known aliases for the puppet server certificate. At this point in the configuration, the Puppet master cannot verify the identity of the agent and the agent is unable to verify the identity of the server.
+  Yes, the server called puppet is the master in the configuration. However, by default Puppet uses a FQDN or a couple of well known aliases for the Puppet server certificate. At this point in the configuration, the Puppet master cannot verify the identity of the agent and the agent is unable to verify the identity of the server.
 
 
-## Finding the problem \/ Fixing the problem
+## Finding the Problem \/ Fixing the Problem
 
 
 $$
