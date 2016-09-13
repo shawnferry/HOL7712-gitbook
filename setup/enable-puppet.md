@@ -9,7 +9,7 @@ We are almost there but first we need to do a few more configuration steps. It i
 The Solaris Service Management Facility replaces traditional init scripts. Solaris has added stencils to convert repository data into traditional configuration files, puppet.conf is one of the files managed via stencils.
 See [Introducing SMF Stencils](https://blogs.oracle.com/SolarisSMF/entry/introducing_smf_stencils) for much more information on the topic.
 
-## Puppet.conf Before Configuration
+## puppet.conf Before Configuration
 
 
 $$
