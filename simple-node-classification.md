@@ -190,21 +190,6 @@ The following settings will be applied to any node that includes the webserver c
     }
 ```
 
-### Create a class for a zone on our webserver
-
-Refactor the `node www.*`classification into a class and include the class.
-
-```
-
-class 'lab::www_zone01' {
-	zone { 'www-kz01':
-		 ensure         => 'running',
-		 zonecfg_export => 'puppet:///modules/lab/zones/www-kz.zcfg',
-		 config_profile => 'puppet:///modules/lab/zones/www-kz01.xml'
-	}
-}
-```
-
 ### Classify the nodes
 
 Defining classes doesn't apply the resources to any nodes. After moving _all_ of the resources into classes the manifest will be effectively empty. We need to classify the nodes and apply the desired classes. See [Node Definitions](https://docs.puppet.com/puppet/latest/reference/lang_node_definitions.html)
@@ -225,7 +210,6 @@ Defining classes doesn't apply the resources to any nodes. After moving _all_ of
     node /www.*/ {
       include lab::common
       include lab::webserver
-      include lab::www_zone01
     }
 ```
 
