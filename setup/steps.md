@@ -193,7 +193,7 @@ Setup.pp has added inline validation and linting via syntastic.
 
 Syntastic highlights the error at line 10 of invalid.pp after running `puppet parser --validate` automatically for you. The text of the error is provided in the error window at the bottom of the screen.
 
-1. To fix the error add the missing ':' after 'git' on line 9 in the screenshot.
+1. Fix the error by adding the missing ':' after 'git' on line 9 in the screenshot.
 
   ```ruby
   package { 'git':
@@ -203,18 +203,18 @@ Syntastic highlights the error at line 10 of invalid.pp after running `puppet pa
 
 2. Write the file `ESC :w`
 
-3. The error indicator is cleared
+3. The error indicator is cleared.
 
   XXX: Update this image for new invalid.pp
 
 
 ![](/images/SETUP-006.1-lint-before.png)
 
-### Fix the puppet-lint warnings
+### Fix the puppet-lint Warnings
 
 Syntastic highlights the warnings at lines 17 and 18 from automatically executing puppet-lint. The puppet-vim and tabular plugins help maintain code which adheres to the style guide.
 
-1. To clear the warnings add a new parameter on the last line of the resource
+1. Clear the warnings by adding a new parameter on the last line of the resource.
 
   `creates => '/tmp/foo',`
 
@@ -222,7 +222,7 @@ Syntastic highlights the warnings at lines 17 and 18 from automatically executin
 
 3. Write the file `ESC :w`
 
-4. The warning indicators are cleared
+4. The warning indicators are cleared.
 
   XXX: update image
 
