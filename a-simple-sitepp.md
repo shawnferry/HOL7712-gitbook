@@ -161,21 +161,21 @@ Site.pp applies to all agents of the master including the master if it is config
 
 # Review
 
-1. We configured puppet:agent on www
-  1. set config\/server
-  2. refresh the service
-  3. enabled the service
-  4. stopped but did not disable the service
+1. We configured puppet:agent on www:
+  1. Set config\/server
+  2. Refresh the service
+  3. Enabled the service
+  4. Stopped but did not disable the service
 
-2. Distributed .zshrc from a single manifest
+2. Distributed .zshrc from a single manifest.
 
-3. Created just enough of a private \(lab\) puppet module to server files
+3. Created just enough of a private \(lab\) puppet module to server files.
 
-4. Updated site.pp to copy .zshrc to agents from the lab module
+4. Updated site.pp to copy .zshrc to agents from the lab module.
 
-5. Noticed that changes in  site.pp affect the agent running on the master and on www
+5. Noticed that changes in  site.pp affect the agent running on the master and on www.
 
-6. We introduced two lab specific shell functions
+6. We introduced two lab specific shell functions:
   1. `lab_copy <example>` lab\_copy copies files for the next lab and supports tab expansion
   2. `lab_build`lab\_build builds and installs the custom puppet module we are using to manage our customized files and manifests.
 
