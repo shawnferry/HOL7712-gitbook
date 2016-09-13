@@ -43,7 +43,7 @@ exec { 'foo':
 
 ![](/images/IDEMP-003-foo.png)
 
-### This resource will only execute the command if \/tmp\/foo is absent
+### This resource only executes the command if \/tmp\/foo is absent
 
 ```ruby
 
@@ -55,13 +55,13 @@ exec { 'foo':
 
 ![](/images/IDEMP-004-creates.png)
 
-## Why should you care?
+## Why Should You Care?
 
 For now,  you don't care. You can however apply manifests as many times as you want and it shouldn't make changes after the system is in the expected state.
 
-Later when you are managing your multi-server environment you will be seeing reports of changes being made on every run.
+Later, when you are managing your multi-server environment, you will see reports of changes being made on every run.
 
 See also: [Introduction to Puppet](https://docs.puppet.com/guides/introduction.html) and [Puppet Type Reference](https://docs.puppet.com/puppet/latest/reference/type.html)
 
-[^1]: You may see an example in this lab where a provider is unexpectedly not idempotent
+[^1]: You may see an example in this lab where a provider is unexpectedly not idempotent.
 
