@@ -80,7 +80,7 @@ $$
   ![](/images/SETUP-012-svcadm-enable.png)
 
 
-## Puppet.conf after SMF Configuration
+## puppet.conf After SMF Configuration
 
 
 $$
@@ -154,7 +154,7 @@ $$
   ![](/images/SETUP-017.1-resource-e.png)
 
 
-## View the host resources again
+## View the Host Resources Again
 
 
 $$
@@ -162,7 +162,7 @@ Command - 18
 $$
 
 
-1. Note the entry in host\_aliases for puppet which was just added.
+1. Note the entry in host\_aliases for Puppet that was just added.
 
   `puppet resource host puppet-lab`
   ![](/images/SETUP-018-resource-after.png)
