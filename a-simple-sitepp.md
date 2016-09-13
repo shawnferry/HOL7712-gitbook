@@ -48,7 +48,7 @@ $$
   ![](/images/SIMPLE01-PUP-023-puppet-agent.png)
 
 
-## Exec zsh to get the new prompt
+## Exec zsh to Get the New Prompt
 
 
 $$
@@ -56,7 +56,7 @@ WWW-7
 $$
 
 
-1. Now that we have created a \/root\/.zshrc run zsh
+1. Now that we have created a \/root\/.zshrc, run zsh.
   `exec zsh`
   ![](/images/SIMPLE01-WWW-007-prompt.png)
 
