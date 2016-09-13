@@ -1,15 +1,15 @@
 # Enabling Puppet on Solaris
 
-So far we have only executed puppet against a local manifest to bootstrap the lab environment. Given that the title of the lab '_Oracle Solaris Administration with Puppet'_ when can we get to some actual administration?
+So far, we have only executed puppet against a local manifest to bootstrap the lab environment. Given that the title of the lab '_Oracle Solaris Administration with Puppet'_ when can we get to some actual administration?
 
-We are almost there but first we need to do a few more configration steps. It is possible to do all the remaining configuration via puppet manifests but we will use Solaris commands for some of the steps instead.
+We are almost there but first we need to do a few more configuration steps. It is possible to do all the remaining configuration via puppet manifests but we use Solaris commands for some of the steps instead.
 
-## Wait what's SMF and why can't I edit this file?
+## Wait What's SMF and Why Can't I Edit This File?
 
 The Solaris Service Management Facility replaces traditional init scripts. Solaris has added stencils to convert repository data into traditional configuration files, puppet.conf is one of the files managed via stencils.
-See [Introducing SMF Stencils](https://blogs.oracle.com/SolarisSMF/entry/introducing_smf_stencils) for much more information on the topic
+See [Introducing SMF Stencils](https://blogs.oracle.com/SolarisSMF/entry/introducing_smf_stencils) for much more information on the topic.
 
-## Puppet.conf before configuration
+## Puppet.conf Before Configuration
 
 
 $$
@@ -17,7 +17,7 @@ PUP-8
 $$
 
 
-1. No configuration data present
+1. Confirm that no configuration data present.
   `cat /etc/puppet/puppet.conf`![](/images/SETUP-008-puppet-conf-before.png)
 
 ## Configure Puppet Master Server
@@ -28,7 +28,7 @@ PUP-9
 $$
 
 
-1. Change the config\/server property on puppet:master to set the name of the puppet server. In this lab everyone should be able to use the server called 'puppet'. In your environment you would want to use the FQDN of your puppet master.
+1. Change the config\/server property on puppet:master to set the name of the puppet server. In this lab, everyone should be able to use the server called 'puppet'. In your environment, you would want to use the FQDN of your puppet master.
 
   `svccfg -s puppet:master setprop config/server=puppet`
 
@@ -43,14 +43,14 @@ PUP-10
 $$
 
 
-1. Change the config\/server property on puppet:agent to set the name of the puppet server. In this lab everyone should be able to use the server called 'puppet'. In your environment you would want to use the FQDN of your puppet master.
+1. Change the config\/server property on puppet:agent to set the name of the puppet server. In this lab, everyone should be able to use the server called 'puppet'. In your environment, you would want to use the FQDN of your puppet master.
 
   `svccfg -s puppet:agent setprop config/server=puppet`
 
   ![](/images/SETUP-010-svccfg-agent.png)
 
 
-## Refresh Master and Agent config
+## Refresh Master and Agent Configuration
 
 
 $$
@@ -58,14 +58,14 @@ PUP-11
 $$
 
 
-1. Refresh the services to reload the configuration
+1. Refresh the services to reload the configuration.
 
   `svcadm refresh puppet:master puppet:agent`
 
   ![](/images/SETUP-011-svcadm-refresh.png)
 
 
-## Enable puppet:master and puppet:agent
+## Enable puppet:master and puppet:agent Services
 
 
 $$
