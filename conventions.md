@@ -23,7 +23,7 @@ Images may also use inline text annotation:
 
 ![](/images/SIMPLE01-WWW-006-agent.png)
 
-Command references will be shown as
+Command references are shown as:
 
 
 $$
@@ -31,7 +31,7 @@ $$
 $$
 
 
-Thus the following is command 5 on the server puppet-lab
+Thus, the following is command 5 on the server puppet-lab:
 
 
 $$
@@ -39,7 +39,7 @@ PUP-5
 $$
 
 
-Command 10 on WWW
+Command 10 on WWW is shown as:
 
 
 $$
