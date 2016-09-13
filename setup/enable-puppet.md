@@ -28,7 +28,7 @@ PUP-9
 $$
 
 
-1. Change the config\/server property on puppet:master to set the name of the puppet server. In this lab, everyone should be able to use the server called 'puppet'. In your environment, you would want to use the FQDN of your puppet master.
+1. Change the config\/server property on puppet:master to set the name of the Puppet server. In this lab, everyone should be able to use the server called 'puppet'. In your environment, you would want to use the FQDN of your Puppet master.
 
   `svccfg -s puppet:master setprop config/server=puppet`
 
@@ -43,7 +43,7 @@ PUP-10
 $$
 
 
-1. Change the config\/server property on puppet:agent to set the name of the puppet server. In this lab, everyone should be able to use the server called 'puppet'. In your environment, you would want to use the FQDN of your puppet master.
+1. Change the config\/server property on puppet:agent to set the name of the Puppet server. In this lab, everyone should be able to use the server called 'puppet'. In your environment, you would want to use the FQDN of your Puppet master.
 
   `svccfg -s puppet:agent setprop config/server=puppet`
 
@@ -94,7 +94,7 @@ $$
   ![](/images/SETUP-013.1-puppet-conf-after.png)
 
 
-## Place puppet:agent State to Maintenance
+## Place puppet:agent State in Maintenance
 
 
 $$
