@@ -35,9 +35,9 @@ Solaris 12:
 
 ## Puppet Support for Solaris
 
-Puppet has had support for Solaris since Solaris 10 including the following types
+Puppet has had support for Solaris since Solaris 10 including the following types:
 
-* zfs - Manage zfs. Create destroy and set properties on zfs instances.
+* zfs - Manage zfs. Create, destroy, and set properties on zfs instances.
 * zone - Manage zones
 * zpool - Manage zpools. Create and delete zpools.
 * package - Install and remove packages
@@ -46,7 +46,7 @@ Puppet has had support for Solaris since Solaris 10 including the following type
 Oracle has extended that support with additional types for Solaris in
 the
 [oracle-solaris\_providers](https://github.com/oracle/puppet-solaris_providers)
-puppet module. As of this writing, the module is not available on the Puppet
+Puppet module. As of this writing, the module is not available on the Puppet
 Forge.
 
 ## Oracle Additions to Puppet
