@@ -1,10 +1,10 @@
-# Adding a Kernel Zone
+# Adding a Non-Global Zone
 
 We return to our lab module to provide the needed zone configuration files.
 
 ## Update the Lab Module
 
-1. Make a directory to hold the zone configuration
+1. Make a directory to hold the zone configuration.
   `mkdir -p /root/oracle-lab/files/zones`
 2. Copy the zone configuration and profile to `/root/oracle-lab/files/zones`
   `cp -r /root/HOL7712-Solaris-Puppet/labfiles/zones /root/oracle-lab/files/zones`
