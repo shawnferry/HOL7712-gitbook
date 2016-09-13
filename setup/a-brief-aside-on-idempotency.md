@@ -32,7 +32,7 @@ before      => Exec['vundle plugins'];
 }
 ```
 
-### This resource will report a _change_ on every execution
+### This resource reports a _change_ on every execution
 
 ```ruby
 exec { 'foo':
