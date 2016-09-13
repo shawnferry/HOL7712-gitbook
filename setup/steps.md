@@ -1,6 +1,6 @@
 # Getting to know the environment
 
-We will be working in terminal for this lab using the Vim editor. The demo steps will be performed in a terminal that very closely matches the screenshots used in this document. The appearance of your system should be close to those shown here.
+We are working in a terminal window for this lab using the Vim editor. The steps are performed in a terminal that very closely matches the screenshots used in this document. The appearance of your system should be close to those shown here.
 
 ## Change to root's home directory
 
@@ -17,7 +17,7 @@ PUP-1
 $$
 
 
-1. We are not making any changes to setup.pp, briefly note the appearance of the file at this time. This fairly simple manifest contains a set of resource definitions used to bring a fresh system into the starting state for the lab.
+1. We are not making any changes to setup.pp but briefly note the appearance of the file at this time. This fairly simple manifest contains a set of resource definitions used to bring a fresh system into the starting state for the lab.
   `vi HOL7712-Solaris-Puppet/setup.pp`
 
 ![](/images/SETUP-001-vi-setup.png)![](/images/SETUP-002-setup-before.png)
