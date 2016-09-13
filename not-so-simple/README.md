@@ -1,6 +1,6 @@
 # Configuring Apache
 
-Solaris 12 includes an installation of apache by default. We will be modifying the configuration of the existing install using the puppetlabs-apache puppet module.
+This Solaris release includes an installation of Apache by default. We modify the configuration of the existing install using the puppetlabs-apache Puppet module.
 
 ## Step Overview
 
@@ -19,9 +19,9 @@ Solaris 12 includes an installation of apache by default. We will be modifying t
 
 ## Note
 
-We will mainly be using the `lab_copy`function for these steps. Lab\_copy will assemble site.pp from fragments which will be discussed individually. Remember that lab\_copy is configured with tab completion. Changes to \/etc\/puppet\/manifests\/site.pp will be lost from step to step.
+We mainly use the `lab_copy`function for these steps. Lab\_copy assembles site.pp from fragments which are discussed individually. Remember that lab\_copy is configured with tab completion. Changes to \/etc\/puppet\/manifests\/site.pp will be lost from step to step.
 
 `lab_copy e002_better`
 
-As you are now more familiar with the steps we are taking the number of screenshots showing things like simple command execution will be reduced.
+As you are now more familiar with the steps, we are taking the number of screenshots showing things like simple command execution are reduced.
 

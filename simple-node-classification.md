@@ -1,14 +1,14 @@
 # Fairly Simple Node Classification
 
-Up to this point we have been working with all nodes configured identically.  We will take the combined manifests from the previous steps and group them into logical units.
+Up to this point, we have been working with all nodes configured identically.  Here, we take the combined manifests from the previous steps and group them into logical units.
 
-We also integrate some simple use of hiera for configuration data. This example is not representative of a well formed manifest. Class and node designations will not be defined in a single file in production usage.
+We also integrate some simple use of hiera for configuration data. This example is not representative of a well-formed manifest. Class and node designations are defined in a single file in production usage.
 
-## Reviewing the manifest
+## Reviewing the Manifest
 
-Below review of the site.pp for Example 6. Some repetitive sections and resources will not be explored in depth.
+Review of the site.pp for Example 6 below. Some repetitive sections and resources are explored in depth.
 
-### Set variables from hiera data
+### Set Variables from hiera Data
 
 Using an external datasource allows us to extract configuration from code.
 
@@ -18,7 +18,7 @@ $lab_homedir = hiera('lab::homedir', '/root')
 $lab_sources = hiera('lab::sources')
 ```
 
-### Define a class for resources we want to apply to all hosts
+### Define a Class for Resources We Want to Apply to All Hosts
 
 Note the switch to variables.
 
@@ -39,7 +39,7 @@ lab::pkg:
     origin: http://ipkg.us.oracle.com/solaris12/minidev/
 ```
 
-Instead of hard coding values in manifests the data is stored in hiera where it can be applied based on node classification. As shown above our publisher origin has changed from the previous value. We will restore that configuration at the end of this review.
+Instead of hard coding values in manifests, the data is stored in hiera where it can be applied based on node classification. As shown above, our publisher origin has changed from the previous value. We restore that configuration at the end of this review.
 
 ```ruby
   pkg_publisher { $::lab_pkg['solaris']['publisher']:
