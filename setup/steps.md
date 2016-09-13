@@ -1,8 +1,8 @@
-# Getting to know the environment
+# Getting to Know the Environment
 
 We are working in a terminal window for this lab using the Vim editor. The steps are performed in a terminal that very closely matches the screenshots used in this document. The appearance of your system should be close to those shown here.
 
-## Change to root's home directory
+## Change to root's Home Directory
 
 1. All commands in the setup steps are executed from root's home directory. \/root
 
@@ -22,7 +22,7 @@ $$
 
 ![](/images/SETUP-001-vi-setup.png)![](/images/SETUP-002-setup-before.png)
 
-## Apply the setup.pp manifest
+## Apply the setup.pp Manifest
 
 
 $$
@@ -37,16 +37,16 @@ $$
 
 ![](/images/SETUP-002-apply-setup.png)
 
-### What does setup.pp do? What did apply do?
+### What Does setup.pp Do? What Did Apply Do?
 
-1. Set variables
+1. Set variables.
 
   ```ruby
   $lab_homedir = '/root'
   $labdir = "${lab_homedir}/HOL7712-Solaris-Puppet"
   ```
 
-2. Install packages via the package resource using Solaris pkg and a gem via the gem provider
+2. Install packages via the package resource using Solaris pkg and a gem via the gem provider.
 
   ```ruby
   $packages = [ 'git', 'editor/vim' ]
@@ -61,7 +61,7 @@ $$
   }
   ```
 
-3. Modify and copy .dotfiles, create various directories
+3. Modify and copy .dotfiles, create various directories.
 
   ```ruby
   # Make puppet-lint available on our path
@@ -78,7 +78,7 @@ $$
   }
   ```
 
-4. Install a vim plugin manager and a number of plugins
+4. Install a vim plugin manager and a number of plugins.
 
   ```ruby
   exec { 'vundle install':
@@ -132,7 +132,7 @@ $$
 
 Setup.pp delivered a file into \/root called invalid.pp but how do we know that it is invalid?
 
-1. You can attempt to apply the manifest directly
+1. You can attempt to apply the manifest directly.
   `puppet apply invalid.pp`
 
 > Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
@@ -162,7 +162,7 @@ Why is this better?
 
 * Catch errors before they are promoted to production
 
-* Breaking the manifest on the master will prevent agents from running
+* Breaking the manifest on the master prevents agents from running
 
 
 ### Puppet Lint
@@ -177,7 +177,7 @@ $$
 
 ![](/images/SETUP-006-puppet-lint.png)
 
-### Is there a better way to validate and lint my puppet code?
+### Is there a better way to validate and lint my Puppet code?
 
 
 $$
@@ -189,7 +189,7 @@ Yes! and I'm glad you asked.
 
 Setup.pp has added inline validation and linting via syntastic.
 
-## ![](/images/SETUP-007-vi-invalid.png)Fix the syntax error
+## ![](/images/SETUP-007-vi-invalid.png)Fix the Syntax Error
 
 Syntastic highlights the error at line 10 of invalid.pp after running `puppet parser --validate` automatically for you. The text of the error is provided in the error window at the bottom of the screen.
 
