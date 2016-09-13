@@ -48,7 +48,7 @@ Instead of hard coding values in manifests, the data is stored in hiera where it
 }
 ```
 
-### Create a class for all agent nodes
+### Create a Class for All Agent Nodes
 
 ```ruby
 # All the puppet agents get these resources
@@ -60,9 +60,9 @@ class lab::agents {
 }
 ```
 
-### Create a class for puppet masters
+### Create a Class for Puppet Masters
 
-We only need to install puppetlabs-apache on the master. Pluginsync will copy the module files to the nodes.
+We only need to install puppetlabs-apache on the master. Pluginsync copies the module files to the nodes.
 
 ```ruby
 # resources only for the master server
@@ -80,9 +80,9 @@ class lab::master {
 }
 ```
 
-### Create a class to apply package server configuration
+### Create a Class to Apply Package Server Configuration
 
-A subset of the apache configuration described in [Depot Server Apache Configuration](https://docs.oracle.com/cd/E23824_01/html/E21803/apache-config.html) has been implemented via functions of the puppetlabs-apache module. Our package server will use a reverse proxy from Apache, note that we have not yet defined the lab::webserver class we include in here.
+A subset of the Apache configuration described in [Depot Server Apache Configuration](https://docs.oracle.com/cd/E23824_01/html/E21803/apache-config.html) has been implemented via functions of the puppetlabs-apache module. Our package server uses a reverse proxy from Apache, note that we have not yet defined the lab::webserver class we include in here.
 
 ```ruby
   # configuration for the package server
@@ -166,7 +166,7 @@ A subset of the apache configuration described in [Depot Server Apache Configura
   }
 ```
 
-### Create a class for generic web servers
+### Create a Class for Generic Web Servers
 
 The following settings will be applied to any node that includes the webserver class.
 
