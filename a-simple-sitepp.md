@@ -1,8 +1,8 @@
-# Creating a very simple site.pp
+# Creating a Very Simple site.pp
 
-In the Adding an Agent section we observed a difference in the prompts between the two systems. We will use puppet to distribute a .dotfile to all it's agents.
+In the Adding an Agent section, we observed a difference in the prompts between the two systems. We use Puppet to distribute a .dotfile to all it's agents.
 
-## Copy the manifest to \/etc\/puppet\/manifests\/site.pp
+## Copy the Manifest to \/etc\/puppet\/manifests\/site.pp
 
 
 $$
@@ -10,7 +10,7 @@ PUP-22
 $$
 
 
-1. Even though this is a simple manifest it is not especially easy to type. We will copy it for this first example.
+1. Even though this is a simple manifest it is not especially easy to type. We copy it for this first example.
   `lab_copy 001-simple`
 
   > lab\_copy is a shell function that executes puppet apply with a tag limiting the execution to a subset of the resources defined in the manifest. The shell equivalent to this step is
