@@ -1,6 +1,6 @@
 # Adding an Agent Node
 
-Everything we have done in puppet so far can be achieved by simply using `puppet apply` on a single node. We will walk through adding a second node to the puppet configuration.
+Everything we have done in Puppet so far can be achieved by simply using `puppet apply` on a single node. We walk through adding a second node to the Puppet configuration.
 
 ### Steps Overview
 
