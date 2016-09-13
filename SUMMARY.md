@@ -12,11 +12,11 @@
 * [Adding an Agent Node](agents/README.md)
     * [Add the Agent](agents/add-the-agent.md)
 * [A Reasonably Simple site.pp](a-simple-sitepp.md)
+* [Adding a Kernel Zone](adding-a-kernel-zone.md)
 * [A Noticeably Less Simple site.pp](not-so-simple/README.md)
     * [The Better Way](not-so-simple/the-better-way.md)
     * [Create A Repository](not-so-simple/create-a-repo.md)
     * [Configure Apache](not-so-simple/configure-apache.md)
 * [Simple Node Classification](simple-node-classification.md)
-* [Adding a Kernel Zone](adding-a-kernel-zone.md)
 * [Setup Apache on WWW Node](setup-apache-on-www-node.md)
 
