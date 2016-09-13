@@ -20,7 +20,7 @@ $$
   ![](/images/SIMPLE01-PUP-022-cp-001.png)
 
 
-## Execute the agent on WWW server
+## Execute the Agent on WWW Server
 
 
 $$
@@ -32,7 +32,7 @@ $$
   `puppet agent -t`
   ![](/images/SIMPLE01-WWW-006-agent.png)
 
-## Execute puppet agent on the puppet master
+## Execute the Puppet Agent on the Puppet Master
 
 
 $$
