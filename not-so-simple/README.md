@@ -9,7 +9,7 @@ This Solaris release includes an installation of Apache by default. We modify th
   1. We have pre-mirrored a portion of the solaris publisher
   2. Publish the repository to the local environment
 
-3. Enable Apache, Break, then fix the Pacakge Server
+3. Enable Apache, Break, then fix the Package Server
   1. Notice that our publisher is no longer working
   2. Reconfigure the package server 
   3. Setup a virtual host and reverse proxy in apache
