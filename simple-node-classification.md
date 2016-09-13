@@ -168,7 +168,7 @@ A subset of the Apache configuration described in [Depot Server Apache Configura
 
 ### Create a Class for Generic Web Servers
 
-The following settings will be applied to any node that includes the webserver class.
+The following settings is applied to any node that includes the webserver class.
 
 **WARNING**: Configurations not managed by Puppet will be purged.
 
@@ -190,9 +190,9 @@ The following settings will be applied to any node that includes the webserver c
     }
 ```
 
-### Classify the nodes
+### Classify the Nodes
 
-Defining classes doesn't apply the resources to any nodes. After moving _all_ of the resources into classes the manifest will be effectively empty. We need to classify the nodes and apply the desired classes. See [Node Definitions](https://docs.puppet.com/puppet/latest/reference/lang_node_definitions.html)
+Defining classes doesn't apply the resources to any nodes. After moving _all_ of the resources into classes the manifest will be effectively empty. We need to classify the nodes and apply the desired classes. See [Node Definitions](https://docs.puppet.com/puppet/latest/reference/lang_node_definitions.html).
 
 ```ruby
     # Set the default node behavior. In conjunction with the common class and no
@@ -213,14 +213,14 @@ Defining classes doesn't apply the resources to any nodes. After moving _all_ of
     }
 ```
 
-## Running the example code
+## Running the Example Code
 
-1. Copy the example manifest
+1. Copy the example manifest.
   `lab_copy e006_nodes`
-2. Apply the configuration on the master
+2. Apply the configuration on the master.
   `puppet agent -t`
 
-Now that our manifest has been split into classes and applied what has happened? What changed? If our refactored manifest is functionally identical to the previous manifests nothing has changed.
+Now that our manifest has been split into classes and applied, what has happened? What changed? If our refactored manifest is functionally identical to the previous manifests nothing has changed.
 
 1. Clearly that isn't the case as our publishers have changed:
 
