@@ -13,9 +13,9 @@ We return to our lab module to provide the needed zone configuration files.
 
 ## Copy Lab Files
 
-1. Update site.pp from Example 7
+1. Update site.pp from Example 7.
   `lab_copy e007_www_zone`
-2. Review site.pp changes
+2. Review site.pp changes.
   We introduce some simple node classification here. To create the zone only on hosts named `www.*`we add a node classification.
 
   ```ruby
@@ -33,11 +33,11 @@ We return to our lab module to provide the needed zone configuration files.
   }
   ```
 
-3. In a separate window run the agent on WWW.
+3. In a separate window, run the agent on WWW.
   `puppet agent -t -d`
 
-4. Execution may take some time[^1]
+4. Execution may take some time[^1].
 
 
-[^1]: Continue with the lab
+[^1]: Continue with the lab.
 
