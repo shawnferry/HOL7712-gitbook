@@ -258,18 +258,18 @@ Now that our manifest has been split into classes and applied, what has happened
   > 
   > }
 
-  In our publishers example we defined two origins, in our refactored example we use only the variable. We need to set the desired origin for our puppet master.
+  In our publishers example we defined two origins, in our refactored example we use only the variable. We need to set the desired origin for our Puppet master.
 
 
-## Restore the master publisher configuration
+## Restore the Master Publisher Configuration
 
 $$PUP-??$$
 
-1. Copy the data file for the puppet master to the hiera data directory
+1. Copy the data file for the Puppet master to the hiera data directory.
   `cp /root/HOL7712-Solaris-Puppet/labfiles/hiera/puppet-lab.oracle.lab.yaml /var/lib/hiera/`
 
-2. Edit `/var/lib/hiera/puppet-lab.oracle.lab.yaml`uncomment the publisher line. Make sure you maintain spacing in the file.
+2. Edit `/var/lib/hiera/puppet-lab.oracle.lab.yaml`to uncomment the publisher line. Make sure you maintain spacing in the file.
 
 
-1. Run `puppet agent -t`publishers on the master should be restored to the previous configuration.
+1. Run `puppet agent -t`. Publishers on the master should be restored to the previous configuration.
 
