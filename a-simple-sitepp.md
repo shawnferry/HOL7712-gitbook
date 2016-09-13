@@ -60,7 +60,7 @@ $$
   `exec zsh`
   ![](/images/SIMPLE01-WWW-007-prompt.png)
 
-## Edit \/etc\/puppet\/manifests\/site.pp on the master
+## Edit \/etc\/puppet\/manifests\/site.pp on the Master
 
 
 $$
@@ -68,7 +68,7 @@ PUP-24
 $$
 
 
-1. Wait you said this was simple! Puppet lint shows you an error about variables in single quoted strings! The example in 001-simple-site.pp uses the `content` parameter to the file type.  It is technically simple but it isn't a very good implementation.
+1. Wait, you said this was simple! Puppet lint shows you an error about variables in single quoted strings! The example in 001-simple-site.pp uses the `content` parameter to the file type.  It is technically simple but it isn't a very good implementation.
   ![](/images/SIMPLE01-PUP-024.0-vi-sitepp.png)![](/images/SIMPLE01-PUP-024.1-vi-sitepp.png)
 
 # Simplifying site.pp by using a module to distribute a file
