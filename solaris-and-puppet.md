@@ -43,10 +43,10 @@ Puppet has had support for Solaris since Solaris 10 including the following type
 * package - Install and remove packages
 * service - enable and disable services
 
-Oracle has extended that support with additional types for Solaris 11 and 12 in
+Oracle has extended that support with additional types for Solaris in
 the
 [oracle-solaris\_providers](https://github.com/oracle/puppet-solaris_providers)
-puppet module. As of this writing the module is not available on the Puppet
+puppet module. As of this writing, the module is not available on the Puppet
 Forge.
 
 ## Oracle Additions to Puppet
