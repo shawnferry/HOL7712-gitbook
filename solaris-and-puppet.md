@@ -1,8 +1,8 @@
 # Solaris and Puppet
 
-IPS Packages for Puppet in Solaris 12
+IPS Packages for Puppet in Solaris
 
-Package management in Solaris 11 and 12 is via the Image Packaging System.
+Package management in Solaris is via the Image Packaging System.
 Oracle patches, builds, and ships a number of packages for Puppet. Puppet is
 installed via `pkg install puppet`and a minimal subset of providers are
 automatically installed.
