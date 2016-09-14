@@ -24,12 +24,12 @@ We return to our lab module to provide the needed zone configuration files.
   ######
 
   node /www.*/ {
-     zone { 'www-kz01':
-          ensure         => 'running',
-          zonecfg_export => 'puppet:///modules/lab/zones/www-kz.zcfg',
-          config_profile => 'puppet:///modules/lab/zones/www-kz01.xml'
-     }
-   }
+    zone { 'www-kz01':
+         ensure         => 'running',
+         zonecfg_export => 'puppet:///modules/lab/zones/www-kz.zcfg',
+         config_profile => 'puppet:///modules/lab/zones/www-kz01.xml'
+    }
+  }
   }
   ```
 
