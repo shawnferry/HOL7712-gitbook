@@ -190,7 +190,7 @@ $$
 
 Yes! and I'm glad you asked.
 
-Setup.pp has added inline validation and linting via syntastic.
+The setup.pp manifest has added inline validation and linting via syntastic.
 
 ## ![](/images/SETUP-007-vi-invalid.png)Fix the Syntax Error
 
