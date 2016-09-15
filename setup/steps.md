@@ -121,6 +121,7 @@ $$
 
 
 ![](/images/SETUP-003-vi-setup.png)![](/images/SETUP-003-setup-after.png)
+Then, quit the file (:q!).
 
 ## Let Puppet Help You
 
