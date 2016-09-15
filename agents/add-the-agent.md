@@ -85,7 +85,7 @@ $$
   ![](/images/ADD01-WWW-004-svcadm-mark.png)
 
 
-## Test Agent Connection
+## Test Puppet Agent Connection
 
 
 $$
