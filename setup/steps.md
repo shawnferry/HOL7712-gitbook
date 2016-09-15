@@ -21,7 +21,7 @@ $$
   `vi HOL7712-Solaris-Puppet/setup.pp`
 
 ![](/images/SETUP-001-vi-setup.png)![](/images/SETUP-002-setup-before.png)
-Then, :q! the file.
+Then, exit the file (:q!).
 
 ## Apply the setup.pp Manifest
 
