@@ -20,7 +20,7 @@ $$
   > not installed.  Reverting to C locale.
   > No updates necessary for this image.
 
-2. Optionally check the version of puppet:
+2. Optionally check the version of Puppet:
  
  `puppet -V`
 
@@ -52,7 +52,8 @@ WWW-2
 $$
 
 
-1. Refreshing puppet:agent loads the configuration changes we just made in SMF
+1. Refreshing puppet:agent loads the configuration changes we just made in SMF:
+
   `svcadm refresh puppet:agent`
   ![](/images/ADD01-WWW-002-svcadm-refresh.png)
 
@@ -64,7 +65,8 @@ WWW-3
 $$
 
 
-1. Remember, enabling the agent writes the puppet.conf file
+1. Remember, enabling the agent writes the puppet.conf file:
+
   `svcadm enable puppet:agent`
   ![](/images/ADD01-WWW-003-svcadm-enable.png)
 
@@ -83,7 +85,7 @@ $$
   ![](/images/ADD01-WWW-004-svcadm-mark.png)
 
 
-## Test agent connection
+## Test Agent Connection
 
 
 $$
