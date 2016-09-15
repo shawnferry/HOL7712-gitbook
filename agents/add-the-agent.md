@@ -102,7 +102,8 @@ PUP-20
 $$
 
 
-1. Get the list of certs waiting to be signed
+1. Get the list of certs waiting to be signed.
+
   `puppet cert list`
 
   > "www.oracle.lab" \(SHA256\) 42:77:38:C8:C0:7F:0B:9B:4E:90:F7:EA:2C:76:99:48:CE:63:6B:1D:9D:DA:67:46:06:A3:AB:50:16:3E:CC:23[^2]
@@ -116,28 +117,30 @@ PUP-21
 $$
 
 
-1. Sign the cert you should only have one certificate to sign
+1. Sign the cert you should only have one certificate to sign:
+
+
   `puppet cert sign www.oracle.lab`
 
-  > Notice: Signed certificate request for www.oracle.lab
+  > Notice: Signed certificate request for www.oracle.lab.
 
 
 ![](/images/ADD01-PUP-021-cert-sign.png)
 
-## What just happened, again?
+## What Just Happened, Again?
 
 \[pluginsync\]
 
-After the certificate is signed the puppet agent will be able to connect to the master. When the first connection is made pluginsync copies all the plugins from the master to the agent. I pre-connected the agent then disconnected it, removed some of the files and ran through the steps again. Puppet only copies the files that are missing or changed.
-**Note:** If your agent timed out or you don't feel like waiting you can just run it again\/kill it and run it again.
+After the certificate is signed, the puppet agent is able to connect to the master. When the first connection is made, pluginsync copies all the plugins from the master to the agent. I pre-connected the agent then disconnected it, removed some of the files and ran through the steps again. Puppet only copies the files that are missing or changed.
+**Note:** If your agent timed out or you don't feel like waiting, you can just run it again\/kill it and run it again.
 
-## Why aren't we using the same prompt on the agent?
+## Why Aren't We Using the Same Prompt on the Agent?
 
-It's all about the examples
+It's all about the examples.
 
 # Review
 
-In this section we took the following steps
+In this section, we took the following steps:
 
 1. Installed puppet on the agent
 2. Configured, refreshed, enabled and stopped the puppet:agent service
