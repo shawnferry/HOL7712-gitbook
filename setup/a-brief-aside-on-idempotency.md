@@ -4,6 +4,9 @@ When you are executing Puppet manifests, nothing should change on repeated runs 
 
 ## Why Was There a Change Just Now?
 
+1. Apply setup.pp again:
+
+   'puppet apply HOL7712-Solaris-Puppet/setup.pp'
 ![](/images/IDEMP-001-changes.png)
 
 When you applied setup.pp, why was there a change the second time but not the third or Nth time? If you updated invalid.pp in the previous steps, it will have been overwritten with the original file content.
