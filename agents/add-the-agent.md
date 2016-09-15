@@ -2,7 +2,7 @@
 
 ## Open a Second Window
 
-We will need to perform actions on both the puppet master and the agent \(www\) node.
+We need to perform actions on both the puppet master and the agent \(www\) node.
 
 ## Install the Puppet[^1] Package
 
