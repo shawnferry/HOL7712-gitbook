@@ -97,7 +97,7 @@ $$
   `puppet agent --test -w 120`
   ![](/images/ADD01-WWW-005.0-puppet-agent.png)
 
-## Sign the agent certificate \(on master\)
+## Sign the Agent Certificate the Puppet Master
 
 
 $$
