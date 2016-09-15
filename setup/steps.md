@@ -115,7 +115,7 @@ PUP-3
 $$
 
 
-1. Once setup.pp has be applied differences will be apparent in vim. The setup.pp file content is identical but the display now includes line numbers, a column indicator for 80 columns, and syntax highlighting.
+1. Once setup.pp is applied, differences are apparent in vim. The setup.pp file content is identical but the display now includes line numbers, a column indicator for 80 columns, and syntax highlighting.
 
   `vi HOL7712-Solaris-Puppet/setup.pp`
 
