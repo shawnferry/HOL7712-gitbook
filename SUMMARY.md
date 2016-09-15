@@ -18,5 +18,5 @@
     * [Create A Repository](not-so-simple/create-a-repo.md)
     * [Configure Apache](not-so-simple/configure-apache.md)
 * [Simple Node Classification](simple-node-classification.md)
-* [Setup Apache on WWW Node](setup-apache-on-www-node.md)
+* [Immutable Zone](immutable-zone.md)
 
