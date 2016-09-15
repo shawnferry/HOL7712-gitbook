@@ -4,7 +4,7 @@ We are working in a terminal window for this lab using the Vim editor. The steps
 
 ## Change to root's Home Directory
 
-1. All commands in the setup steps are executed from root's home directory. \/root
+1. All commands in the setup steps are executed from root's home directory. `/root`
 
   `cd /root`
 
@@ -173,7 +173,7 @@ PUP-6
 $$
 
 
-**[Puppet lint](http://puppet-lint.com/)** checks the manifest against **[The Puppet Language Style Guide](https://docs.puppet.com/guides/style_guide.html "Puppet Style Guide")**, to ensure readability and uniformity. The puppet-lint gem installed by setup.pp makes the command `puppet-lint`available on the system[^1].
+[**Puppet lint**](http://puppet-lint.com/) checks the manifest against [**The Puppet Language Style Guide**](https://docs.puppet.com/guides/style_guide.html "Puppet Style Guide"), to ensure readability and uniformity. The puppet-lint gem installed by setup.pp makes the command `puppet-lint`available on the system[^1].
 
 ![](/images/SETUP-006-puppet-lint.png)
 
