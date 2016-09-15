@@ -17,7 +17,7 @@ PUP-8
 $$
 
 
-1. Confirm that no configuration data present.
+1. Confirm that no Puppet configuration data is present.
   `cat /etc/puppet/puppet.conf`![](/images/SETUP-008-puppet-conf-before.png)
 
 ## Configure Puppet Master Server
