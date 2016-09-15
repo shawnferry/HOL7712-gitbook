@@ -17,7 +17,7 @@ PUP-1
 $$
 
 
-1. We are not making any changes to setup.pp but briefly note the appearance of the file at this time. This fairly simple manifest contains a set of resource definitions used to bring a fresh system into the starting state for the lab.
+1. We are not making any changes to setup.pp but briefly note the appearance of the file at this time. This fairly simple manifest contains a set of resource definitions used to bring a fresh system into the starting state for the lab. Run the following command:
   `vi HOL7712-Solaris-Puppet/setup.pp`
 
 ![](/images/SETUP-001-vi-setup.png)![](/images/SETUP-002-setup-before.png)
@@ -115,7 +115,7 @@ PUP-3
 $$
 
 
-1. Once setup.pp is applied, differences are apparent in vim. The setup.pp file content is identical but the display now includes line numbers, a column indicator for 80 columns, and syntax highlighting.
+1. Once setup.pp is applied, differences are apparent in vim. The setup.pp file content is identical but the display now includes line numbers, a column indicator for 80 columns, and syntax highlighting. Run the following command:
 
   `vi HOL7712-Solaris-Puppet/setup.pp`
 
@@ -135,7 +135,7 @@ $$
 
 The setup.pp manifest delivered a file into \/root called invalid.pp but how do we know that it is invalid?
 
-1. You can attempt to apply the manifest directly.
+1. You can attempt to apply the manifest directly by running the following command:
   `puppet apply invalid.pp`
 
 > Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
@@ -152,7 +152,7 @@ $$
 
 Attempting to apply the manifest may only make sense on a subset of your nodes.
 
-1. There is a better way!
+1. There is a better way! Run the following command:
   `puppet parser validate invalid.pp`
 
 > Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
