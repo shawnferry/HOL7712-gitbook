@@ -4,7 +4,7 @@
 
 We will need to perform actions on both the puppet master and the agent \(www\) node.
 
-## Install Puppet[^1]
+## Install the Puppet[^1] Package
 
 
 $$
@@ -12,7 +12,7 @@ WWW-0
 $$
 
 
-1. Install puppet
+1. Install the puppet package:
 
   `pkg install puppet`
 
@@ -20,8 +20,9 @@ $$
   > not installed.  Reverting to C locale.
   > No updates necessary for this image.
 
-2. Optionally check the version of puppet
-  `puppet -V`
+2. Optionally check the version of puppet:
+ 
+ `puppet -V`
 
   > 3.8.6
 
