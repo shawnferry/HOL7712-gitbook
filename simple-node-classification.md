@@ -6,7 +6,7 @@ We also integrate some simple use of hiera for configuration data. This example 
 
 ## Reviewing the Manifest
 
-Review of the site.pp for Example 6 below. Some repetitive sections and resources are explored in depth.
+Review of the site.pp for Example 6 below. Some repetitive sections and resources are not explored in depth.
 
 ### Set Variables from hiera Data
 
