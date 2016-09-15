@@ -132,7 +132,7 @@ PUP-4
 $$
 
 
-Setup.pp delivered a file into \/root called invalid.pp but how do we know that it is invalid?
+The setup.pp manifest delivered a file into \/root called invalid.pp but how do we know that it is invalid?
 
 1. You can attempt to apply the manifest directly.
   `puppet apply invalid.pp`
