@@ -57,7 +57,7 @@ $$
   `svcadm refresh puppet:agent`
   ![](/images/ADD01-WWW-002-svcadm-refresh.png)
 
-## Enable puppet:agent
+## Enable the Puppet Agent Service
 
 
 $$
@@ -70,7 +70,7 @@ $$
   `svcadm enable puppet:agent`
   ![](/images/ADD01-WWW-003-svcadm-enable.png)
 
-## Mark puppet:agent maintenance
+## Put Puppet Agent Service in Maintenance
 
 
 $$
