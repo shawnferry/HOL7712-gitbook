@@ -103,7 +103,7 @@ $$
 
 ### Restart your Shell
 
-1. We have modified the PATH and PROMPT for root's shell. We want these changes to take effect now.
+1. We have modified the PATH and PROMPT for root's shell. We want these changes to take effect now. Run the following command:
 
   `exec zsh`
 
