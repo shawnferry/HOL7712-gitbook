@@ -136,7 +136,8 @@ $$
 The setup.pp manifest delivered a file into \/root called invalid.pp but how do we know that it is invalid?
 
 1. You can attempt to apply the manifest directly by running the following command:
-  `puppet apply invalid.pp`
+ 
+ `puppet apply invalid.pp`
 
 > Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
 > 
