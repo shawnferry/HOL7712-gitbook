@@ -180,7 +180,7 @@ $$
 
 ![](/images/SETUP-006-puppet-lint.png)
 
-### Is there a better way to validate and lint my Puppet code?
+### Is There a Better Way to Validate and Lint my Puppet Code?
 
 
 $$
