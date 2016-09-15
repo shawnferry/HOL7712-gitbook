@@ -4,7 +4,7 @@ We are working in a terminal window for this lab using the Vim editor. The steps
 
 ## Change to root's Home Directory
 
-1. All commands in the setup steps are executed from root's home directory. `/root`
+1. All commands in the setup steps are executed from root's home directory, `/root`.
 
   `cd /root`
 
