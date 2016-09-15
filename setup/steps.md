@@ -206,8 +206,8 @@ Syntastic highlights the error at line 10 of invalid.pp after running `puppet pa
 
 2. Write the file `ESC :w`
 
-3. The error indicator is cleared. Verify by running the following command again:
-`puppet parser validate invalid.pp`
+3. The error indicator is cleared. 
+
 
   XXX: Update this image for new invalid.pp
 
