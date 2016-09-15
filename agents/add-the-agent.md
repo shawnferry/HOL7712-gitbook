@@ -44,7 +44,7 @@ $$
   ![](/images/ADD01-WWW-001-svccfg.png)
 
 
-## Refresh puppet:agent
+## Refresh the Puppet Agent Service
 
 
 $$
