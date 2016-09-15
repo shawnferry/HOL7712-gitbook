@@ -31,7 +31,7 @@ PUP-2
 $$
 
 
-1. Puppet informs us of the changes it is making as it goes.
+1. Puppet informs us of the changes it is making as it goes. Run the following command:
 
   `puppet apply -t HOL7712-Solaris-Puppet/setup.pp`
 
