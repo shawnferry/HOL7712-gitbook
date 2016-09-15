@@ -126,16 +126,14 @@ $$
 
 ## What just happened, again?
 
-\(and why does your screenshot look really different than my output\)
-
-![](/images/ADD01-WWW-005.1-pluginsync.png)
+\[pluginsync\]
 
 After the certificate is signed the puppet agent will be able to connect to the master. When the first connection is made pluginsync copies all the plugins from the master to the agent. I pre-connected the agent then disconnected it, removed some of the files and ran through the steps again. Puppet only copies the files that are missing or changed.
 **Note:** If your agent timed out or you don't feel like waiting you can just run it again\/kill it and run it again.
 
-## Why aren't you using the same prompt on the agent?
+## Why aren't we using the same prompt on the agent?
 
-It's all about the examples; we'll be addressing that in the next step.
+It's all about the examples
 
 # Review
 
