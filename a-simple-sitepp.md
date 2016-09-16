@@ -121,15 +121,24 @@ $$
 
 
 $$
-PUP-SIMPLE-8
+PUP-SIMPLE-6
 $$
 
 
 1. This step makes the file available to agents via the Puppet file server at puppet:\/\/\/modules\/lab\/zshrc
   `cp /root/HOL7712-Solaris-Puppet/labfiles/zshrc /root/oracle-lab/files`
-2. Deploy the module.
+  ![](/assets/SIMPLE-PUP-006.0.png)
+
+
+$$
+PUP-SIMPLE-7
+$$
+
+
+1. Deploy the module.
   `cd /root/oracle-lab`
   `puppet module build`
+  ![](/assets/SIMPLE-PUP-007.0.png)
 
 ![](/assets/SIMPLE-PUP-008.0.png)
 
