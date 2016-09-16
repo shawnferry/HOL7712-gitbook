@@ -23,7 +23,7 @@ $$
 ![](/assets/SETUP-PUP-001.0.png)
 ![](/assets/SETUP-PUP-001.1.png)
 
-Then, exit the file \(:q!\).
+Then, exit the file (:q!).
 
 ## Apply the setup.pp Manifest
 
@@ -127,7 +127,7 @@ $$
 ![](/assets/SETUP-PUP-003.0.png)
 ![](/assets/SETUP-PUP-003.1.png)
 
-Then, quit the file \(:q!\).
+Then, quit the file (:q!).
 
 ## Let Puppet Help You
 
