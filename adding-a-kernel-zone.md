@@ -8,10 +8,10 @@ We return to our lab module to provide the needed zone configuration files[^1].
   `mkdir -p /root/oracle-lab/files/zones`
 2. Copy the zone configuration and profile to `/root/oracle-lab/files/zones`
   `cp -r /root/HOL7712-Solaris-Puppet/labfiles/zones/ /root/oracle-lab/files/`
-3. Build and deploy the lab module. Remember that lab_build automates `puppet module build`and `puppet module install`
+3. Build and deploy the lab module. Remember that lab\_build automates `puppet module build`and `puppet module install`
   `lab_build`
-  [BUILD]
-  [LIST]
+
+  \[LIST\]
 
 ## Copy Lab Files
 
@@ -27,28 +27,31 @@ We return to our lab module to provide the needed zone configuration files[^1].
 
   # Create the zone on all www hosts
   node /www.*/ {
-    # Copy the zone configuration files
-    file {
-      "/system/zones/www-zone.zcfg":
-      ensure => present,
-      source => 'puppet:///modules/lab/zones/www-zone.zcfg';
-    "/system/zones/www-zone01.xml":
-      ensure => present,
-      source => 'puppet:///modules/lab/zones/www-zone01.xml';
-    } -> # Files must be copied before they are used
-    zone { 'www-zone01':
-      ensure         => 'running',
-      zonecfg_export => '/system/zones/www-zone.zcfg',
-      config_profile => '/system/zones/www-zone01.xml'
-    }
+   # Copy the zone configuration files
+   file {
+     "/system/zones/www-zone.zcfg":
+     ensure => present,
+     source => 'puppet:///modules/lab/zones/www-zone.zcfg';
+   "/system/zones/www-zone01.xml":
+     ensure => present,
+     source => 'puppet:///modules/lab/zones/www-zone01.xml';
+   } -> # Files must be copied before they are used
+   zone { 'www-zone01':
+     ensure         => 'running',
+     zonecfg_export => '/system/zones/www-zone.zcfg',
+     config_profile => '/system/zones/www-zone01.xml'
+   }
   }
   ```
 
 3. In a separate window, run the agent on WWW.
   `puppet agent -t -d`
 
+  ![](assets/ZONE-WWW-001.0.png)
+
 4. Execution may take some time[^1].
 
+  ![](assets/ZONE-WWW-001.1.png)
 
 [^1]: Screenshots of simple commands will be less prevalent
 
