@@ -4,7 +4,7 @@ When you are executing Puppet manifests, nothing should change on repeated runs 
 
 ## Why Was There a Change Just Now?
 
-![](/images/IDEMP-001-changes.png)
+![](/assets/IDEMP-PUP-000.0.png)
 
 When you applied setup.pp, why was there a change the second time but not the third or Nth time? If you updated invalid.pp in the previous steps, it will have been overwritten with the original file content.
 
@@ -13,7 +13,7 @@ After the system is in the state described in the setup.pp manifest, additional 
 ## Why Wasn't There a Change This Time?
 
 All the resources in setup.pp are in the desired state, no changes are made by Puppet.
-![](/images/IDEMP-002-no-changes.png)
+![](/assets/IDEMP-PUP-000.1.png)
 
 ## Where isn't Puppet Idempotent?
 
@@ -41,7 +41,7 @@ exec { 'foo':
 
 ```
 
-![](/images/IDEMP-003-foo.png)
+![](/assets/IDEMP-PUP-000.2.png)
 
 ### This resource only executes the command if \/tmp\/foo is absent
 
@@ -53,7 +53,7 @@ exec { 'foo':
 }
 ```
 
-![](/images/IDEMP-004-creates.png)
+![](/assets/IDEMP-PUP-000.3.png)
 
 ## Why Should You Care?
 

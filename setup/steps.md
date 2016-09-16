@@ -20,8 +20,8 @@ $$
 1. We are not making any changes to setup.pp but briefly note the appearance of the file at this time. This fairly simple manifest contains a set of resource definitions used to bring a fresh system into the starting state for the lab.
   `vi HOL7712-Solaris-Puppet/setup.pp`
 
-![](assets/SETUP-PUP-001.0.png)
-![](assets/SETUP-PUP-001.1.png)
+![](/assets/SETUP-PUP-001.0.png)
+![](/assets/SETUP-PUP-001.1.png)
 
 ## Apply the setup.pp Manifest
 
@@ -36,8 +36,8 @@ $$
   `puppet apply -t HOL7712-Solaris-Puppet/setup.pp`
 
 
-![](assets/SETUP-PUP-002.0.png)
-![](assets/SETUP-PUP-002.1.png)
+![](/assets/SETUP-PUP-002.0.png)
+![](/assets/SETUP-PUP-002.1.png)
 
 ### What Does setup.pp Do? What Did Apply Do?
 
@@ -120,8 +120,8 @@ $$
   `vi HOL7712-Solaris-Puppet/setup.pp`
 
 
-![](assets/SETUP-PUP-003.0.png)
-![](assets/SETUP-PUP-003.1.png)
+![](/assets/SETUP-PUP-003.0.png)
+![](/assets/SETUP-PUP-003.1.png)
 
 ## Let Puppet Help You
 
@@ -142,7 +142,8 @@ Setup.pp delivered a file into \/root called invalid.pp but how do we know that 
 > 
 > Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
 
-![](assets/SETUP-PUP-004.0.png)
+![](/assets/SETUP-PUP-004.0.png)
+
 
 $$
 PUP-SETUP-5
@@ -158,7 +159,7 @@ Attempting to apply the manifest may only make sense on a subset of your nodes.
 > 
 > Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
 
-![](assets/SETUP-PUP-005.0.png)
+![](/assets/SETUP-PUP-005.0.png)
 
 Why is this better?
 
@@ -175,9 +176,9 @@ PUP-SETUP-6
 $$
 
 
-**[Puppet lint](http://puppet-lint.com/)** checks the manifest against **[The Puppet Language Style Guide](https://docs.puppet.com/guides/style_guide.html "Puppet Style Guide")**, to ensure readability and uniformity. The puppet-lint gem installed by setup.pp makes the command `puppet-lint`available on the system[^1].
+[**Puppet lint**](http://puppet-lint.com/) checks the manifest against [**The Puppet Language Style Guide**](https://docs.puppet.com/guides/style_guide.html "Puppet Style Guide"), to ensure readability and uniformity. The puppet-lint gem installed by setup.pp makes the command `puppet-lint`available on the system[^1].
 
-![](assets/SETUP-PUP-006.0.png)
+![](/assets/SETUP-PUP-006.0.png)
 
 ### Is there a better way to validate and lint my Puppet code?
 
@@ -203,13 +204,15 @@ Syntastic highlights the error at line 10 of invalid.pp after running `puppet pa
   package { 'git':
   ```
 
-![](assets/SETUP-PUP-007.1.png)
 
-2. Write the file `ESC :w`
+![](/assets/SETUP-PUP-007.1.png)
 
-3. The error indicator is cleared.
+1. Write the file `ESC :w`
 
-![](assets/SETUP-PUP-007.2.png)
+2. The error indicator is cleared.
+
+
+![](/assets/SETUP-PUP-007.2.png)
 
 ### Fix the puppet-lint Warnings
 
@@ -225,7 +228,8 @@ Syntastic highlights the warnings at lines 17 and 18 from automatically executin
 
 4. The warning indicators are cleared.
 
-![](assets/SETUP-PUP-007.3.png)
+
+![](/assets/SETUP-PUP-007.3.png)
 
 [^1]: Puppet-lint has a --fix option that may be of use for pre-existing manifests. 
 
