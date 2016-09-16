@@ -51,7 +51,7 @@ $$
 
 
 $$
-WWW-AGENT-2
+WWW-SIMPLE-2
 $$
 
 
@@ -63,7 +63,7 @@ $$
 
 
 $$
-PUP-AGENT-3
+PUP-SIMPLE-3
 $$
 
 
@@ -73,6 +73,7 @@ $$
   ![](/assets/SIMPLE-PUP-003.1.png)
 
 2. Writing detailed modules is beyond the scope of this lab. However, we utilize a stub of a module to take advantage of puppet's [file serving capabilities](https://docs.puppet.com/puppet/latest/reference/modules_fundamentals.html#files). Puppet provides the ability to access files from the special path puppet:\/\/\/modules\/&lt;module&gt;\/&lt;filename&gt;. We use this method to truly simplify the example.
+
 
 In practice, you would generate a module with `puppet module     generate <author-module>`answer the questions and use that module to store all your custom manifests. We create a bare minimum module skipping the interview questions for the purposes of this lab.
 
@@ -86,7 +87,7 @@ In practice, you would generate a module with `puppet module     generate <autho
 
 
 $$
-PUP-AGENT-4
+PUP-SIMPLE-4
 $$
 
 
@@ -96,7 +97,7 @@ $$
 
 
 $$
-PUP-AGENT-5
+PUP-SIMPLE-5
 $$
 
 
@@ -105,16 +106,22 @@ $$
 
   ![](/assets/SIMPLE-PUP-005.0.png)
 
-## Apply the manifest
-
-![](assets/SIMPLE-WWW-003.0.png)
-
-
-## Copy zshrc to the Module's Files Directory
 
 
 $$
-PUP-AGENT-6
+WWW-SIMPLE-3
+$$
+
+
+1. On the agent apply the current config, **it will fail!**
+
+![](assets/SIMPLE-WWW-003.0.png)
+
+# Add Files to the Module
+
+
+$$
+PUP-SIMPLE-8
 $$
 
 
@@ -123,18 +130,17 @@ $$
 2. Deploy the module.
   `cd /root/oracle-lab`
   `puppet module build`
-![](/assets/SIMPLE-PUP-008.0.png)
 
+
+  ![](/assets/SIMPLE-PUP-008.0.png)
+
+3. Install the module
   `puppet module install --force ./pkg/oracle-lab-0.1.0.tar.gz`
-![](/assets/SIMPLE-PUP-009.0.png)
+  ![](/assets/SIMPLE-PUP-009.0.png)
 
-3. In the future, we will do this using the shell function `lab_build`
+4. In the future, we will do this using the shell function `lab_build`
 
-]
-
-
-
-1. If you are have issues you can't resolve with this step, run `lab_copy 002-simple`to use the example site.pp
+5. If you are have issues you can't resolve with this step, run `lab_copy 002-simple`to use the example site.pp
 
 ## Execute Puppet Agent on the Node
 
@@ -153,7 +159,7 @@ $$
 
 
 $$
-PUP-AGENT-7
+PUP-SIMPLE-7
 $$
 
 
