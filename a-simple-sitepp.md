@@ -1,4 +1,4 @@
-  ### Creating a Very Simple site.pp
+### Creating a Very Simple site.pp
 
 In the Adding an Agent section, we observed a difference in the prompts between the two systems. We use Puppet to distribute a .dotfile to all it's agents.
 
@@ -140,21 +140,22 @@ $$
   `puppet module build`
   ![](/assets/SIMPLE-PUP-007.0.png)
 
-1. Install the module
- `puppet module install --force ./pkg/oracle-lab-0.1.0.tar.gz`
- 
+2. Install the module
+  `puppet module install --force ./pkg/oracle-lab-0.1.0.tar.gz`
+
   ![](/assets/SIMPLE-PUP-008.0.png)
+
+
 
 $$
 PUP-SIMPLE-9
 $$
 
+
 1. In the future, we will do this using the shell function `lab_build`
- ![](/assets/SIMPLE-PUP-009.0.png)
+  ![](/assets/SIMPLE-PUP-009.0.png)
 
-
-3. If you are have issues you can't resolve with this step, run `lab_copy 002-simple`to use the example site.pp
-
+1. If you are have issues you can't resolve with this step, run `lab_copy 002-simple`to use the example site.pp
 
 ## Execute Puppet Agent on the Node
 
@@ -173,7 +174,7 @@ $$
 
 
 $$
-PUP-SIMPLE-7
+PUP-SIMPLE-10
 $$
 
 
