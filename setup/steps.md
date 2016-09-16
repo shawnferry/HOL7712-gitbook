@@ -23,7 +23,7 @@ $$
 ![](/assets/SETUP-PUP-001.0.png)
 ![](/assets/SETUP-PUP-001.1.png)
 
-Then, exit the file (:q!).
+Then, exit the file \(:q!\).
 
 ## Apply the setup.pp Manifest
 
@@ -110,6 +110,7 @@ $$
 
   `exec zsh`
 
+
 ## View setup.pp
 
 
@@ -122,10 +123,11 @@ $$
 
   `vi HOL7712-Solaris-Puppet/setup.pp`
 
+
 ![](/assets/SETUP-PUP-003.0.png)
 ![](/assets/SETUP-PUP-003.1.png)
 
-Then, quit the file (:q!).
+Then, quit the file \(:q!\).
 
 ## Let Puppet Help You
 
@@ -140,8 +142,9 @@ $$
 The setup.pp manifest delivered a file into /root called invalid.pp but how do we know that it is invalid?
 
 1. You can attempt to apply the manifest directly by running the following command:
- 
- `puppet apply invalid.pp`
+
+  `puppet apply invalid.pp`
+
 
 > Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at /root/invalid.pp:10 on node puppet-0.us.oracle.com
 > 
@@ -181,7 +184,7 @@ PUP-SETUP-6
 $$
 
 
-[**Puppet lint**](http://puppet-lint.com/) checks the manifest against [**The Puppet Language Style Guide**](https://docs.puppet.com/guides/style_guide.html "Puppet Style Guide"), to ensure readability and uniformity. The puppet-lint gem installed by setup.pp makes the command `puppet-lint`available on the system[^1].
+**[Puppet lint](http://puppet-lint.com/)** checks the manifest against **[The Puppet Language Style Guide](https://docs.puppet.com/guides/style_guide.html "Puppet Style Guide")**, to ensure readability and uniformity. The puppet-lint gem installed by setup.pp makes the command `puppet-lint`available on the system[^1].
 
 ![](/assets/SETUP-PUP-006.0.png)
 
@@ -199,7 +202,7 @@ The setup.pp manifest has added inline validation and linting via syntastic.
 
 `vi invalid.pp`
 
-## ![](/images/SETUP-007-vi-invalid.png)Fix the Syntax Error
+## Fix the Syntax Error
 
 Syntastic highlights the error at line 10 of invalid.pp after running `puppet parser --validate` automatically for you. The text of the error is provided in the error window at the bottom of the screen.
 
@@ -235,3 +238,4 @@ Syntastic highlights the warnings at lines 17 and 18 from automatically executin
 ![](/assets/SETUP-PUP-007.3.png)
 
 [^1]: Puppet-lint has a --fix option that may be of use for pre-existing manifests.
+
