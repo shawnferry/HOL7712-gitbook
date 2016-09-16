@@ -1,4 +1,4 @@
-# Creating a Very Simple site.pp
+### Creating a Very Simple site.pp
 
 In the Adding an Agent section, we observed a difference in the prompts between the two systems. We use Puppet to distribute a .dotfile to all it's agents.
 
@@ -13,7 +13,7 @@ $$
 1. Even though this is a simple manifest, it is not especially easy to type. We copy manifests for examples.
   `lab_copy e001-simple`
 
-  lab\_copy is a shell function that executes puppet apply with a tag limiting the execution to a subset of the resources defined in the manifest. 
+  lab\_copy is a shell function that executes puppet apply with a tag limiting the execution to a subset of the resources defined in the manifest.
 
   \[pup-simple-001\]
 
@@ -93,6 +93,7 @@ $$
 
 2. Create the files directory.
   `mkdir /root/oracle-lab/files`
+
 
 ## Copy zshrc to the Module's Files Directory
 
