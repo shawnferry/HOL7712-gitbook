@@ -1,4 +1,4 @@
-# Adding a Non-Global Zone
+# Adding a Native Zone
 
 We return to our lab module to provide the needed zone configuration files[^1].
 

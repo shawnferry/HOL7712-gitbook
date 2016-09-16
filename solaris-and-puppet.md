@@ -10,7 +10,7 @@ automatically installed.
 The full list of **pre-packaged** and **patched** Puppet modules available in
 Solaris 12:
 
-* puppet\/nanliu-staging[^1]
+* puppet/nanliu-staging[^1]
 * puppet\/openstack-cinder
 * puppet\/openstack-glance
 * puppet\/openstack-heat

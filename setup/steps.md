@@ -4,7 +4,7 @@ We are working in a terminal window for this lab using the Vim editor. The steps
 
 ## Change to root's Home Directory
 
-1. All commands in the setup steps are executed from root's home directory. `/root`
+1. All commands in the setup steps are executed from root's home directory, `/root`.
 
   `cd /root`
 
@@ -17,11 +17,13 @@ PUP-SETUP-1
 $$
 
 
-1. We are not making any changes to setup.pp but briefly note the appearance of the file at this time. This fairly simple manifest contains a set of resource definitions used to bring a fresh system into the starting state for the lab.
+1. We are not making any changes to setup.pp but briefly note the appearance of the file at this time. This fairly simple manifest contains a set of resource definitions used to bring a fresh system into the starting state for the lab. Run the following command:
   `vi HOL7712-Solaris-Puppet/setup.pp`
 
 ![](/assets/SETUP-PUP-001.0.png)
 ![](/assets/SETUP-PUP-001.1.png)
+
+Then, exit the file (:q!).
 
 ## Apply the setup.pp Manifest
 
@@ -31,7 +33,7 @@ PUP-SETUP-2
 $$
 
 
-1. Puppet informs us of the changes it is making as it goes.
+1. Puppet informs us of the changes it is making as it goes. Run the following command:
 
   `puppet apply -t HOL7712-Solaris-Puppet/setup.pp`
 
@@ -104,7 +106,8 @@ $$
 
 ### Restart your Shell
 
-1. We have modified the PATH and PROMPT for root's shell. We want these changes to take effect now.
+1. We have modified the PATH and PROMPT for root's shell. We want these changes to take effect now. Run the following command:
+
   `exec zsh`
 
 ## View setup.pp
@@ -115,13 +118,14 @@ PUP-SETUP-3
 $$
 
 
-1. Once setup.pp has be applied differences will be apparent in vim. The setup.pp file content is identical but the display now includes line numbers, a column indicator for 80 columns, and syntax highlighting.
+1. Once setup.pp is applied, differences are apparent in vim. The setup.pp file content is identical but the display now includes line numbers, a column indicator for 80 columns, and syntax highlighting. Run the following command:
 
   `vi HOL7712-Solaris-Puppet/setup.pp`
 
-
 ![](/assets/SETUP-PUP-003.0.png)
 ![](/assets/SETUP-PUP-003.1.png)
+
+Then, quit the file (:q!).
 
 ## Let Puppet Help You
 
@@ -133,10 +137,11 @@ PUP-SETUP-4
 $$
 
 
-Setup.pp delivered a file into \/root called invalid.pp but how do we know that it is invalid?
+The setup.pp manifest delivered a file into \/root called invalid.pp but how do we know that it is invalid?
 
-1. You can attempt to apply the manifest directly.
-  `puppet apply invalid.pp`
+1. You can attempt to apply the manifest directly by running the following command:
+ 
+ `puppet apply invalid.pp`
 
 > Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
 > 
@@ -152,7 +157,7 @@ $$
 
 Attempting to apply the manifest may only make sense on a subset of your nodes.
 
-1. There is a better way!
+1. There is a better way! Run the following command:
   `puppet parser validate invalid.pp`
 
 > Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
@@ -180,7 +185,7 @@ $$
 
 ![](/assets/SETUP-PUP-006.0.png)
 
-### Is there a better way to validate and lint my Puppet code?
+### Is There a Better Way to Validate and Lint my Puppet Code?
 
 
 $$
@@ -190,7 +195,7 @@ $$
 
 Yes! and I'm glad you asked.
 
-Setup.pp has added inline validation and linting via syntastic.
+The setup.pp manifest has added inline validation and linting via syntastic.
 
 `vi invalid.pp`
 
@@ -208,9 +213,7 @@ Syntastic highlights the error at line 10 of invalid.pp after running `puppet pa
 ![](/assets/SETUP-PUP-007.1.png)
 
 1. Write the file `ESC :w`
-
 2. The error indicator is cleared.
-
 
 ![](/assets/SETUP-PUP-007.2.png)
 
@@ -231,5 +234,4 @@ Syntastic highlights the warnings at lines 17 and 18 from automatically executin
 
 ![](/assets/SETUP-PUP-007.3.png)
 
-[^1]: Puppet-lint has a --fix option that may be of use for pre-existing manifests. 
-
+[^1]: Puppet-lint has a --fix option that may be of use for pre-existing manifests.

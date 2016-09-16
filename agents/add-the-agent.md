@@ -2,9 +2,9 @@
 
 ## Open a Second Window
 
-We will need to perform actions on both the puppet master and the agent \(www\) node.
+We need to perform actions on both the puppet master and the agent \(www\) node.
 
-## Install Puppet[^1]
+## Install the Puppet[^1] Package
 
 
 $$
@@ -12,7 +12,7 @@ WWW-AGENT-0
 $$
 
 
-1. Install puppet
+1. Install the puppet package:
 
   `pkg install puppet`
 
@@ -20,8 +20,9 @@ $$
   > not installed.  Reverting to C locale.
   > No updates necessary for this image.
 
-2. Optionally check the version of puppet
-  `puppet -V`
+2. Optionally check the version of Puppet:
+ 
+ `puppet -V`
 
   > 3.8.6
 
@@ -43,7 +44,7 @@ $$
 ![](/assets/AGENT-WWW-001.0.png)
 
 
-## Refresh puppet:agent
+## Refresh the Puppet Agent Service
 
 
 $$
@@ -51,11 +52,12 @@ WWW-AGENT-2
 $$
 
 
-1. Refreshing puppet:agent loads the configuration changes we just made in SMF
+1. Refreshing puppet:agent loads the configuration changes we just made in SMF:
+
   `svcadm refresh puppet:agent`
   ![](/assets/AGENT-WWW-002.0.png)
 
-## Enable puppet:agent
+## Enable the Puppet Agent Service
 
 
 $$
@@ -63,11 +65,12 @@ WWW-AGENT-3
 $$
 
 
-1. Remember, enabling the agent writes the puppet.conf file
+1. Remember, enabling the agent writes the puppet.conf file:
+
   `svcadm enable puppet:agent`
   ![](/assets/AGENT-WWW-003.0.png)
 
-## Mark puppet:agent maintenance
+## Put Puppet Agent Service in Maintenance
 
 
 $$
@@ -82,7 +85,7 @@ $$
   ![](/assets/AGENT-WWW-004.0.png)
 
 
-## Test agent connection
+## Test Puppet Agent Connection
 
 
 $$
@@ -94,7 +97,7 @@ $$
   `puppet agent --test -w 120`
   ![](/assets/AGENT-WWW-005.0.png)
 
-## Sign the agent certificate \(on master\)
+## Sign the Agent Certificate on the Puppet Master
 
 
 $$
@@ -102,7 +105,8 @@ PUP-AGENT-1
 $$
 
 
-1. Get the list of certs waiting to be signed
+1. Get the list of certs waiting to be signed.
+
   `puppet cert list`
 
   > "www.oracle.lab" \(SHA256\) 42:77:38:C8:C0:7F:0B:9B:4E:90:F7:EA:2C:76:99:48:CE:63:6B:1D:9D:DA:67:46:06:A3:AB:50:16:3E:CC:23[^2]
@@ -116,27 +120,29 @@ PUP-AGENT-2
 $$
 
 
-1. Sign the cert you should only have one certificate to sign
+1. Sign the cert you should only have one certificate to sign:
+
+
   `puppet cert sign www.oracle.lab`
 
-  > Notice: Signed certificate request for www.oracle.lab
+  > Notice: Signed certificate request for www.oracle.lab.
 
 ![](/assets/AGENT-PUP-002.0.png)
 
-## What just happened, again?
+## What Just Happened, Again?
 
 ![](/assets/AGENT-WWW-005.1.png)
 
-After the certificate is signed the puppet agent will be able to connect to the master. When the first connection is made pluginsync copies all the plugins from the master to the agent. I pre-connected the agent then disconnected it, removed some of the files and ran through the steps again. Puppet only copies the files that are missing or changed.
-**Note:** If your agent timed out or you don't feel like waiting you can just run it again\/kill it and run it again.
+After the certificate is signed, the puppet agent is able to connect to the master. When the first connection is made, pluginsync copies all the plugins from the master to the agent. I pre-connected the agent then disconnected it, removed some of the files and ran through the steps again. Puppet only copies the files that are missing or changed.
+**Note:** If your agent timed out or you don't feel like waiting, you can just run it again\/kill it and run it again.
 
-## Why aren't we using the same prompt on the agent?
+## Why Aren't We Using the Same Prompt on the Agent?
 
-It's all about the examples
+It's all about the examples.
 
 # Review
 
-In this section we took the following steps
+In this section, we took the following steps:
 
 1. Installed puppet on the agent
 2. Configured, refreshed, enabled and stopped the puppet:agent service
