@@ -8,7 +8,7 @@ We will need to perform actions on both the puppet master and the agent \(www\) 
 
 
 $$
-WWW-0
+WWW-AGENT-0
 $$
 
 
@@ -25,14 +25,14 @@ $$
 
   > 3.8.6
 
-  ![](/images/ADD01-WWW-000-install-puppet.png)
+![](/assets/AGENT-WWW-000.0.png)
 
 
 ## Modify SMF config\/server variable for puppet:agent
 
 
 $$
-WWW-1
+WWW-AGENT-1
 $$
 
 
@@ -40,38 +40,38 @@ $$
 
   `svccfg -s puppet:agent setprop config/server=puppet`
 
-  ![](/images/ADD01-WWW-001-svccfg.png)
+![](/assets/AGENT-WWW-001.0.png)
 
 
 ## Refresh puppet:agent
 
 
 $$
-WWW-2
+WWW-AGENT-2
 $$
 
 
 1. Refreshing puppet:agent loads the configuration changes we just made in SMF
   `svcadm refresh puppet:agent`
-  ![](/images/ADD01-WWW-002-svcadm-refresh.png)
+  ![](/assets/AGENT-WWW-002.0.png)
 
 ## Enable puppet:agent
 
 
 $$
-WWW-3
+WWW-AGENT-3
 $$
 
 
 1. Remember, enabling the agent writes the puppet.conf file
   `svcadm enable puppet:agent`
-  ![](/images/ADD01-WWW-003-svcadm-enable.png)
+  ![](/assets/AGENT-WWW-003.0.png)
 
 ## Mark puppet:agent maintenance
 
 
 $$
-WWW-4
+WWW-AGENT-4
 $$
 
 
@@ -79,26 +79,26 @@ $$
 
   `svcadm mark maintenance puppet:agent`
 
-  ![](/images/ADD01-WWW-004-svcadm-mark.png)
+  ![](/assets/AGENT-WWW-004.0.png)
 
 
 ## Test agent connection
 
 
 $$
-WWW-5
+WWW-AGENT-5
 $$
 
 
 1. Test puppet connection, if there is no signed cert wait 120s and try again for the certificate to be signed on the master[^3]
   `puppet agent --test -w 120`
-  ![](/images/ADD01-WWW-005.0-puppet-agent.png)
+  ![](/assets/AGENT-WWW-005.0.png)
 
 ## Sign the agent certificate \(on master\)
 
 
 $$
-PUP-20
+PUP-AGENT-1
 $$
 
 
@@ -108,11 +108,11 @@ $$
   > "www.oracle.lab" \(SHA256\) 42:77:38:C8:C0:7F:0B:9B:4E:90:F7:EA:2C:76:99:48:CE:63:6B:1D:9D:DA:67:46:06:A3:AB:50:16:3E:CC:23[^2]
 
 
-![](/images/ADD01-PUP-020-cert-list.png)
+![](/assets/AGENT-PUP-001.0.png)
 
 
 $$
-PUP-21
+PUP-AGENT-2
 $$
 
 
@@ -121,12 +121,11 @@ $$
 
   > Notice: Signed certificate request for www.oracle.lab
 
-
-![](/images/ADD01-PUP-021-cert-sign.png)
+![](/assets/AGENT-PUP-002.0.png)
 
 ## What just happened, again?
 
-\[pluginsync\]
+![](/assets/AGENT-WWW-005.1.png)
 
 After the certificate is signed the puppet agent will be able to connect to the master. When the first connection is made pluginsync copies all the plugins from the master to the agent. I pre-connected the agent then disconnected it, removed some of the files and ran through the steps again. Puppet only copies the files that are missing or changed.
 **Note:** If your agent timed out or you don't feel like waiting you can just run it again\/kill it and run it again.

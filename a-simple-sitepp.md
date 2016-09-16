@@ -15,26 +15,26 @@ $$
 
   lab\_copy is a shell function that executes puppet apply with a tag limiting the execution to a subset of the resources defined in the manifest.
 
-  \[pup-simple-001\]
 
+![](/assets/SIMPLE-PUP-001.0.png)
 
 ## Execute the Agent on WWW Server
 
 
 $$
-WWW-6
+WWW-SIMPLE-1
 $$
 
 
 1. With site.pp on the Puppet master, running the agent compiles the catalog and applies the desired changes.
   `puppet agent -t`
-  ![](/images/SIMPLE01-WWW-006-agent.png)
+  ![](/assets/SIMPLE-WWW-001.0.png)
 
 ## Execute the Puppet Agent on the Puppet Master
 
 
 $$
-PUP-23
+PUP-SIMPLE-2
 $$
 
 
@@ -43,40 +43,42 @@ $$
   When puppet is executed on the master it is also using site.pp. The content of .zshrc in site.pp does not exactly match the content of file copied by setup.pp.
   `puppet apply -t`
 
-  ![](/images/SIMPLE01-PUP-023-puppet-agent.png)
+  ![](/assets/SIMPLE-PUP-002.0.png)
+  ![](/assets/SIMPLE-PUP-002.1.png)
 
 
 ## Exec zsh to Get the New Prompt
 
 
 $$
-WWW-7
+WWW-AGENT-2
 $$
 
 
 1. Now that we have created a \/root\/.zshrc, run zsh.
   `exec zsh`
-  ![](/images/SIMPLE01-WWW-007-prompt.png)
+  ![](/assets/SIMPLE-WWW-002.0.png)
 
 ## Edit \/etc\/puppet\/manifests\/site.pp on the Master
 
 
 $$
-PUP-24
+PUP-AGENT-3
 $$
 
 
 1. Wait, you said this was simple! Puppet lint shows you an error about variables in single quoted strings! The example in 001-simple uses the `content` parameter to the file type.  It is technically simple but it isn't a very good implementation.
   `vi /etc/puppet/manifests/site.pp`
-  ![](/images/SIMPLE01-PUP-024.0-vi-sitepp.png)![](/images/SIMPLE01-PUP-024.1-vi-sitepp.png)
+  ![](/assets/SIMPLE-PUP-003.0.png)
+  ![](/assets/SIMPLE-PUP-003.1.png)
 
-# Simplifying site.pp by Using a Module to Distribute a File
+2. Writing detailed modules is beyond the scope of this lab. However, we utilize a stub of a module to take advantage of puppet's [file serving capabilities](https://docs.puppet.com/puppet/latest/reference/modules_fundamentals.html#files). Puppet provides the ability to access files from the special path puppet:\/\/\/modules\/&lt;module&gt;\/&lt;filename&gt;. We use this method to truly simplify the example.
 
-Writing detailed modules is beyond the scope of this lab. However, we utilize a stub of a module to take advantage of puppet's [file serving capabilities](https://docs.puppet.com/puppet/latest/reference/modules_fundamentals.html#files). Puppet provides the ability to access files from the special path puppet:\/\/\/modules\/&lt;module&gt;\/&lt;filename&gt;. We use this method to truly simplify the example.
-
-In practice, you would generate a module with `puppet module generate <author-module>`answer the questions and use that module to store all your custom manifests. We create a bare minimum module skipping the interview questions for the purposes of this lab.
+In practice, you would generate a module with `puppet module     generate <author-module>`answer the questions and use that module to store all your custom manifests. We create a bare minimum module skipping the interview questions for the purposes of this lab.
 
 ## Update manifest to copy file
+
+![](/assets/SIMPLE-PUP-003.2.png)
 
 # Create a minimum viable module skeleton
 
@@ -84,22 +86,35 @@ In practice, you would generate a module with `puppet module generate <author-mo
 
 
 $$
-PUP-25
+PUP-AGENT-4
 $$
 
 
 1. Create the bare minimum module.
   `cd /root ; puppet module generate --skip-interview oracle-lab`
+  ![](/assets/SIMPLE-PUP-004.0.png)
 
-2. Create the files directory.
+
+$$
+PUP-AGENT-5
+$$
+
+
+1. Create the files directory.
   `mkdir /root/oracle-lab/files`
+
+  ![](/assets/SIMPLE-PUP-005.0.png)
+
+## Apply the manifest
+
+![](assets/SIMPLE-WWW-003.0.png)
 
 
 ## Copy zshrc to the Module's Files Directory
 
 
 $$
-PUP-26
+PUP-AGENT-6
 $$
 
 
@@ -108,11 +123,16 @@ $$
 2. Deploy the module.
   `cd /root/oracle-lab`
   `puppet module build`
-  `puppet module install --force ./pkg/oracle-lab-0.1.0.tar.gz`
-3. In the future, we will do this using the shell function `lab_build`
-  ![](/images/SIMPLE01-PUP-026-cp-zshrc.png)
+![](/assets/SIMPLE-PUP-008.0.png)
 
-## ![](/images/SIMPLE01-PUP-027.2-vi-sitepp.png)
+  `puppet module install --force ./pkg/oracle-lab-0.1.0.tar.gz`
+![](/assets/SIMPLE-PUP-009.0.png)
+
+3. In the future, we will do this using the shell function `lab_build`
+
+]
+
+
 
 1. If you are have issues you can't resolve with this step, run `lab_copy 002-simple`to use the example site.pp
 
@@ -120,25 +140,26 @@ $$
 
 
 $$
-WWW-8
+WWW-SIMPLE-4
 $$
 
 
 1. When you apply puppet now there will be a change to .zshrc, the file we are copying from is slightly different than the one included in 001-simple-site.pp.
   `puppet apply -t`
-  ![](/images/SIMPLE01-WWW-008-agent.png)
+  ![](/assets/SIMPLE-WWW-004.0.png)
+  ![](/assets/SIMPLE-WWW-004.1.png)
 
 ## Execute Puppet Agent on the Master
 
 
 $$
-PUP-28
+PUP-AGENT-7
 $$
 
 
 1. When you apply puppet on the master there will also be a change to .zshrc 
-  `puppet apply -t`
-  ![](/images/SIMPLE01-PUP-028-agent.png)
+  `puppet agent -t`
+  ![](/assets/SIMPLE-PUP-010.0.png)
 
 ## Why did .zshrc change on the master too?
 
