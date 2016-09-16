@@ -6,9 +6,9 @@ Due to constraints on time and variability in the physical lab, some setup steps
 
 1. Login to puppet server
 2. Install puppet[^1]
-3. Examine HOL7712-Solaris-Puppet\/setup.pp
-4. Apply HOL7712-Solaris-Puppet\/setup.pp[^2]
-5. Examine HOL7712-Solaris-Puppet\/setup.pp
+3. Examine HOL7712-Solaris-Puppet/setup.pp
+4. Apply HOL7712-Solaris-Puppet/setup.pp[^2]
+5. Examine HOL7712-Solaris-Puppet/setup.pp
 6. Validate invalid.pp manifest
 7. Style Check invalid.pp
 8. Fix invalid.pp
@@ -21,7 +21,7 @@ Due to constraints on time and variability in the physical lab, some setup steps
 15. Test puppet agent
 
 **NOTE:**
-If you are trying this outside the lab and need proxies, you must export your http\/https\_proxy in your shell before trying to install a gem with the gem package provider.
+If you are trying this outside the lab and need proxies, you must export your http/https_proxy in your shell before trying to install a gem with the gem package provider.
 
 ```
 $env = [

@@ -19,7 +19,7 @@ This Solaris release includes an installation of Apache by default. We modify th
 
 ## Note
 
-We mainly use the `lab_copy`function for these steps. Lab\_copy assembles site.pp from fragments which are discussed individually. Remember that lab\_copy is configured with tab completion. Changes to \/etc\/puppet\/manifests\/site.pp will be lost from step to step.
+We mainly use the `lab_copy`function for these steps. Lab_copy assembles site.pp from fragments which are discussed individually. Remember that lab_copy is configured with tab completion. Changes to /etc/puppet/manifests/site.pp will be lost from step to step.
 
 `lab_copy e002_better`
 

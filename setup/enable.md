@@ -97,7 +97,7 @@ $$
 PUP-24
 $$
 
-1. > puppet resource host -e \`hostname\`
+1. > puppet resource host -e `hostname`
 
   Do as I say not as I screenshot. You are executing puppet resource host -e &lt;the name of your system&gt;. The -e option to puppet resource allows you to edit a resource or resources immediately after querying the configuration.![](/images/SETUP-008.5-resource-host-e.png)
 
@@ -114,7 +114,7 @@ $$
 
 1. > puppet resource host
 
-  Note the entry in host\_aliases for puppet which was just added.
+  Note the entry in host_aliases for puppet which was just added.
 
 ##  Test the agent connection again
 $$

@@ -31,7 +31,7 @@ PUP-SETUP-9
 $$
 
 
-1. Change the config\/server property on puppet:master to set the name of the Puppet server. In this lab, everyone should be able to use the server called 'puppet'. In your environment, you would want to use the FQDN of your Puppet master.
+1. Change the config/server property on puppet:master to set the name of the Puppet server. In this lab, everyone should be able to use the server called 'puppet'. In your environment, you would want to use the FQDN of your Puppet master.
 
   `svccfg -s puppet:master setprop config/server=puppet`
 
@@ -46,7 +46,7 @@ PUP-SETUP-10
 $$
 
 
-1. Change the config\/server property on puppet:agent to set the name of the Puppet server. In this lab, everyone should be able to use the server called 'puppet'. In your environment, you would want to use the FQDN of your Puppet master.
+1. Change the config/server property on puppet:agent to set the name of the Puppet server. In this lab, everyone should be able to use the server called 'puppet'. In your environment, you would want to use the FQDN of your Puppet master.
 
   `svccfg -s puppet:agent setprop config/server=puppet`
 
@@ -137,7 +137,7 @@ $$
   Yes, the server called puppet is the master in the configuration. However, by default Puppet uses a FQDN or a couple of well known aliases for the Puppet server certificate. At this point in the configuration, the Puppet master cannot verify the identity of the agent and the agent is unable to verify the identity of the server.
 
 
-## Finding the Problem \/ Fixing the Problem
+## Finding the Problem / Fixing the Problem
 
 
 $$
@@ -167,7 +167,7 @@ PUP-SETUP-18
 $$
 
 
-1. Note the entry in host\_aliases for Puppet that was just added.
+1. Note the entry in host_aliases for Puppet that was just added.
 
   `puppet resource host puppet-lab`
   ![](/assets/SETUP-PUP-018.0.png)

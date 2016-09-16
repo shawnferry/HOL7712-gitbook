@@ -2,7 +2,7 @@
 
 ## Open a Second Window
 
-We need to perform actions on both the puppet master and the agent \(www\) node.
+We need to perform actions on both the puppet master and the agent (www) node.
 
 ## Install the Puppet[^1] Package
 
@@ -16,7 +16,7 @@ $$
 
   `pkg install puppet`
 
-  > pkg: Unable to set locale 'en\_US.UTF-8'; locale package may be broken or
+  > pkg: Unable to set locale 'en_US.UTF-8'; locale package may be broken or
   > not installed.  Reverting to C locale.
   > No updates necessary for this image.
 
@@ -29,7 +29,7 @@ $$
 ![](/assets/AGENT-WWW-000.0.png)
 
 
-## Modify SMF config\/server variable for puppet:agent
+## Modify SMF config/server variable for puppet:agent
 
 
 $$
@@ -109,7 +109,7 @@ $$
 
   `puppet cert list`
 
-  > "www.oracle.lab" \(SHA256\) 42:77:38:C8:C0:7F:0B:9B:4E:90:F7:EA:2C:76:99:48:CE:63:6B:1D:9D:DA:67:46:06:A3:AB:50:16:3E:CC:23[^2]
+  > "www.oracle.lab" (SHA256) 42:77:38:C8:C0:7F:0B:9B:4E:90:F7:EA:2C:76:99:48:CE:63:6B:1D:9D:DA:67:46:06:A3:AB:50:16:3E:CC:23[^2]
 
 
 ![](/assets/AGENT-PUP-001.0.png)
@@ -134,7 +134,7 @@ $$
 ![](/assets/AGENT-WWW-005.1.png)
 
 After the certificate is signed, the puppet agent is able to connect to the master. When the first connection is made, pluginsync copies all the plugins from the master to the agent. I pre-connected the agent then disconnected it, removed some of the files and ran through the steps again. Puppet only copies the files that are missing or changed.
-**Note:** If your agent timed out or you don't feel like waiting, you can just run it again\/kill it and run it again.
+**Note:** If your agent timed out or you don't feel like waiting, you can just run it again/kill it and run it again.
 
 ## Why Aren't We Using the Same Prompt on the Agent?
 

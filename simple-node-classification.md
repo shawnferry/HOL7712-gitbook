@@ -147,10 +147,10 @@ A subset of the Apache configuration described in [Depot Server Apache Configura
       allow_encoded_slashes => 'nodecode',
       filters               => [
         'FilterDeclare  COMPRESS',
-        'FilterProvider COMPRESS DEFLATE "%{Content_Type} = \'text/html\'"',
-        'FilterProvider COMPRESS DEFLATE "%{Content_Type} = \'application/javascript\'"',
-        'FilterProvider COMPRESS DEFLATE "%{Content_Type} = \'text/css\'"',
-        'FilterProvider COMPRESS DEFLATE "%{Content_Type} = \'text/plain\'"',
+        'FilterProvider COMPRESS DEFLATE "%{Content_Type} = 'text/html'"',
+        'FilterProvider COMPRESS DEFLATE "%{Content_Type} = 'application/javascript'"',
+        'FilterProvider COMPRESS DEFLATE "%{Content_Type} = 'text/css'"',
+        'FilterProvider COMPRESS DEFLATE "%{Content_Type} = 'text/plain'"',
       ],
       proxy_pass            => [
         {
@@ -228,13 +228,13 @@ Now that our manifest has been split into classes and applied, what has happened
 
   **Before:**
 
-  > pkg\_publisher { 'solaris':
+  > pkg_publisher { 'solaris':
   > 
   > ensure =&gt; 'present',
   > 
   > enable =&gt; 'true',
   > 
-  > origin =&gt; \['file:\/\/\/repositories\/publisher\/solaris', 'http:\/\/ipkg.us.oracle.com\/solaris12\/minidev'\],
+  > origin =&gt; ['file:///repositories/publisher/solaris', 'http://ipkg.us.oracle.com/solaris12/minidev'],
   > 
   > searchfirst =&gt; 'true',
   > 
@@ -244,13 +244,13 @@ Now that our manifest has been split into classes and applied, what has happened
 
   **After:**
 
-  > pkg\_publisher { 'solaris':
+  > pkg_publisher { 'solaris':
   > 
   > ensure =&gt; 'present',
   > 
   > enable =&gt; 'true',
   > 
-  > origin =&gt; \['http:\/\/ipkg.us.oracle.com\/solaris12\/minidev'\],
+  > origin =&gt; ['http://ipkg.us.oracle.com/solaris12/minidev'],
   > 
   > searchfirst =&gt; 'true',
   > 

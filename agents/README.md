@@ -6,9 +6,9 @@ Everything we have done in Puppet so far is achieved by simply using `puppet app
 
 1. Open a second window or tab and connect to the new agent
 2. Install puppet[^1]
-3. Modify SMF config\/server variable for puppet:agent
+3. Modify SMF config/server variable for puppet:agent
 4. Test agent connection
-5. Sign the agent certificate \(on master\)
+5. Sign the agent certificate (on master)
 
 [^1]: Completed prior to lab
 

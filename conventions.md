@@ -12,7 +12,7 @@ Commands are also shown in code blocks:
 
 Command output is displayed in block quotes:
 
-> "www.oracle.lab" \(SHA256\) 42:77:38:C8:C0:7F:0B:9B:4E:90:F7:EA:2C:76:99:48:CE:63:6B:1D:9D:DA:67:46:06:A3:AB:50:16:3E:CC:23
+> "www.oracle.lab" (SHA256) 42:77:38:C8:C0:7F:0B:9B:4E:90:F7:EA:2C:76:99:48:CE:63:6B:1D:9D:DA:67:46:06:A3:AB:50:16:3E:CC:23
 
 Command references are shown as:
 

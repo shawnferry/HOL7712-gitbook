@@ -22,7 +22,7 @@ to integrate Oracle Solaris file system, security, and virtualization features
 with Puppet to automate a simple deployment of a secure Oracle Solaris VM. Also
 learn how to deploy a simple application with Puppet.
 
-HOL \(Hands-on Lab\) Session \[HOL7712\]
+HOL (Hands-on Lab) Session [HOL7712]
 
-Monday, Sep 19, 4:15 p.m. - 6:15 p.m. \| Hotel Nikko—Nikko Ballroom I \(3rd Floor\)
+Monday, Sep 19, 4:15 p.m. - 6:15 p.m. | Hotel Nikko—Nikko Ballroom I (3rd Floor)
 

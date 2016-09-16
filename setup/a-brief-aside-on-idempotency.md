@@ -1,4 +1,4 @@
-# Puppet is \(should be\) Idempotent
+# Puppet is (should be) Idempotent
 
 When you are executing Puppet manifests, nothing should change on repeated runs of the agent or application of the manifest.
 
@@ -27,8 +27,8 @@ If you write your manifests correctly, puppet is always idempotent[^1]. If you a
 
 ```ruby
 exec { 'vundle install':
-command     => "/usr/bin/git clone \
-  https://github.com/VundleVim/Vundle.vim.git \
+command     => "/usr/bin/git clone 
+  https://github.com/VundleVim/Vundle.vim.git 
   ${lab_homedir}/.vim/bundle/Vundle.vim",
 creates     => "${lab_homedir}/.vim/bundle/Vundle.vim",
 environment => $env,
@@ -47,7 +47,7 @@ exec { 'foo':
 
 ![](/assets/IDEMP-PUP-000.2.png)
 
-### This resource only executes the command if \/tmp\/foo is absent
+### This resource only executes the command if /tmp/foo is absent
 
 ```ruby
 

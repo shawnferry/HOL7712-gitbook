@@ -8,10 +8,10 @@ We return to our lab module to provide the needed zone configuration files[^1].
   `mkdir -p /root/oracle-lab/files/zones`
 2. Copy the zone configuration and profile to `/root/oracle-lab/files/zones`
   `cp -r /root/HOL7712-Solaris-Puppet/labfiles/zones/ /root/oracle-lab/files/`
-3. Build and deploy the lab module. Remember that lab\_build automates `puppet module build`and `puppet module install`
+3. Build and deploy the lab module. Remember that lab_build automates `puppet module build`and `puppet module install`
   `lab_build`
-  \[BUILD\]
-  \[LIST\]
+  [BUILD]
+  [LIST]
 
 ## Copy Lab Files
 

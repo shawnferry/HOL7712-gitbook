@@ -86,8 +86,8 @@ $$
 
   ```ruby
   exec { 'vundle install':
-  command     => "/usr/bin/git clone \
-  https://github.com/VundleVim/Vundle.vim.git \
+  command     => "/usr/bin/git clone 
+  https://github.com/VundleVim/Vundle.vim.git 
   ${lab_homedir}/.vim/bundle/Vundle.vim",
   creates     => "${lab_homedir}/.vim/bundle/Vundle.vim",
   environment => $env,
@@ -137,15 +137,15 @@ PUP-SETUP-4
 $$
 
 
-The setup.pp manifest delivered a file into \/root called invalid.pp but how do we know that it is invalid?
+The setup.pp manifest delivered a file into /root called invalid.pp but how do we know that it is invalid?
 
 1. You can attempt to apply the manifest directly by running the following command:
  
  `puppet apply invalid.pp`
 
-> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
+> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at /root/invalid.pp:10 on node puppet-0.us.oracle.com
 > 
-> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
+> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at /root/invalid.pp:10 on node puppet-0.us.oracle.com
 
 ![](/assets/SETUP-PUP-004.0.png)
 
@@ -160,9 +160,9 @@ Attempting to apply the manifest may only make sense on a subset of your nodes.
 1. There is a better way! Run the following command:
   `puppet parser validate invalid.pp`
 
-> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
+> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at /root/invalid.pp:10 on node puppet-0.us.oracle.com
 > 
-> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at \/root\/invalid.pp:10 on node puppet-0.us.oracle.com
+> Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at /root/invalid.pp:10 on node puppet-0.us.oracle.com
 
 ![](/assets/SETUP-PUP-005.0.png)
 

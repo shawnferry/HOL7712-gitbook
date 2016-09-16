@@ -2,7 +2,7 @@
 
 In the Adding an Agent section, we observed a difference in the prompts between the two systems. We use Puppet to distribute a .dotfile to all it's agents.
 
-## Copy the Manifest to \/etc\/puppet\/manifests\/site.pp
+## Copy the Manifest to /etc/puppet/manifests/site.pp
 
 
 $$
@@ -13,7 +13,7 @@ $$
 1. Even though this is a simple manifest, it is not especially easy to type. We copy manifests for examples.
   `lab_copy e001-simple`
 
-  lab\_copy is a shell function that executes puppet apply with a tag limiting the execution to a subset of the resources defined in the manifest.
+  lab_copy is a shell function that executes puppet apply with a tag limiting the execution to a subset of the resources defined in the manifest.
 
 
 ![](/assets/SIMPLE-PUP-001.0.png)
@@ -55,11 +55,11 @@ WWW-AGENT-2
 $$
 
 
-1. Now that we have created a \/root\/.zshrc, run zsh.
+1. Now that we have created a /root/.zshrc, run zsh.
   `exec zsh`
   ![](/assets/SIMPLE-WWW-002.0.png)
 
-## Edit \/etc\/puppet\/manifests\/site.pp on the Master
+## Edit /etc/puppet/manifests/site.pp on the Master
 
 
 $$
@@ -72,7 +72,7 @@ $$
   ![](/assets/SIMPLE-PUP-003.0.png)
   ![](/assets/SIMPLE-PUP-003.1.png)
 
-2. Writing detailed modules is beyond the scope of this lab. However, we utilize a stub of a module to take advantage of puppet's [file serving capabilities](https://docs.puppet.com/puppet/latest/reference/modules_fundamentals.html#files). Puppet provides the ability to access files from the special path puppet:\/\/\/modules\/&lt;module&gt;\/&lt;filename&gt;. We use this method to truly simplify the example.
+2. Writing detailed modules is beyond the scope of this lab. However, we utilize a stub of a module to take advantage of puppet's [file serving capabilities](https://docs.puppet.com/puppet/latest/reference/modules_fundamentals.html#files). Puppet provides the ability to access files from the special path puppet:///modules/&lt;module&gt;/&lt;filename&gt;. We use this method to truly simplify the example.
 
 In practice, you would generate a module with `puppet module     generate <author-module>`answer the questions and use that module to store all your custom manifests. We create a bare minimum module skipping the interview questions for the purposes of this lab.
 
@@ -118,7 +118,7 @@ PUP-AGENT-6
 $$
 
 
-1. This step makes the file available to agents via the Puppet file server at puppet:\/\/\/modules\/lab\/zshrc
+1. This step makes the file available to agents via the Puppet file server at puppet:///modules/lab/zshrc
   `cp /root/HOL7712-Solaris-Puppet/labfiles/zshrc /root/oracle-lab/files`
 2. Deploy the module.
   `cd /root/oracle-lab`
@@ -168,21 +168,21 @@ Site.pp applies to all agents of the master including the master if it is config
 # Review
 
 1. We configured puppet:agent on www:
-  1. Set config\/server
+  1. Set config/server
   2. Refresh the service
   3. Enabled the service
   4. Stopped but did not disable the service
 
 2. Distributed .zshrc from a single manifest.
 
-3. Created just enough of a private \(lab\) puppet module to server files.
+3. Created just enough of a private (lab) puppet module to server files.
 
 4. Updated site.pp to copy .zshrc to agents from the lab module.
 
 5. Noticed that changes in  site.pp affect the agent running on the master and on www.
 
 6. We introduced two lab specific shell functions:
-  1. `lab_copy <example>` lab\_copy copies files for the next lab and supports tab expansion
-  2. `lab_build`lab\_build builds and installs the custom puppet module we are using to manage our customized files and manifests.
+  1. `lab_copy <example>` lab_copy copies files for the next lab and supports tab expansion
+  2. `lab_build`lab_build builds and installs the custom puppet module we are using to manage our customized files and manifests.
 
 
