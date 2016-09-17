@@ -1,6 +1,6 @@
 ### Creating a Very Simple site.pp
 
-In the Adding an Agent section, we observed a difference in the prompts between the two systems. We use Puppet to distribute a .dotfile to all it's agents.
+In the Adding an Agent section, we observe a difference in the prompts between the two systems. We use Puppet to distribute a .dotfile to all it's agents.
 
 ## Copy the Manifest to /etc/puppet/manifests/site.pp
 
