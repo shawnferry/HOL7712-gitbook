@@ -140,7 +140,7 @@ $$
   `puppet module build`
   ![](/assets/SIMPLE-PUP-007.0.png)
 
-2. Install the module
+2. Install the module.
   `puppet module install --force ./pkg/oracle-lab-0.1.0.tar.gz`
 
   ![](/assets/SIMPLE-PUP-008.0.png)
@@ -155,7 +155,7 @@ $$
 1. In the future, we will do this using the shell function `lab_build`
   ![](/assets/SIMPLE-PUP-009.0.png)
 
-1. If you are have issues you can't resolve with this step, run `lab_copy 002-simple`to use the example site.pp
+1. If you are having issues you can't resolve with this step, run `lab_copy 002-simple` to use the example site.pp.
 
 ## Execute Puppet Agent on the Node
 
