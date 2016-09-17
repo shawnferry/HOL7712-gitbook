@@ -47,6 +47,9 @@ This will be undertaken in two steps.
 
 6. In the previous step we found that the list of packages was available from `pkgrepo -s http://puppet/solaris list`What about now?
 
+  \[APACHE-2\]
+  \[APACHE-3\]
+
 
 ## Add a reverse proxy for pkg\/server
 
@@ -71,18 +74,18 @@ We could change the port `pkg/server:default`is listening on. But then we would 
   # pkg/server:default and create a proxy in Apache
 
   svccfg {
-    # Set the port for pkg/server:default to 8080
-    'svc:/application/pkg/server:default/:properties/pkg/port':
-    # See svc:/application/pkg/mirror:default
-      value   => '8080',
-      require => Pkg_publisher['solaris'],
-      notify  => Service['svc:/application/pkg/server:default'];
+  # Set the port for pkg/server:default to 8080
+  'svc:/application/pkg/server:default/:properties/pkg/port':
+  # See svc:/application/pkg/mirror:default
+   value   => '8080',
+   require => Pkg_publisher['solaris'],
+   notify  => Service['svc:/application/pkg/server:default'];
 
-    'svc:/application/pkg/server:default/:properties/pkg/proxy_base':
-    # See svc:/application/pkg/mirror:default
-      value   => 'http://repo/publisher',
-      require => Pkg_publisher['solaris'],
-      notify  => Service['svc:/application/pkg/server:default'];
+  'svc:/application/pkg/server:default/:properties/pkg/proxy_base':
+  # See svc:/application/pkg/mirror:default
+   value   => 'http://repo/publisher',
+   require => Pkg_publisher['solaris'],
+   notify  => Service['svc:/application/pkg/server:default'];
   }
   ```
 
@@ -91,19 +94,19 @@ We could change the port `pkg/server:default`is listening on. But then we would 
   ```ruby
   # Create htdocs
   file { '/var/apache2/2.4/repo-htdocs':
-    ensure => directory,
-    before => Apache::Vhost['repo'],
+  ensure => directory,
+  before => Apache::Vhost['repo'],
   }
 
   # Add an index.html
   file { '/var/apache2/2.4/repo-htdocs/index.html':
-    content => "It's a Repo!"
+  content => "It's a Repo!"
   }
 
   host { 'puppet-labs.oracle.lab':
-    # Where did ipaddres come from ... facter
-    ip           => $::ipaddress,
-    host_aliases => ['puppet-lab', 'puppet', 'repo']
+  # Where did ipaddres come from ... facter
+  ip           => $::ipaddress,
+  host_aliases => ['puppet-lab', 'puppet', 'repo']
   }
   ```
 
@@ -135,6 +138,12 @@ Add the virtual host to serve the repo. The `redirect_source`, `redirect_dest`, 
 
     }
 ```
+
+\[APACHE-4 dump\]
+
+\[APACHE-5 repo\]
+
+\[APACHE-6 proxy\]
 
 ---
 
