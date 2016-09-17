@@ -1,30 +1,25 @@
 # Create A Repository
 
-1. Copy the lab files, we can see two fragments concatenated into site.pp
+1. Copy the lab files `lab_copy e003_publisher`[^2]
 
-  1. fragments/10_e002_better
-
-  2. fragments/10_e003_publisher
+  `lab_copy e003_publisher`
 
 
-
-`lab_copy e003_publisher`
-
-> Notice: Scope(Class[main]): Building and copying lab files for
+> Notice: Scope\(Class\[main\]\): Building and copying lab files for
 > 
 > Notice: Compiled catalog for puppet-lab.oracle.lab in environment production in 1.70 seconds
 > 
-> Notice: /Stage[main]/E003_publisher/Concat::Fragment[e003_publisher]/File[/var/lib/puppet/concat/e003_publisher/fragments/10_e003_publisher]/content: content changed '{md5}1f96e3442afda580f8aef1257fd1469c' to '{md5}76b88c7f177b65b8dd9a682e2960bd19'
+> Notice: \/Stage\[main\]\/E003\_publisher\/Concat::Fragment\[e003\_publisher\]\/File\[\/var\/lib\/puppet\/concat\/e003\_publisher\/fragments\/10\_e003\_publisher\]\/content: content changed '{md5}1f96e3442afda580f8aef1257fd1469c' to '{md5}76b88c7f177b65b8dd9a682e2960bd19'
 > 
-> Notice: /Stage[main]/Main/Rsync::Get[e003_publisher]/Exec[rsync e003_publisher]/returns: executed successfully
+> Notice: \/Stage\[main\]\/Main\/Rsync::Get\[e003\_publisher\]\/Exec\[rsync e003\_publisher\]\/returns: executed successfully
 > 
-> Notice: /Stage[main]/E002_better/Concat::Fragment[e002_better]/File[/var/lib/puppet/concat/e003_publisher/fragments/10_e002_better]/content: content changed '{md5}727bfa4a21d9f2642d7fc6dfbe18cb92' to '{md5}60b6f41f91148d10ea03e565bba32ccc'
+> Notice: \/Stage\[main\]\/E002\_better\/Concat::Fragment\[e002\_better\]\/File\[\/var\/lib\/puppet\/concat\/e003\_publisher\/fragments\/10\_e002\_better\]\/content: content changed '{md5}727bfa4a21d9f2642d7fc6dfbe18cb92' to '{md5}60b6f41f91148d10ea03e565bba32ccc'
 > 
-> Notice: /Stage[main]/Main/Concat[e003_publisher]/Exec[concat_e003_publisher]/returns: executed successfully
+> Notice: \/Stage\[main\]\/Main\/Concat\[e003\_publisher\]\/Exec\[concat\_e003\_publisher\]\/returns: executed successfully
 > 
-> Notice: /Stage[main]/Main/Concat[e003_publisher]/Exec[concat_e003_publisher]: Triggered 'refresh' from 2 events
+> Notice: \/Stage\[main\]\/Main\/Concat\[e003\_publisher\]\/Exec\[concat\_e003\_publisher\]: Triggered 'refresh' from 2 events
 > 
-> Notice: /Stage[main]/Main/Concat[e003_publisher]/File[e003_publisher]/content: content changed '{md5}60b6f41f91148d10ea03e565bba32ccc' to '{md5}cedf8b080dc479760185262800995944'
+> Notice: \/Stage\[main\]\/Main\/Concat\[e003\_publisher\]\/File\[e003\_publisher\]\/content: content changed '{md5}60b6f41f91148d10ea03e565bba32ccc' to '{md5}cedf8b080dc479760185262800995944'
 > 
 > Notice: Finished catalog run in 2.73 seconds
 
@@ -32,10 +27,11 @@
 
   `puppet agent -t`
 
-2. Verify the repository has packages[^1] both the list from the filesystem and the list from `pkg/server:default `should return the same results.
+2. Verify the repository has packages[^1] both the list from the filesystem and the list from `pkg/server:default`should return the same results.
   `pkgrepo -s /repositories/publisher/solaris list`
 
   `pkgrepo -s http://puppet/solaris list`
+
   > ```asciidoc
   > PUBLISHER NAME                                          O VERSION
   > solaris   developer/versioning/git                        2.7.4-5.12.0.0.0.106.0:20160821T234149Z
@@ -47,11 +43,11 @@
   > solaris   web/browser/links                               2.12-5.12.0.0.0.106.0:20160822T003120Z
   > ```
 
-3. We can look at either `/root/HOL7712-Solaris-Puppet/manifests/e003_publisher/site.pp`
-  or `/etc/puppet/manifests/site.pp` . We will focus on the latter as it contains only the new resources for this step.
+3. `Review /root/HOL7712-Solaris-Puppet/manifests/e003_publisher/site.pp`
+  or `/etc/puppet/manifests/site.pp`[^3] 
 
 
-We modify the pre-existing zfs filesystem /rpool/repositories and mount it at /repositories
+We modify the pre-existing zfs filesystem \/rpool\/repositories and mount it at \/repositories
 
 ```ruby
 ######
@@ -81,7 +77,7 @@ pkg_publisher { 'solaris':
 }
 ```
 
-Tell pkg/server where the repo we want to share lives and start sharing it.
+Tell pkg\/server where the repo we want to share lives and start sharing it.
 
 ```ruby
 # Configure pkg.repod to serve our partial copy of the repo
@@ -105,4 +101,8 @@ service { 'svc:/application/pkg/server:default':
 ```
 
 [^1]: We already know the repository is valid. pkg set-publisher won't let you add a repository that doesn't contain valid repository information.
+
+[^2]: Two fragmets are used to create the example; fragments\/10\_e002\_better, fragments\/10\_e003\_publisher
+
+[^3]: For example reviews prefer the fragment, it is limited to only the highlighted changes.
 
