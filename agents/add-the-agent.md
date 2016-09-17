@@ -133,7 +133,7 @@ $$
 
 ![](/assets/AGENT-WWW-005.1.png)
 
-After the certificate is signed, the puppet agent is able to connect to the master. When the first connection is made, pluginsync copies all the plugins from the master to the agent. I pre-connected the agent then disconnected it, removed some of the files and ran through the steps again. Puppet only copies the files that are missing or changed.
+After the certificate is signed, the Puppet agent is able to connect to the master. When the first connection is made, pluginsync copies all the plugins from the master to the agent. I pre-connected the agent, then disconnected it, removed some of the files and ran through the steps again. Puppet only copies the files that are missing or changed.
 **Note:** If your agent timed out or you don't feel like waiting, you can just run it again/kill it and run it again.
 
 ## Why Aren't We Using the Same Prompt on the Agent?
