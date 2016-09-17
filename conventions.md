@@ -32,7 +32,7 @@ $$
 
 ![](assets/SETUP-PUP-001.0.png)
 
-Command 10 on WWW is shown as:
+Command 10 on www is shown as:
 
 
 $$
