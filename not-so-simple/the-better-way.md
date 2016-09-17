@@ -7,11 +7,14 @@ In the previous example we edited site.pp to copy a file instead of including it
 
 2. Run puppet agent to apply the configuration
   `puppet agent -t`
-3. Edit /etc/puppet/manifests/site.pp
+
+3. Edit \/etc\/puppet\/manifests\/site.pp
 
   `vi /etc/puppet/manifests/site.pp`
 
-The first resource is a slightly modified version of previous example. We have added file ownership and 
+
+The first resource is a slightly modified version of previous example. We add file ownership and a install a package used in future examples.
+
 ```ruby
 ######
 # e002_better/site.pp
@@ -31,5 +34,4 @@ package { 'puppetlabs-apache':
 }
 ```
 
-1. 
 

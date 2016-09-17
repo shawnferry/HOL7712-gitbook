@@ -13,6 +13,7 @@ We return to our lab module to provide the needed zone configuration files[^1].
 
   \[LIST\]
 
+
 ## Copy Lab Files
 
 1. Update site.pp[^2]
@@ -27,31 +28,32 @@ We return to our lab module to provide the needed zone configuration files[^1].
 
   # Create the zone on all www hosts
   node /www.*/ {
-   # Copy the zone configuration files
-   file {
-     "/system/zones/www-zone.zcfg":
-     ensure => present,
-     source => 'puppet:///modules/lab/zones/www-zone.zcfg';
-   "/system/zones/www-zone01.xml":
-     ensure => present,
-     source => 'puppet:///modules/lab/zones/www-zone01.xml';
-   } -> # Files must be copied before they are used
-   zone { 'www-zone01':
-     ensure         => 'running',
-     zonecfg_export => '/system/zones/www-zone.zcfg',
-     config_profile => '/system/zones/www-zone01.xml'
-   }
+  # Copy the zone configuration files
+  file {
+    "/system/zones/www-zone.zcfg":
+    ensure => present,
+    source => 'puppet:///modules/lab/zones/www-zone.zcfg';
+  "/system/zones/www-zone01.xml":
+    ensure => present,
+    source => 'puppet:///modules/lab/zones/www-zone01.xml';
+  } -> # Files must be copied before they are used
+  zone { 'www-zone01':
+    ensure         => 'running',
+    zonecfg_export => '/system/zones/www-zone.zcfg',
+    config_profile => '/system/zones/www-zone01.xml'
+  }
   }
   ```
 
 3. In a separate window, run the agent on WWW.
   `puppet agent -t -d`
 
-  ![](assets/ZONE-WWW-001.0.png)
+  ![](/assets/ZONE-WWW-001.0.png)
 
 4. Execution may take some time[^1].
 
-  ![](assets/ZONE-WWW-001.1.png)
+  ![](/assets/ZONE-WWW-001.1.png)
+
 
 [^1]: Screenshots of simple commands will be less prevalent
 
