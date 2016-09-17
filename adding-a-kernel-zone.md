@@ -15,7 +15,7 @@ We return to our lab module to provide the needed zone configuration files[^1].
 
 ## Copy Lab Files
 
-1. Update site.pp[^2]
+1. Update site.pp[^2].
   `lab_copy e007_www_zone`
 2. Review site.pp changes.
   We introduce some simple node classification here. To create the zone only on hosts named `www.*`we add a node classification.
