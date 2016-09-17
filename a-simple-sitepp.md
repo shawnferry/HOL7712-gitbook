@@ -165,7 +165,7 @@ WWW-SIMPLE-4
 $$
 
 
-1. When you apply puppet now there will be a change to .zshrc, the file we are copying from is slightly different than the one included in 001-simple-site.pp.
+1. When you apply puppet now, there is a change to .zshrc, the file we are copying from is slightly different than the one included in 001-simple-site.pp.
   `puppet apply -t`
   ![](/assets/SIMPLE-WWW-004.0.png)
   ![](/assets/SIMPLE-WWW-004.1.png)
@@ -178,13 +178,13 @@ PUP-SIMPLE-10
 $$
 
 
-1. When you apply puppet on the master there will also be a change to .zshrc 
+1. When you apply puppet on the master, there is also a change to .zshrc.
   `puppet agent -t`
   ![](/assets/SIMPLE-PUP-010.0.png)
 
-## Why did .zshrc change on the master too?
+## Why Did .zshrc Change on the Master Too?
 
-Site.pp applies to all agents of the master including the master if it is configured to use itself as a server.  We will cover basic node segregation in the next sections.
+Site.pp applies to all agents of the master including the master if it is configured to use itself as a server.  We cover basic node segregation in the next sections.
 
 # Review
 
