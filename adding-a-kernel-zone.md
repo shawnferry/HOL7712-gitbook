@@ -44,7 +44,7 @@ We return to our lab module to provide the needed zone configuration files[^1].
   }
   ```
 
-3. In a separate window, run the agent on WWW.
+3. In a separate window, run the agent on www.
   `puppet agent -t -d`
 
 4. Execution may take some time[^1].
