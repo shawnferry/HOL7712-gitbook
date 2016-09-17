@@ -75,13 +75,13 @@ $$
 2. Writing detailed modules is beyond the scope of this lab. However, we utilize a stub of a module to take advantage of puppet's [file serving capabilities](https://docs.puppet.com/puppet/latest/reference/modules_fundamentals.html#files). Puppet provides the ability to access files from the special path puppet:///modules/&lt;module&gt;/&lt;filename&gt;. We use this method to truly simplify the example.
 
 
-In practice, you would generate a module with `puppet module generate <author-module>`answer the questions and use that module to store all your custom manifests. We create a bare minimum module skipping the interview questions for the purposes of this lab.
+In practice, you would generate a module with `puppet module generate <author-module>` to answer the questions and use that module to store all your custom manifests. We create a bare minimum module skipping the interview questions for the purposes of this lab.
 
 ## Update manifest to copy file
 
 ![](/assets/SIMPLE-PUP-003.2.png)
 
-# Create a minimum viable module skeleton
+# Create a Minimally Viable Module Skeleton
 
 ## Create the Partial Module Directory Structure
 
