@@ -8,7 +8,7 @@ _Cindy Swearingen_, Principal Product Manager, Oracle
 
 _Shawn Ferry_, Principal Software Engineer, Oracle
 
-_Cody Herriges_, Principal SysOps Engineer, Puppet, Inc
+_Cody Herriges_, Principal SysOps Engineer, Puppet, Inc.
 
 
 
