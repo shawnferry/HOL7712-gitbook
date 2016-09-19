@@ -12,7 +12,7 @@ WWW-AGENT-0
 $$
 
 
-1. Install the puppet package:
+1. Install the Puppet package:
 
   `pkg install puppet`
 
@@ -78,7 +78,7 @@ WWW-AGENT-4
 $$
 
 
-1. Disable the puppet agent daemon. We want to manually execute the agent for the duration of the lab.
+1. Disable the Puppet agent daemon. We want to manually execute the agent for the duration of the lab.
 
   `svcadm mark maintenance puppet:agent`
 
@@ -93,7 +93,7 @@ WWW-AGENT-5
 $$
 
 
-1. Test puppet connection, if there is no signed cert wait 120s and try again for the certificate to be signed on the master[^3]
+1. Test the Puppet connection, if there is no signed cert wait 120s and try again for the certificate to be signed on the master[^3].
   `puppet agent --test -w 120`
   ![](/assets/AGENT-WWW-005.0.png)
 
@@ -133,7 +133,7 @@ $$
 
 ![](/assets/AGENT-WWW-005.1.png)
 
-After the certificate is signed, the puppet agent is able to connect to the master. When the first connection is made, pluginsync copies all the plugins from the master to the agent. I pre-connected the agent then disconnected it, removed some of the files and ran through the steps again. Puppet only copies the files that are missing or changed.
+After the certificate is signed, the Puppet agent is able to connect to the master. When the first connection is made, pluginsync copies all the plugins from the master to the agent. I pre-connected the agent, then disconnected it, removed some of the files and ran through the steps again. Puppet only copies the files that are missing or changed.
 **Note:** If your agent timed out or you don't feel like waiting, you can just run it again/kill it and run it again.
 
 ## Why Aren't We Using the Same Prompt on the Agent?
