@@ -228,13 +228,13 @@ Now that our manifest has been split into classes and applied, what has happened
 
   **Before:**
 
-  > pkg\_publisher { 'solaris':
+  > pkg_publisher { 'solaris':
   > 
   > ensure =&gt; 'present',
   > 
   > enable =&gt; 'true',
   > 
-  > origin =&gt; \['file:\/\/\/repositories\/publisher\/solaris', '[http:\/\/ipkg.us.oracle.com\/solaris12\/minidev](http://ipkg.us.oracle.com/solaris12/minidev)'\],
+  > origin =&gt; ['file:///repositories/publisher/solaris', '[http://ipkg.us.oracle.com/solaris12/minidev](http://ipkg.us.oracle.com/solaris12/minidev)'],
   > 
   > searchfirst =&gt; 'true',
   > 
@@ -244,13 +244,13 @@ Now that our manifest has been split into classes and applied, what has happened
 
   **After:**
 
-  > pkg\_publisher { 'solaris':
+  > pkg_publisher { 'solaris':
   > 
   > ensure =&gt; 'present',
   > 
   > enable =&gt; 'true',
   > 
-  > origin =&gt; \['[http:\/\/ipkg.us.oracle.com\/solaris12\/minidev](http://ipkg.us.oracle.com/solaris12/minidev)'\],
+  > origin =&gt; ['[http://ipkg.us.oracle.com/solaris12/minidev](http://ipkg.us.oracle.com/solaris12/minidev)'],
   > 
   > searchfirst =&gt; 'true',
   > 

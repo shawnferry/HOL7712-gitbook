@@ -3,7 +3,7 @@
 This will be undertaken in two steps.
 
 1. Enable and Configure Apache
-2. Create a reverse proxy for our pkg\/server instance
+2. Create a reverse proxy for our pkg/server instance
 
 ## Enable Apache
 
@@ -13,7 +13,7 @@ This will be undertaken in two steps.
   `puppet agent -t`
 3. Check that apache is running
   `links -dump http://localhost`
-  \[APACHE-1\]
+  [APACHE-1]
 4. The resources for this step are mostly familiar to us already
 
   We install a text based browser to make testing our apache instance easier
@@ -47,11 +47,11 @@ This will be undertaken in two steps.
 
 6. In the previous step we found that the list of packages was available from `pkgrepo -s http://puppet/solaris list`What about now?
 
-  \[APACHE-2\]
-  \[APACHE-3\]
+  [APACHE-2]
+  [APACHE-3]
 
 
-## Add a reverse proxy for pkg\/server
+## Add a reverse proxy for pkg/server
 
 Since we broke access to our shiny new package server in the previous example how do we fix that?
 
@@ -62,7 +62,7 @@ We could change the port `pkg/server:default`is listening on. But then we would 
 2. Run the puppet agent. Notice again that there are a fair number of changes reported by puppet.
   `puppet agent -t`
 3. These steps are a bit more complicated than our previous examples
-  1. We modify the configuration of pkg\/server and change the port to 8080 so we no longer clash with Apache's default port and set the proxy\_base. This lays the groundwork for serving multiple repos from a single server[^1]
+  1. We modify the configuration of pkg/server and change the port to 8080 so we no longer clash with Apache's default port and set the proxy_base. This lays the groundwork for serving multiple repos from a single server[^1]
 
   ```ruby
   ######
@@ -139,11 +139,11 @@ Add the virtual host to serve the repo. The `redirect_source`, `redirect_dest`, 
     }
 ```
 
-\[APACHE-4 dump\]
+[APACHE-4 dump]
 
-\[APACHE-5 repo\]
+[APACHE-5 repo]
 
-\[APACHE-6 proxy\]
+[APACHE-6 proxy]
 
 ---
 

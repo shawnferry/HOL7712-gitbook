@@ -8,10 +8,10 @@ We return to our lab module to provide the needed zone configuration files[^1].
   `mkdir -p /root/oracle-lab/files/zones`
 2. Copy the zone configuration and profile to `/root/oracle-lab/files/zones`
   `cp -r /root/HOL7712-Solaris-Puppet/labfiles/zones/ /root/oracle-lab/files/`
-3. Build and deploy the lab module. Remember that lab\_build automates `puppet module build`and `puppet module install`
+3. Build and deploy the lab module. Remember that lab_build automates `puppet module build`and `puppet module install`
   `lab_build`
 
-  \[LIST\]
+  [LIST]
 
 
 ## Copy Lab Files
@@ -48,11 +48,11 @@ We return to our lab module to provide the needed zone configuration files[^1].
 3. In a separate window, run the agent on www.
   `puppet agent -t -d`
 
-  ![](/assets/ZONE-WWW-001.0.png)
+  ![](assets/ZONE-WWW-001.0.png)
 
 4. Execution may take some time[^1].
 
-  ![](/assets/ZONE-WWW-001.1.png)
+  ![](assets/ZONE-WWW-001.1.png)
 
 
 [^1]: Screenshots of simple commands will be less prevalent

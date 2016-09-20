@@ -26,7 +26,7 @@ $$
 
   > 3.8.6
 
-![](/assets/AGENT-WWW-000.0.png)
+![](assets/AGENT-WWW-000.0.png)
 
 
 ## Modify SMF config/server variable for puppet:agent
@@ -41,7 +41,7 @@ $$
 
   `svccfg -s puppet:agent setprop config/server=puppet`
 
-![](/assets/AGENT-WWW-001.0.png)
+![](assets/AGENT-WWW-001.0.png)
 
 
 ## Refresh the Puppet Agent Service
@@ -55,7 +55,7 @@ $$
 1. Refreshing puppet:agent loads the configuration changes we just made in SMF:
 
   `svcadm refresh puppet:agent`
-  ![](/assets/AGENT-WWW-002.0.png)
+  ![](assets/AGENT-WWW-002.0.png)
 
 ## Enable the Puppet Agent Service
 
@@ -68,7 +68,7 @@ $$
 1. Remember, enabling the agent writes the puppet.conf file:
 
   `svcadm enable puppet:agent`
-  ![](/assets/AGENT-WWW-003.0.png)
+  ![](assets/AGENT-WWW-003.0.png)
 
 ## Put Puppet Agent Service in Maintenance
 
@@ -82,7 +82,7 @@ $$
 
   `svcadm mark maintenance puppet:agent`
 
-  ![](/assets/AGENT-WWW-004.0.png)
+  ![](assets/AGENT-WWW-004.0.png)
 
 
 ## Test Puppet Agent Connection
@@ -95,7 +95,7 @@ $$
 
 1. Test the Puppet connection, if there is no signed cert wait 120s and try again for the certificate to be signed on the master[^3].
   `puppet agent --test -w 120`
-  ![](/assets/AGENT-WWW-005.0.png)
+  ![](assets/AGENT-WWW-005.0.png)
 
 ## Sign the Agent Certificate on the Puppet Master
 
@@ -112,7 +112,7 @@ $$
   > "www.oracle.lab" (SHA256) 42:77:38:C8:C0:7F:0B:9B:4E:90:F7:EA:2C:76:99:48:CE:63:6B:1D:9D:DA:67:46:06:A3:AB:50:16:3E:CC:23[^2]
 
 
-![](/assets/AGENT-PUP-001.0.png)
+![](assets/AGENT-PUP-001.0.png)
 
 
 $$
@@ -127,11 +127,11 @@ $$
 
   > Notice: Signed certificate request for www.oracle.lab.
 
-![](/assets/AGENT-PUP-002.0.png)
+![](assets/AGENT-PUP-002.0.png)
 
 ## What Just Happened, Again?
 
-![](/assets/AGENT-WWW-005.1.png)
+![](assets/AGENT-WWW-005.1.png)
 
 After the certificate is signed, the Puppet agent is able to connect to the master. When the first connection is made, pluginsync copies all the plugins from the master to the agent. I pre-connected the agent, then disconnected it, removed some of the files and ran through the steps again. Puppet only copies the files that are missing or changed.
 **Note:** If your agent timed out or you don't feel like waiting, you can just run it again/kill it and run it again.

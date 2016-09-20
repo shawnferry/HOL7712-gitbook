@@ -8,7 +8,7 @@ In the previous example we edited site.pp to copy a file instead of including it
 2. Run puppet agent to apply the configuration
   `puppet agent -t`
 
-3. Edit \/etc\/puppet\/manifests\/site.pp
+3. Edit /etc/puppet/manifests/site.pp
 
   `vi /etc/puppet/manifests/site.pp`
 
