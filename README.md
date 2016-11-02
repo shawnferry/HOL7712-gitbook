@@ -6,8 +6,6 @@ _Cindy Swearingen_, Principal Product Manager, Oracle
 
 _Shawn Ferry_, Principal Software Engineer, Oracle
 
-_Cody Herriges_, Principal SysOps Engineer, Puppet, Inc.
-
 ---
 
 Oracle Solaris integrates Puppet, a configuration management solution that you

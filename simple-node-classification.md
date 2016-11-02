@@ -215,61 +215,79 @@ Defining classes doesn't apply the resources to any nodes. After moving _all_ of
 
 ## Running the Example Code
 
+$$
+PUP-NODE-1
+$$
+
+
+
 1. Copy the example manifest.
-  `lab_copy e006_nodes`
-2. Apply the configuration on the master.
-  `puppet agent -t`
+   `lab_copy e006_nodes`
+
+$$
+
+PUP-NODE-2
+
+$$
+
+1. Apply the configuration on the master.
+   `puppet agent -t`
 
 Now that our manifest has been split into classes and applied, what has happened? What changed? If our refactored manifest is functionally identical to the previous manifests nothing has changed.
 
-1. Clearly that isn't the case as our publishers have changed:
+Clearly that isn't the case as our publishers have changed:
 
   `puppet resource publisher` OR `pkg publisher`
 
   **Before:**
 
   > pkg_publisher { 'solaris':
-  > 
-  > ensure =&gt; 'present',
-  > 
-  > enable =&gt; 'true',
-  > 
-  > origin =&gt; ['file:///repositories/publisher/solaris', '[http://ipkg.us.oracle.com/solaris12/minidev](http://ipkg.us.oracle.com/solaris12/minidev)'],
-  > 
-  > searchfirst =&gt; 'true',
-  > 
-  > sticky =&gt; 'true',
-  > 
+  > ensure => 'present',
+  > enable => 'true',
+  > origin => ['file:///repositories/publisher/solaris', '[http://ipkg.us.oracle.com/solaris12/minidev](http://ipkg.us.oracle.com/solaris12/minidev)'],
+  > searchfirst => 'true',
+  > sticky => 'true',
   > }
 
   **After:**
 
   > pkg_publisher { 'solaris':
-  > 
-  > ensure =&gt; 'present',
-  > 
-  > enable =&gt; 'true',
-  > 
-  > origin =&gt; ['[http://ipkg.us.oracle.com/solaris12/minidev](http://ipkg.us.oracle.com/solaris12/minidev)'],
-  > 
-  > searchfirst =&gt; 'true',
-  > 
-  > sticky =&gt; 'true',
-  > 
+  > ensure => 'present',
+  > enable => 'true',
+  > origin => ['[http://ipkg.us.oracle.com/solaris12/minidev](http://ipkg.us.oracle.com/solaris12/minidev)'],
+  > searchfirst => 'true',
+  > sticky => 'true',
   > }
 
-  In our publishers example we defined two origins, in our refactored example we use only the variable. We need to set the desired origin for our Puppet master.
+ In our publishers example we defined two origins, in our refactored example we use only the variable. We need to set the desired origin for our Puppet master.
 
 
 ## Restore the Master Publisher Configuration
 
-$$PUP-??$$
+$$
+PUP-NODE-3
+$$
 
 1. Copy the data file for the Puppet master to the hiera data directory.
-  `cp /root/HOL7712-Solaris-Puppet/labfiles/hiera/puppet-lab.oracle.lab.yaml /var/lib/hiera/`
+   `cp /root/HOL7712-Solaris-Puppet/labfiles/hiera/puppet-lab.oracle.lab.yaml /var/lib/hiera/`
 
 2. Edit `/var/lib/hiera/puppet-lab.oracle.lab.yaml`to uncomment the publisher line. Make sure you maintain spacing in the file.
+   $$
+
+   PUP-NODE-4
+
+   $$
+
 
 
 1. Run `puppet agent -t`. Publishers on the master should be restored to the previous configuration.
+
+
+> pkg_publisher { 'solaris':
+> ensure => 'present',
+> enable => 'true',
+> origin => ['file:///repositories/publisher/solaris', '[http://ipkg.us.oracle.com/solaris12/minidev](http://ipkg.us.oracle.com/solaris12/minidev)'],
+> searchfirst => 'true',
+> sticky => 'true',
+> }
 

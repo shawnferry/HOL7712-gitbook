@@ -30,7 +30,7 @@ PUP-SETUP-1
 $$
 
 
-![](assets/SETUP-PUP-001.0.png)
+![](setup/SETUP-PUP-001.0.png)
 
 Command 10 on www is shown as:
 
@@ -39,5 +39,5 @@ $$
 WWW-AGENT-1
 $$
 
-![](assets/AGENT-WWW-001.0.png)
+![](agents/AGENT-WWW-001.0.png)
 

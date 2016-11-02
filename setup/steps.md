@@ -18,10 +18,10 @@ $$
 
 
 1. We are not making any changes to setup.pp but briefly note the appearance of the file at this time. This fairly simple manifest contains a set of resource definitions used to bring a fresh system into the starting state for the lab. Run the following command:
-  `vi HOL7712-Solaris-Puppet/setup.pp`
+   `vi HOL7712-Solaris-Puppet/setup.pp`
 
-![](assets/SETUP-PUP-001.0.png)
-![](assets/SETUP-PUP-001.1.png)
+![](SETUP-PUP-001.0.png)
+![](SETUP-PUP-001.1.png)
 
 Then, exit the file (:q!).
 
@@ -38,21 +38,21 @@ $$
   `puppet apply -t HOL7712-Solaris-Puppet/setup.pp`
 
 
-![](assets/SETUP-PUP-002.0.png)
-![](assets/SETUP-PUP-002.1.png)
+![](SETUP-PUP-002.0.png)
+![](SETUP-PUP-002.1.png)
 
 ### What Does setup.pp Do? What Did Apply Do?
 
 1. Set variables.
 
-  ```ruby
+```ruby
   $lab_homedir = '/root'
   $labdir = "${lab_homedir}/HOL7712-Solaris-Puppet"
-  ```
+```
 
 2. Install packages via the package resource using Solaris pkg and a gem via the gem provider.
 
-  ```ruby
+```ruby
   $packages = [ 'git', 'editor/vim' ]
   package { $packages:
   ensure => present
@@ -63,11 +63,11 @@ $$
   ensure   => present,
   provider => 'gem';
   }
-  ```
+```
 
 3. Modify and copy .dotfiles, create various directories.
 
-  ```ruby
+```ruby
   # Make puppet-lint available on our path
   file_line { 'ruby_bin_path':
   path => "${lab_homedir}/.profile",
@@ -80,11 +80,11 @@ $$
   ensure => present,
   source => "${labdir}/labfiles/vimrc";
   }
-  ```
+```
 
 4. Install a vim plugin manager and a number of plugins.
 
-  ```ruby
+```ruby
   exec { 'vundle install':
   command     => "/usr/bin/git clone 
   https://github.com/VundleVim/Vundle.vim.git 
@@ -101,7 +101,7 @@ $$
   creates     => "${lab_homedir}/.vim/bundle/vim-puppet",
   environment => $env;
   }
-  ```
+```
 
 
 ### Restart your Shell
@@ -124,8 +124,8 @@ $$
   `vi HOL7712-Solaris-Puppet/setup.pp`
 
 
-![](assets/SETUP-PUP-003.0.png)
-![](assets/SETUP-PUP-003.1.png)
+![](SETUP-PUP-003.0.png)
+![](SETUP-PUP-003.1.png)
 
 Then, quit the file (:q!).
 
@@ -147,10 +147,10 @@ The setup.pp manifest delivered a file into /root called invalid.pp but how do w
 
 
 > Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at /root/invalid.pp:10 on node puppet-0.us.oracle.com
-> 
+>
 > Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at /root/invalid.pp:10 on node puppet-0.us.oracle.com
 
-![](assets/SETUP-PUP-004.0.png)
+![](SETUP-PUP-004.0.png)
 
 
 $$
@@ -161,13 +161,13 @@ $$
 Attempting to apply the manifest may only make sense on a subset of your nodes.
 
 1. There is a better way! Run the following command:
-  `puppet parser validate invalid.pp`
+   `puppet parser validate invalid.pp`
 
 > Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at /root/invalid.pp:10 on node puppet-0.us.oracle.com
-> 
+>
 > Error: Could not parse for environment production: Syntax error at 'ensure'; expected '}' at /root/invalid.pp:10 on node puppet-0.us.oracle.com
 
-![](assets/SETUP-PUP-005.0.png)
+![](SETUP-PUP-005.0.png)
 
 Why is this better?
 
@@ -186,7 +186,7 @@ $$
 
 **[Puppet lint](http://puppet-lint.com/)** checks the manifest against **[The Puppet Language Style Guide](https://docs.puppet.com/guides/style_guide.html "Puppet Style Guide")**, to ensure readability and uniformity. The puppet-lint gem installed by setup.pp makes the command `puppet-lint`available on the system[^1].
 
-![](assets/SETUP-PUP-006.0.png)
+![](SETUP-PUP-006.0.png)
 
 ### Is There a Better Way to Validate and Lint my Puppet Code?
 
@@ -208,17 +208,17 @@ Syntastic highlights the error at line 10 of invalid.pp after running `puppet pa
 
 1. Fix the error by adding the missing ':' after 'git' on line 9 in the screenshot.
 
-  ```ruby
+```ruby
   package { 'git':
-  ```
+```
 
 
-![](assets/SETUP-PUP-007.1.png)
+![](SETUP-PUP-007.1.png)
 
 1. Write the file `ESC :w`
 2. The error indicator is cleared.
 
-![](assets/SETUP-PUP-007.2.png)
+![](SETUP-PUP-007.2.png)
 
 ### Fix the puppet-lint Warnings
 
@@ -235,7 +235,7 @@ Syntastic highlights the warnings at lines 17 and 18 from automatically executin
 4. The warning indicators are cleared.
 
 
-![](assets/SETUP-PUP-007.3.png)
+![](SETUP-PUP-007.3.png)
 
 [^1]: Puppet-lint has a --fix option that may be of use for pre-existing manifests.
 

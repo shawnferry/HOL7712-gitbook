@@ -4,7 +4,7 @@ When you are executing Puppet manifests, nothing should change on repeated runs 
 
 ## Why Was There a Change Just Now?
 
-![](assets/IDEMP-PUP-000.0.png)
+![](IDEMP-PUP-000.0.png)
 
 1. Apply setup.pp again:
 
@@ -17,7 +17,7 @@ After the system is in the state described in the setup.pp manifest, additional 
 ## Why Wasn't There a Change This Time?
 
 All the resources in setup.pp are in the desired state, no changes are made by Puppet.
-![](assets/IDEMP-PUP-000.1.png)
+![](IDEMP-PUP-000.1.png)
 
 ## Where isn't Puppet Idempotent?
 
@@ -45,7 +45,7 @@ exec { 'foo':
 
 ```
 
-![](assets/IDEMP-PUP-000.2.png)
+![](IDEMP-PUP-000.2.png)
 
 ### This resource only executes the command if /tmp/foo is absent
 
@@ -57,7 +57,7 @@ exec { 'foo':
 }
 ```
 
-![](assets/IDEMP-PUP-000.3.png)
+![](IDEMP-PUP-000.3.png)
 
 ## Why Should You Care?
 
