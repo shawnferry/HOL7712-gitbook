@@ -4,6 +4,10 @@ In the Adding an Agent section, we observe a difference in the prompts between t
 
 ## Copy the Manifest to /etc/puppet/manifests/site.pp
 
+```Ruby
+!INCLUDE "_files/lab/manifests/e001_simple/site.pp"
+```
+
 
 $$
 PUP-SIMPLE-1
@@ -83,25 +87,19 @@ In practice, you would generate a module with `puppet module generate <author-mo
 
 ![](assets/SIMPLE-PUP-003.2.png)
 
-# Create a Minimally Viable Module Skeleton
-
-## Create the Partial Module Directory Structure
-
+# Create a Minimally Viable Module
 
 $$
 PUP-SIMPLE-4
 $$
 
-
 1. Create the bare minimum module.
    `cd /root ; puppet module generate --skip-interview oracle-lab`
    ![](assets/SIMPLE-PUP-004.0.png)
 
-
 $$
 PUP-SIMPLE-5
 $$
-
 
 1. Create the files directory.
    `mkdir /root/oracle-lab/files`

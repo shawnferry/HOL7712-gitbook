@@ -8,8 +8,6 @@
 
 * [Conventions](conventions.md)
 
-* [Lab Environment](Environment.md)
-
 * [Setup](setup/README.md)
   * [Setup Steps](setup/steps.md)
   * [A Brief Aside on Idempotency](setup/a-brief-aside-on-idempotency.md)
@@ -29,8 +27,3 @@
   * [Configure Apache](not-so-simple/configure-apache.md)
 
 * [Simple Node Classification](simple-node-classification.md)
-
-  ​
-
-  ​
-
